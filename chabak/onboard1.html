@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Camba 온보딩</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 812px;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .onboarding {
+            position: relative;
+            width: 100%;
+            height: 812px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .text-area {
+            position: absolute;
+            top: 103px;
+            left: 24px;
+            width: calc(100% - 48px);
+        }
+
+        .title {
+            font-size: 29px;
+            line-height: 1.35;
+            font-weight: 700;
+            letter-spacing: -1.7px;
+            color: #3b5185;
+        }
+
+        .title span {
+            color: #6d83bc;
+        }
+
+        .description {
+            margin-top: 23px;
+            font-size: 17px;
+            line-height: 1.45;
+            font-weight: 500;
+            letter-spacing: -0.8px;
+            color: #9bacd7;
+        }
+
+        .visual-area {
+            position: absolute;
+            top: 348px;
+            left: 0;
+            width: 100%;
+            height: 292px;
+            overflow: hidden;
+        }
+
+        .visual-background {
+            position: absolute;
+            top: 25px;
+            left: 80px;
+            width: 380px;
+            height: 255px;
+            background-color: #f0f3fb;
+            border-radius: 55% 0 0 45%;
+            transform: rotate(-15deg);
+        }
+
+        .visual-area img {
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .start-button {
+            position: absolute;
+            left: 24px;
+            bottom: 34px;
+            width: calc(100% - 48px);
+            height: 49px;
+            border: 0;
+            border-radius: 12px;
+            background-color: #5674b9;
+            color: #ffffff;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding">
+
+        <div class="text-area">
+            <h1 class="title">
+                차박<br>
+                어디로 <span>떠나야 할지 모르겠나요</span>
+            </h1>
+
+            <p class="description">
+                지도기반 위치 앱 및 키워드 검색으로 내가 원하는 장소를 한번에
+            </p>
+        </div>
+
+        <div class="visual-area">
+            <div class="visual-background"></div>
+
+            <img
+                src="./images/work1ill.svg"
+                alt="휴대폰을 보고 있는 곰 캐릭터"
+            >
+        </div>
+
+        <a href="./login.html"><button type="button" class="start-button">
+            시작하기
+        </button></a>
+
+    </div>
+    <script>
+  setTimeout(function () {
+    window.location.href = "onboard2.html";
+  }, 3000);
+  </script>
+</body>
+</html>

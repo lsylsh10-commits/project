@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Camba 온보딩 2</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 812px;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .onboarding {
+            position: relative;
+            width: 100%;
+            height: 812px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .text-area {
+            position: absolute;
+            top: 101px;
+            left: 24px;
+            width: calc(100% - 48px);
+        }
+
+        .title {
+            font-size: 27px;
+            line-height: 1.45;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            color: #354b7f;
+        }
+
+        .title-small {
+            display: block;
+            font-size: 22px;
+            font-weight: 500;
+            color: #7188c4;
+        }
+
+        .title-light {
+            color: #7188c4;
+        }
+
+        .description {
+            margin-top: 18px;
+            font-size: 17px;
+            line-height: 1.5;
+            font-weight: 500;
+            letter-spacing: -0.8px;
+            color: #9badd8;
+        }
+
+        .visual-area {
+            position: absolute;
+            top: 337px;
+            left: 0;
+            width: 100%;
+            height: 295px;
+            overflow: hidden;
+        }
+
+        .visual-background {
+            position: absolute;
+            top: 33px;
+            left: 48px;
+            width: 330px;
+            height: 245px;
+            background-color: #f3f5fb;
+            border-radius: 48% 52% 45% 55%;
+            transform: rotate(-9deg);
+        }
+
+        .visual-area img {
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .pagination {
+            position: absolute;
+            top: 664px;
+            left: 50%;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transform: translateX(-50%);
+        }
+
+        .pagination span {
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-color: #edf0f8;
+            border-radius: 50%;
+        }
+
+        .pagination .active {
+            background-color: #5876bd;
+        }
+
+        .start-button {
+            position: absolute;
+            left: 24px;
+            bottom: 34px;
+            width: calc(100% - 48px);
+            height: 49px;
+            border: 0;
+            border-radius: 12px;
+            background-color: #5674b9;
+            color: #ffffff;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboarding">
+
+        <div class="text-area">
+            <h1 class="title">
+                <span class="title-small">차만 있다면</span>
+                장비는 <span class="title-light">부담적은</span> 렌탈로
+            </h1>
+
+            <p class="description">
+                차박에 필요한 물품들을 용도별로 둘러봐요
+            </p>
+        </div>
+
+        <div class="visual-area">
+            <div class="visual-background"></div>
+
+            <img
+                src="./images/work2ill.svg"
+                alt="차박용품 상자를 들고 있는 곰 캐릭터와 배송 트럭"
+            >
+        </div>
+
+        <div class="pagination">
+            <span></span>
+            <span class="active"></span>
+            <span></span>
+        </div>
+
+        <a href="./login.html"><button type="button" class="start-button">
+            시작하기
+        </button></a>
+
+    </div>
+    <script>
+  setTimeout(function () {
+    window.location.href = "onboard3.html";
+  }, 3000);
+  </script>
+</body>
+</html>
