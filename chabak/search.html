@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cambak 검색결과</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+            background-color: #ffffff;
+            color: #111111;
+            font-family: Arial, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .app {
+            position: relative;
+            width: 100%;
+            height: 100svh;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        /* 상단 네비게이션 */
+        .top-navigation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: flex;
+            width: 100%;
+            height: 80px;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 13px;
+            border-bottom: 1px solid #eeeeee;
+            background-color: #ffffff;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 24px;
+            bottom: 13px;
+            display: flex;
+            width: 32px;
+            height: 32px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button img {
+            display: block;
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .page-title {
+            font-size: 18px;
+            line-height: 32px;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        /* 세로 스크롤 영역 */
+        .search-content {
+            position: absolute;
+            top: 80px;
+            right: 0;
+            bottom: 69px;
+            left: 0;
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #ffffff;
+            scrollbar-width: none;
+        }
+
+        .search-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* 검색 장소 카드 */
+        .place-card {
+            display: flex;
+            width: 100%;
+            min-height: 148px;
+            padding: 24px;
+            border-bottom: 1px solid #eeeeee;
+            background-color: #ffffff;
+        }
+
+        .place-image {
+            flex-shrink: 0;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .place-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .place-information {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+            padding-left: 14px;
+            padding-right: 34px;
+        }
+
+        .place-name {
+            overflow: hidden;
+            color: #111111;
+            font-size: 17px;
+            line-height: 1.35;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .place-address {
+            margin-top: 2px;
+            color: #222222;
+            font-size: 13px;
+            line-height: 1.45;
+            letter-spacing: -0.3px;
+        }
+
+        .place-bottom {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tag-list {
+            display: flex;
+            gap: 4px;
+        }
+
+        .tag {
+            display: flex;
+            height: 25px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 9px;
+            border-radius: 8px;
+            background-color: #5875bd;
+            color: #ffffff;
+            font-size: 13px;
+            line-height: 1;
+        }
+
+        .distance {
+            color: #4d6db8;
+            font-size: 16px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .bookmark-link {
+            position: absolute;
+            top: 1px;
+            right: 0;
+            display: flex;
+            width: 26px;
+            height: 30px;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .bookmark-link img {
+            display: block;
+            width: 21px;
+            height: 21px;
+            object-fit: contain;
+        }
+
+        /* 공통 하단 탭바 */
+        .bottom-navigation {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 20;
+            display: flex;
+            width: 100%;
+            height: 69px;
+            border-top: 1px solid #ececec;
+            background-color: #ffffff;
+        }
+
+        .bottom-navigation a {
+            display: flex;
+            width: 20%;
+            height: 69px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            color: #111111;
+        }
+
+        .nav-icon {
+            display: block;
+            width: 25px;
+            height: 25px;
+            object-fit: contain;
+        }
+
+        .nav-name {
+            font-size: 16px;
+            line-height: 1;
+            font-weight: 500;
+        }
+
+        .bottom-navigation .active {
+            color: #5575bd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+
+        <header class="top-navigation">
+
+            <a
+                href="./home.html"
+                class="back-button"
+                aria-label="이전 화면으로 이동"
+            >
+                <img
+                    src="./icons/back.svg"
+                    alt=""
+                >
+            </a>
+
+            <h1 class="page-title">검색결과</h1>
+
+        </header>
+
+        <main class="search-content">
+
+            <a href="./place-detail01.html" class="place-card">
+
+                <div class="place-image">
+                    <img
+                        src="./images/search1.png"
+                        alt="망원한강공원"
+                    >
+                </div>
+
+                <div class="place-information">
+
+                    <h2 class="place-name">망원한강공원</h2>
+
+                    <p class="place-address">
+                        서울 마포구 망원동 205-4
+                    </p>
+
+                    <div class="place-bottom">
+                        <div class="tag-list">
+                            <span class="tag">차크닉</span>
+                            <span class="tag">주차장</span>
+                        </div>
+
+                        <span class="distance">11.1km</span>
+                    </div>
+
+                    <span class="bookmark-link">
+                        <img
+                            src="./icons/save.svg"
+                            alt=""
+                        >
+                    </span>
+
+                </div>
+
+            </a>
+
+            <a href="./place-detail02.html" class="place-card">
+
+                <div class="place-image">
+                    <img
+                        src="./images/search2.png"
+                        alt="광교호수공원"
+                    >
+                </div>
+
+                <div class="place-information">
+
+                    <h2 class="place-name">광교호수공원</h2>
+
+                    <p class="place-address">
+                        서울 마포구 망원동 205-4
+                    </p>
+
+                    <div class="place-bottom">
+                        <div class="tag-list">
+                            <span class="tag">도심</span>
+                            <span class="tag">주차장</span>
+                        </div>
+
+                        <span class="distance">26km</span>
+                    </div>
+
+                    <span class="bookmark-link">
+                        <img
+                            src="./icons/save.svg"
+                            alt=""
+                        >
+                    </span>
+
+                </div>
+
+            </a>
+
+            <a href="./place-detail03.html" class="place-card">
+
+                <div class="place-image">
+                    <img
+                        src="./images/search3.png"
+                        alt="갈론 야바데기"
+                    >
+                </div>
+
+                <div class="place-information">
+
+                    <h2 class="place-name">갈론 야바데기</h2>
+
+                    <p class="place-address">
+                        대거리 2214-207
+                    </p>
+
+                    <div class="place-bottom">
+                        <div class="tag-list">
+                            <span class="tag">오션뷰</span>
+                            <span class="tag">주차장</span>
+                        </div>
+
+                        <span class="distance">108km</span>
+                    </div>
+
+                    <span class="bookmark-link">
+                        <img
+                            src="./icons/save.svg"
+                            alt=""
+                        >
+                    </span>
+
+                </div>
+
+            </a>
+
+            <a href="./place-detail04.html" class="place-card">
+
+                <div class="place-image">
+                    <img
+                        src="./images/search4.png"
+                        alt="화성 궁평항"
+                    >
+                </div>
+
+                <div class="place-information">
+
+                    <h2 class="place-name">화성 궁평항</h2>
+
+                    <p class="place-address">
+                        경기도 화성시 서신면<br>
+                        궁평항로 1049-24
+                    </p>
+
+                    <div class="place-bottom">
+                        <div class="tag-list">
+                            <span class="tag">차크닉</span>
+                            <span class="tag">주차장</span>
+                        </div>
+
+                        <span class="distance">58km</span>
+                    </div>
+
+                    <span class="bookmark-link">
+                        <img
+                            src="./icons/save.svg"
+                            alt=""
+                        >
+                    </span>
+
+                </div>
+
+            </a>
+
+            <a href="./place-detail05.html" class="place-card">
+
+                <div class="place-image">
+                    <img
+                        src="./images/search5.png"
+                        alt="서귀포 돈내코"
+                    >
+                </div>
+
+                <div class="place-information">
+
+                    <h2 class="place-name">서귀포 돈내코</h2>
+
+                    <p class="place-address">
+                        제주특별자치도<br>
+                        서귀포시 돈내코로 114
+                    </p>
+
+                    <div class="place-bottom">
+                        <div class="tag-list">
+                            <span class="tag">이색</span>
+                            <span class="tag">주차장</span>
+                        </div>
+
+                        <span class="distance">483km</span>
+                    </div>
+
+                    <span class="bookmark-link">
+                        <img
+                            src="./icons/save.svg"
+                            alt=""
+                        >
+                    </span>
+
+                </div>
+
+            </a>
+
+            <a href="./place-detail06.html" class="place-card">
+
+                <div class="place-image">
+                    <img
+                        src="./images/search6.png"
+                        alt="영종도 마시안해변"
+                    >
+                </div>
+
+                <div class="place-information">
+
+                    <h2 class="place-name">영종도 마시안해변</h2>
+
+                    <p class="place-address">
+                        덕교동 662-9
+                    </p>
+
+                    <div class="place-bottom">
+                        <div class="tag-list">
+                            <span class="tag">수도권</span>
+                            <span class="tag">주차장</span>
+                        </div>
+
+                        <span class="distance">32km</span>
+                    </div>
+
+                    <span class="bookmark-link">
+                        <img
+                            src="./icons/save.svg"
+                            alt=""
+                        >
+                    </span>
+
+                </div>
+
+            </a>
+
+        </main>
+
+        <nav class="bottom-navigation">
+
+            <a href="./home.html">
+               <img
+                   src="./icons/home-bl.svg"
+                   class="nav-icon"
+                   alt=""
+                >
+                <span class="nav-name">홈</span>
+            </a>
+
+            <a href="./search.html" class="active">
+                <img
+                    src="./icons/search-2.svg"
+                    class="nav-icon"
+                    alt=""
+                >
+                <span class="nav-name">검색</span>
+            </a>
+
+            <a href="./community.html">
+                <img
+                    src="./icons/community.svg"
+                    class="nav-icon"
+                    alt=""
+                >
+                <span class="nav-name">모임</span>
+            </a>
+
+            <a href="./live.html">
+                <img
+                    src="./icons/live.svg"
+                    class="nav-icon"
+                    alt=""
+                >
+                <span class="nav-name">LIVE</span>
+            </a>
+
+            <a href="./my.html">
+                <img
+                    src="./icons/user.svg"
+                    class="nav-icon"
+                    alt=""
+                >
+                <span class="nav-name">MY</span>
+            </a>
+
+        </nav>
+
+    </div>
+</body>
+</html>
