@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 더보기</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    /* 상단 네비게이션 */
+    .app-bar {
+      width: 100%;
+      height: 112px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 20px 24px;
+      background-color: #ffffff;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      left: 10px;
+      bottom: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .page-title {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    /* 스크롤 영역 */
+    .content {
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 12px 20px 32px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .content-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* 공통 카드 */
+    .card {
+      width: 100%;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+    }
+
+    /* 프로필 카드 */
+    .profile-card {
+      display: block;
+      padding: 16px;
+    }
+
+    .profile-top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-image {
+      width: 50px;
+      height: 50px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .profile-info {
+      flex: 1;
+      min-width: 0;
+      margin-left: 14px;
+    }
+
+    .profile-name {
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .profile-number {
+      margin-top: 4px;
+      font-size: 13px;
+      line-height: 20px;
+      color: #71829b;
+    }
+
+    .profile-next {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-left: 8px;
+      display: block;
+    }
+
+    /* 진행률 카드 */
+    .progress-box {
+      width: 100%;
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background-color: #f2f6fa;
+    }
+
+    .progress-top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .progress-title {
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 600;
+      color: #0d6e7a;
+    }
+
+    .progress-step {
+      font-size: 11px;
+      line-height: 16px;
+      color: #71829b;
+    }
+
+    .progress-step strong {
+      color: #0083cc;
+      font-weight: 700;
+    }
+
+    .progress-bottom {
+      width: 100%;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 4px;
+      overflow: hidden;
+      border-radius: 999px;
+      background-color: #cbd5e1;
+    }
+
+    .progress-fill {
+      width: 37%;
+      height: 100%;
+      border-radius: 999px;
+      background-color: #0d6e7a;
+    }
+
+    .progress-percent {
+      min-width: 26px;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 700;
+      text-align: right;
+      color: #0083cc;
+    }
+
+    /* 메뉴 카드 */
+    .menu-card {
+      padding: 6px 22px;
+    }
+
+    .menu-item {
+      width: 100%;
+      min-height: 55px;
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-item + .menu-item {
+      border-top: 1px solid #dbe3eb;
+    }
+
+    .menu-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .menu-text {
+      flex: 1;
+      min-width: 0;
+      margin-left: 12px;
+      font-size: 14px;
+      line-height: 21px;
+      color: #71829b;
+    }
+
+    .menu-next {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* 공통 하단 탭바 */
+    .bottom-tab-bar {
+      width: 100%;
+      height: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid #dbe3eb;
+      background-color: #ffffff;
+    }
+
+    .tab-item {
+      width: 25%;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .tab-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .tab-label {
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 500;
+      color: #71829b;
+    }
+
+    .tab-item.active .tab-label {
+      color: #0d6e7a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="app-bar">
+      <a
+        href="07_home.html"
+        class="back-button"
+        aria-label="이전 화면으로 이동"
+      >
+        <img
+          src="./icons/back.svg"
+          alt=""
+          class="back-icon"
+        >
+      </a>
+
+      <h1 class="page-title">더보기</h1>
+    </header>
+
+    <section class="content">
+
+      <div class="content-list">
+
+        <a
+          href="09_progress_status.html"
+          class="card profile-card"
+          aria-label="진료 진행상황 화면으로 이동"
+        >
+          <div class="profile-top">
+            <img
+              src="./icons/profile_m.svg"
+              alt="김민준 환자 프로필"
+              class="profile-image"
+            >
+
+            <div class="profile-info">
+              <h2 class="profile-name">
+                김민준 (남,12세)
+              </h2>
+
+              <p class="profile-number">
+                접수번호　2024-0501-0001
+              </p>
+            </div>
+
+            <img
+              src="./icons/next.svg"
+              alt=""
+              class="profile-next"
+            >
+          </div>
+
+          <div class="progress-box">
+            <div class="progress-top">
+              <p class="progress-title">
+                진료 진행률
+              </p>
+
+              <p class="progress-step">
+                <strong>3/8</strong> 단계 완료
+              </p>
+            </div>
+
+            <div class="progress-bottom">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+
+              <p class="progress-percent">
+                37%
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <section class="card menu-card">
+
+          <a
+            href="15_hospital_use_guide.html"
+            class="menu-item"
+          >
+            <img
+              src="./icons/hospital.svg"
+              alt=""
+              class="menu-icon"
+            >
+
+            <span class="menu-text">
+              병원 이용 안내
+            </span>
+
+            <img
+              src="./icons/next.svg"
+              alt=""
+              class="menu-next"
+            >
+          </a>
+
+          <a
+            href="16_location_guide.html"
+            class="menu-item"
+          >
+            <img
+              src="./icons/location2.svg"
+              alt=""
+              class="menu-icon"
+            >
+
+            <span class="menu-text">
+              위치 안내
+            </span>
+
+            <img
+              src="./icons/next.svg"
+              alt=""
+              class="menu-next"
+            >
+          </a>
+
+          <a
+            href="14_tests_and_treatment.html"
+            class="menu-item"
+          >
+            <img
+              src="./icons/syringeremix.svg"
+              alt=""
+              class="menu-icon"
+            >
+
+            <span class="menu-text">
+              검사 및 처치 안내
+            </span>
+
+            <img
+              src="./icons/next.svg"
+              alt=""
+              class="menu-next"
+            >
+          </a>
+
+          <a
+            href="13_explore_faq.html"
+            class="menu-item"
+          >
+            <img
+              src="./icons/information.svg"
+              alt=""
+              class="menu-icon"
+            >
+
+            <span class="menu-text">
+              FAQ
+            </span>
+
+            <img
+              src="./icons/next.svg"
+              alt=""
+              class="menu-next"
+            >
+          </a>
+
+          <div class="menu-item">
+            <img
+              src="./icons/bell_green.svg"
+              alt=""
+              class="menu-icon"
+            >
+
+            <span class="menu-text">
+              알림 설정
+            </span>
+
+            <img
+              src="./icons/next.svg"
+              alt=""
+              class="menu-next"
+            >
+          </div>
+
+          <div class="menu-item">
+            <img
+              src="./icons/setting.svg"
+              alt=""
+              class="menu-icon"
+            >
+
+            <span class="menu-text">
+              앱 설정
+            </span>
+
+            <img
+              src="./icons/next.svg"
+              alt=""
+              class="menu-next"
+            >
+          </div>
+
+          <a
+            href="18_service_end.html"
+            class="menu-item"
+          >
+            <img
+              src="./icons/logout.svg"
+              alt=""
+              class="menu-icon"
+            >
+
+            <span class="menu-text">
+              서비스 종료하기
+            </span>
+
+            <img
+              src="./icons/next.svg"
+              alt=""
+              class="menu-next"
+            >
+          </a>
+
+        </section>
+
+      </div>
+
+    </section>
+
+    <nav class="bottom-tab-bar" aria-label="하단 메뉴">
+
+      <a
+        href="07_home.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_home.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">홈</span>
+      </a>
+
+      <a
+        href="09_progress_status.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_check.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">진행상황</span>
+      </a>
+
+      <a
+        href="11_notifications.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_bell.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">알림</span>
+      </a>
+
+      <a
+        href="17_more.html"
+        class="tab-item active"
+      >
+        <img
+          src="./icons/tap_menu_active.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">더보기</span>
+      </a>
+
+    </nav>
+
+  </main>
+</body>
+</html>

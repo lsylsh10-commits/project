@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 온보딩 1</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      position: relative;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .onboarding {
+      width: 100%;
+      height: 100%;
+      padding: 64px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      height: 16px;
+      margin-bottom: 76px;
+    }
+
+    .indicator span {
+      width: 8px;
+      height: 8px;
+      display: block;
+      border-radius: 50%;
+      background-color: #e2e8f0;
+    }
+
+    .indicator .active {
+      background-color: #0d6e7a;
+    }
+
+    .text-area {
+      width: 100%;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+      word-break: keep-all;
+    }
+
+    .description {
+      margin-top: 18px;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 400;
+      color: #64748b;
+      word-break: keep-all;
+    }
+
+    .illustration-area {
+      width: calc(100% + 40px);
+      flex: 1;
+      min-height: 0;
+      margin-top: 44px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .illustration {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .button-area {
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    .next-button {
+      width: 100%;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background-color: #0d7c87;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .skip-button {
+      width: 100%;
+      min-height: 44px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: 400;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+    <section class="onboarding">
+      <div class="indicator" aria-label="온보딩 1단계">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="text-area">
+        <h1 class="title">
+          진료 진행상황을<br>
+          실시간으로 확인하세요
+        </h1>
+
+        <p class="description">
+          접수부터 수납까지 각 단계의<br>
+          예상 소요 시간을 한눈에 보여드려요.
+        </p>
+      </div>
+
+      <div class="illustration-area">
+        <img
+          src="./images/onboard1_ill.png"
+          alt="응급실 진료 진행상황을 확인하는 보호자 가족"
+          class="illustration"
+        >
+      </div>
+
+      <div class="button-area">
+        <a href="03_onboarding2.html" class="next-button">
+          다음
+        </a>
+
+        <a href="05_login.html" class="skip-button">
+          건너뛰기
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    setTimeout(function () {
+      location.href = "03_onboarding2.html";
+    }, 3000);
+  </script>
+</body>
+</html>

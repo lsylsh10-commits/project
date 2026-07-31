@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 환자 선택</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    button {
+      font-family: "Pretendard", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .patient-page {
+      width: 100%;
+      height: 100%;
+      padding: 0 20px 12px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: none;
+    }
+
+    .patient-page::-webkit-scrollbar {
+      display: none;
+    }
+
+    .app-bar {
+      width: 100%;
+      height: 128px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      top: 50px;
+      left: -10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .page-title {
+      margin-top: 6px;
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .guide-text {
+      margin-top: 22px;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: center;
+      color: #71829b;
+    }
+
+    .patient-list {
+      width: 100%;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .patient-card {
+      width: 100%;
+      padding: 14px 20px;
+      border: 1px solid #f0f3f6;
+      border-radius: 12px;
+      background-color: #ffffff;
+    }
+
+    .patient-info {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-image {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .patient-text {
+      flex: 1;
+      margin-left: 18px;
+    }
+
+    .patient-name {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .patient-detail {
+      margin-top: 2px;
+      font-size: 13px;
+      line-height: 20px;
+      color: #64748b;
+    }
+
+    .status-row {
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-label {
+      font-size: 13px;
+      line-height: 20px;
+      color: #64748b;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 24px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+
+    .status-blue {
+      background-color: #eef8ff;
+      color: #0083cc;
+    }
+
+    .status-green {
+      background-color: #daf7ef;
+      color: #28aa94;
+    }
+
+    .select-button {
+      width: 100%;
+      height: 32px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background-color: #117d88;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .refresh-area {
+      width: 100%;
+      margin-top: 12px;
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .refresh-guide {
+      font-size: 14px;
+      line-height: 22px;
+      color: #71829b;
+    }
+
+    .refresh-button {
+      min-width: 86px;
+      min-height: 40px;
+      padding: 0;
+      border: 0;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #117d88;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .refresh-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+    <section class="patient-page">
+
+      <header class="app-bar">
+        <a
+          href="05_login.html"
+          class="back-button"
+          aria-label="로그인 화면으로 이동"
+        >
+          <img
+            src="./icons/back.svg"
+            alt=""
+            class="back-icon"
+          >
+        </a>
+
+        <h1 class="page-title">환자 선택</h1>
+      </header>
+
+      <p class="guide-text">
+        대기 중인 환자를 선택해 주세요.<br>
+        (1인만 선택 가능)
+      </p>
+
+      <div class="patient-list">
+
+        <article class="patient-card">
+          <div class="patient-info">
+            <img
+              src="./icons/profile_m.svg"
+              alt="남성 환자 프로필"
+              class="profile-image"
+            >
+
+            <div class="patient-text">
+              <h2 class="patient-name">김민준 (남, 12세)</h2>
+
+              <p class="patient-detail">
+                접수번호　2024-0501-0001
+              </p>
+
+              <div class="status-row">
+                <span class="status-label">현재상태</span>
+
+                <span class="status-badge status-blue">
+                  진료 대기 중
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="07_home.html"
+            class="select-button"
+          >
+            선택하기
+          </a>
+        </article>
+
+        <article class="patient-card">
+          <div class="patient-info">
+            <img
+              src="./icons/profile_w.svg"
+              alt="여성 환자 프로필"
+              class="profile-image"
+            >
+
+            <div class="patient-text">
+              <h2 class="patient-name">김서연 (여, 9세)</h2>
+
+              <p class="patient-detail">
+                접수번호　2024-0501-0002
+              </p>
+
+              <div class="status-row">
+                <span class="status-label">현재상태</span>
+
+                <span class="status-badge status-green">
+                  검사 대기 중
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="07_home.html"
+            class="select-button"
+          >
+            선택하기
+          </a>
+        </article>
+
+        <article class="patient-card">
+          <div class="patient-info">
+            <img
+              src="./icons/profile_m.svg"
+              alt="남성 환자 프로필"
+              class="profile-image"
+            >
+
+            <div class="patient-text">
+              <h2 class="patient-name">김도현 (남, 45세)</h2>
+
+              <p class="patient-detail">
+                접수번호　2024-0501-0003
+              </p>
+
+              <div class="status-row">
+                <span class="status-label">현재상태</span>
+
+                <span class="status-badge status-blue">
+                  대기 중
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="07_home.html"
+            class="select-button"
+          >
+            선택하기
+          </a>
+        </article>
+
+      </div>
+
+      <div class="refresh-area">
+        <p class="refresh-guide">
+          환자가 보이지 않나요?
+        </p>
+
+        <button
+          type="button"
+          class="refresh-button"
+        >
+          <span>새로고침</span>
+
+          <img
+            src="./icons/refresh_green.svg"
+            alt=""
+            class="refresh-icon"
+          >
+        </button>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>

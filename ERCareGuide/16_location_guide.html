@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 위치 안내</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      font-family: "Pretendard", sans-serif;
+      cursor: pointer;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    /* 상단 네비게이션 */
+    .app-bar {
+      width: 100%;
+      height: 112px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 20px 24px;
+      background-color: #ffffff;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      left: 10px;
+      bottom: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .page-title {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    /* 스크롤 영역 */
+    .content {
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 12px 20px 12px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .content-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* 지도 / 목록 탭 */
+    .location-tabs {
+      width: 100%;
+      display: flex;
+      gap: 12px;
+    }
+
+    .location-tab {
+      width: 50%;
+      height: 32px;
+      border: 1px solid #dbe3eb;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      color: #71829b;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .location-tab.active {
+      border-color: #117d88;
+      background-color: #117d88;
+      color: #ffffff;
+    }
+
+    /* 지도 이미지 */
+    .map-card {
+      width: 100%;
+      overflow: hidden;
+      border: 1px solid #dbe3eb;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 30, 46, 0.08);
+    }
+
+    .map-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 현재 위치 */
+    .current-location {
+      width: 100%;
+      min-height: 78px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      border-radius: 9px;
+      background-color: #f2f6fa;
+    }
+
+    .location-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .location-text-area {
+      flex: 1;
+      min-width: 0;
+      margin-left: 12px;
+    }
+
+    .location-text {
+      font-size: 13px;
+      line-height: 20px;
+      color: #0f1e2e;
+    }
+
+    .location-text strong {
+      font-weight: 700;
+    }
+
+    /* 길찾기 버튼 */
+    .navigation-button {
+      width: 100%;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background-color: #117d88;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .navigation-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    /* 공통 하단 탭바 */
+    .bottom-tab-bar {
+      width: 100%;
+      height: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid #dbe3eb;
+      background-color: #ffffff;
+    }
+
+    .tab-item {
+      width: 25%;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .tab-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .tab-label {
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 500;
+      color: #71829b;
+    }
+
+    .tab-item.active .tab-label {
+      color: #0d6e7a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="app-bar">
+      <a
+        href="15_hospital_use_guide.html"
+        class="back-button"
+        aria-label="이전 화면으로 이동"
+      >
+        <img
+          src="./icons/back.svg"
+          alt=""
+          class="back-icon"
+        >
+      </a>
+
+      <h1 class="page-title">위치 안내</h1>
+    </header>
+
+    <section class="content">
+
+      <div class="content-list">
+
+        <div class="location-tabs">
+          <button
+            type="button"
+            class="location-tab active"
+          >
+            지도
+          </button>
+
+          <button
+            type="button"
+            class="location-tab"
+          >
+            목록
+          </button>
+        </div>
+
+        <div class="map-card">
+          <img
+            src="./images/map.png"
+            alt="응급실 주요 시설 위치 지도"
+            class="map-image"
+          >
+        </div>
+
+        <section class="current-location">
+          <img
+            src="./icons/location.svg"
+            alt=""
+            class="location-icon"
+          >
+
+          <div class="location-text-area">
+            <p class="location-text">
+              현재 위치 : <strong>1층 중앙홀</strong>
+            </p>
+
+            <p class="location-text">
+              응급실 입구까지 도보 약 1분
+            </p>
+          </div>
+        </section>
+
+        <button
+          type="button"
+          class="navigation-button"
+        >
+          <img
+            src="./icons/navigate.svg"
+            alt=""
+            class="navigation-icon"
+          >
+
+          <span>길찾기 시작</span>
+        </button>
+
+      </div>
+
+    </section>
+
+    <nav class="bottom-tab-bar" aria-label="하단 메뉴">
+
+      <a
+        href="07_home.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_home.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">홈</span>
+      </a>
+
+      <a
+        href="09_progress_status.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_check.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">진행상황</span>
+      </a>
+
+      <a
+        href="11_notifications.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_bell.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">알림</span>
+      </a>
+
+      <a
+        href="17_more.html"
+        class="tab-item active"
+      >
+        <img
+          src="./icons/tap_menu_active.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">더보기</span>
+      </a>
+
+    </nav>
+
+  </main>
+</body>
+</html>
