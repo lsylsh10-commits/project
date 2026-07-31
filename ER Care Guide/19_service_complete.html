@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 서비스 완료</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      font-family: "Pretendard", sans-serif;
+      cursor: pointer;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    /* 상단 네비게이션 */
+    .app-bar {
+      width: 100%;
+      height: 76px;
+      flex-shrink: 0;
+      position: relative;
+      background-color: #ffffff;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      top: 24px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    /* 스크롤 영역 */
+    .content {
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0 20px 10px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .complete-section {
+      width: 100%;
+      text-align: center;
+    }
+
+    .complete-illustration {
+      width: 250px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .complete-title {
+      margin-top: 8px;
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .complete-description {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 21px;
+      color: #71829b;
+    }
+
+    /* 이용 요약 카드 */
+    .summary-card {
+      width: 100%;
+      margin-top: 18px;
+      padding: 16px 22px 18px;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+      text-align: left;
+    }
+
+    .summary-title {
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .summary-list {
+      width: 100%;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .summary-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .summary-label {
+      flex-shrink: 0;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      color: #71829b;
+    }
+
+    .summary-value {
+      font-size: 13px;
+      line-height: 20px;
+      text-align: right;
+      color: #71829b;
+    }
+
+    .summary-value strong {
+      color: #0083cc;
+      font-weight: 700;
+    }
+
+    /* 이용 기록 안내 */
+    .record-guide {
+      width: 100%;
+      min-height: 62px;
+      margin-top: 16px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      border-radius: 9px;
+      background-color: #f2f6fa;
+      text-align: left;
+    }
+
+    .record-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .record-text {
+      margin-left: 12px;
+      font-size: 12px;
+      line-height: 19px;
+      color: #71829b;
+      word-break: keep-all;
+    }
+
+    /* 버튼 영역 */
+    .button-area {
+      width: 100%;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .home-button {
+      width: 100%;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background-color: #117d88;
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .logout-button {
+      width: 100%;
+      height: 32px;
+      border: 1px solid #dbe3eb;
+      border-radius: 8px;
+      background-color: #ffffff;
+      color: #71829b;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    /* 공통 하단 탭바 */
+    .bottom-tab-bar {
+      width: 100%;
+      height: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid #dbe3eb;
+      background-color: #ffffff;
+    }
+
+    .tab-item {
+      width: 25%;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .tab-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .tab-label {
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 500;
+      color: #71829b;
+    }
+
+    .tab-item.active .tab-label {
+      color: #0d6e7a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="app-bar">
+      <a
+        href="18_service_end.html"
+        class="back-button"
+        aria-label="이전 화면으로 이동"
+      >
+        <img
+          src="./icons/back.svg"
+          alt=""
+          class="back-icon"
+        >
+      </a>
+    </header>
+
+    <section class="content">
+
+      <section class="complete-section">
+        <img
+          src="./images/end_ill.png"
+          alt="ER 안심가이드 이용 완료"
+          class="complete-illustration"
+        >
+
+        <h1 class="complete-title">
+          안내가 완료되었습니다!
+        </h1>
+
+        <p class="complete-description">
+          오늘도 빠른 회복을 기원합니다.<br>
+          감사합니다.
+        </p>
+      </section>
+
+      <section class="summary-card">
+        <h2 class="summary-title">이용 요약</h2>
+
+        <div class="summary-list">
+
+          <div class="summary-item">
+            <span class="summary-label">방문일시</span>
+            <span class="summary-value">
+              2024.05.01 (수) 09:41
+            </span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">총 이용 시간</span>
+            <span class="summary-value">
+              약 2시간 15분
+            </span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">완료 단계</span>
+            <span class="summary-value">
+              <strong>8 / 8</strong> 단계
+            </span>
+          </div>
+
+          <div class="summary-item">
+            <span class="summary-label">주요 이용 서비스</span>
+            <span class="summary-value">
+              진료 · 검사 · 수납 · 처치
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="record-guide">
+        <img
+          src="./icons/bell_blue_line.svg"
+          alt=""
+          class="record-icon"
+        >
+
+        <p class="record-text">
+          이용 기록은 ‘진료상황’에서 다시 확인할 수 있어요.
+        </p>
+      </section>
+
+      <div class="button-area">
+        <a
+          href="07_home.html"
+          class="home-button"
+        >
+          홈으로 이동
+        </a>
+
+        <button
+          type="button"
+          class="logout-button"
+        >
+          로그아웃
+        </button>
+      </div>
+
+    </section>
+
+    <nav class="bottom-tab-bar" aria-label="하단 메뉴">
+
+      <a
+        href="07_home.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_home.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">홈</span>
+      </a>
+
+      <a
+        href="09_progress_status.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_check.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">진행상황</span>
+      </a>
+
+      <a
+        href="11_notifications.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_bell.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">알림</span>
+      </a>
+
+      <a
+        href="17_more.html"
+        class="tab-item active"
+      >
+        <img
+          src="./icons/tap_menu_active.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">더보기</span>
+      </a>
+
+    </nav>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 예상대기시간</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    button {
+      font-family: "Pretendard", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .app-bar {
+      width: 100%;
+      height: 112px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 20px 24px;
+      background-color: #ffffff;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      left: 10px;
+      bottom: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .page-title {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .content {
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 12px 20px 32px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      width: 100%;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+    }
+
+    .waiting-card {
+      padding: 18px 20px 16px;
+      text-align: center;
+    }
+
+    .waiting-title {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .waiting-time {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .time-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .time-value {
+      font-size: 26px;
+      line-height: 34px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .update-time {
+      margin-top: 8px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #71829b;
+    }
+
+    .queue-card {
+      padding: 16px 15px 14px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .queue-info {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      line-height: 20px;
+      color: #71829b;
+    }
+
+    .queue-number {
+      margin: 0 8px;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 700;
+      color: #0d6e7a;
+    }
+
+    .queue-people {
+      width: 100%;
+      margin-top: 14px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .queue-person {
+      width: 24px;
+      min-height: 42px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .person-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    .active-person-icon {
+      width: 24px;
+      height: 24px;
+      margin-top: -3px;
+      display: block;
+    }
+
+    .person-order {
+      position: absolute;
+      top: 23px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      line-height: 12px;
+      font-weight: 700;
+      color: #0083CC;
+      white-space: nowrap;
+    }
+
+    .delay-card {
+      padding: 16px 20px;
+      border-color: #ff6b6b;
+      background-color: #fff0f0;
+    }
+
+    .delay-layout {
+      display: flex;
+      align-items: center;
+    }
+
+    .warning-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .delay-text-area {
+      margin-left: 22px;
+    }
+
+    .delay-title {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #ff6b6b;
+    }
+
+    .delay-description {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 21px;
+      color: #71829b;
+      word-break: keep-all;
+    }
+
+    .reason-card {
+      padding: 16px 20px 18px;
+    }
+
+    .reason-description {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 21px;
+      color: #71829b;
+      word-break: keep-all;
+    }
+
+    .refresh-button {
+      width: 100%;
+      height: 52px;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #0083CC;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .refresh-button span {
+      color: #0083CC;
+    }
+
+    .refresh-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="app-bar">
+      <a
+        href="07_home.html"
+        class="back-button"
+        aria-label="이전 화면으로 이동"
+      >
+        <img
+          src="./icons/back.svg"
+          alt=""
+          class="back-icon"
+        >
+      </a>
+
+      <h1 class="page-title">예상대기시간</h1>
+    </header>
+
+    <section class="content">
+
+      <div class="card-list">
+
+        <section class="card waiting-card">
+          <h2 class="waiting-title">예상 대기시간</h2>
+
+          <div class="waiting-time">
+            <img
+              src="./icons/time_green.svg"
+              alt=""
+              class="time-icon"
+            >
+
+            <p class="time-value">1시간 25분</p>
+          </div>
+
+          <p class="update-time">
+            업데이트 09:41
+          </p>
+        </section>
+
+        <section class="card queue-card">
+          <h2 class="card-title">대기 순서</h2>
+
+          <div class="queue-info">
+            <span>내 순서</span>
+            <span class="queue-number">12</span>
+            <span>번째&nbsp; / &nbsp;전체 48명</span>
+          </div>
+
+          <div class="queue-people" aria-label="대기 순서 표시">
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img
+                src="./icons/queue_person_active.svg"
+                alt="현재 대기 순서"
+                class="active-person-icon"
+              >
+              <span class="person-order">12번째</span>
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+            <div class="queue-person">
+              <img src="./icons/queue_person.svg" alt="" class="person-icon">
+            </div>
+
+          </div>
+        </section>
+
+        <section class="card delay-card">
+          <div class="delay-layout">
+            <img
+              src="./icons/warning.svg"
+              alt=""
+              class="warning-icon"
+            >
+
+            <div class="delay-text-area">
+              <h2 class="delay-title">지연 안내</h2>
+
+              <p class="delay-description">
+                현재 응급 환자 증가로 인해<br>
+                대기 시간이 길어지고 있어요.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card reason-card">
+          <h2 class="card-title">지연 사유</h2>
+
+          <p class="reason-description">
+            응급 환자 다수 내원으로<br>
+            진료 처리 시간이 증가하고 있어요.
+          </p>
+        </section>
+
+        <button
+          type="button"
+          class="refresh-button"
+        >
+          <img
+            src="./icons/refresh_blue.svg"
+            alt=""
+            class="refresh-icon"
+          >
+
+          <span>새로고침</span>
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+</body>
+</html>

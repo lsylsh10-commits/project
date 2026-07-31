@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 검사 및 처치 안내</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: 0;
+      font-family: "Pretendard", sans-serif;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    /* 상단 네비게이션 */
+    .app-bar {
+      width: 100%;
+      height: 112px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 20px 24px;
+      background-color: #ffffff;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      left: 10px;
+      bottom: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .page-title {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    /* 스크롤 영역 */
+    .content {
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 12px 20px 32px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* 검사 / 처치 탭 */
+    .guide-tabs {
+      width: 100%;
+      display: flex;
+      gap: 8px;
+    }
+
+    .guide-tab {
+      width: 50%;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+      color: #71829b;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .guide-tab.active {
+      border-color: #117d88;
+      background-color: #117d88;
+      color: #ffffff;
+    }
+
+    /* 검사 선택창 */
+    .select-box {
+      width: 100%;
+      height: 32px;
+      margin-top: 16px;
+      padding: 0 14px;
+      border: 1px solid #dbe3eb;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ffffff;
+    }
+
+    .select-text {
+      font-size: 13px;
+      line-height: 20px;
+      color: #71829b;
+    }
+
+    .down-icon {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    /* 공통 카드 */
+    .card-list {
+      width: 100%;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      width: 100%;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+    }
+
+    .information-card {
+      padding: 16px;
+    }
+
+    .info-row {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .info-row + .info-row {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #dbe3eb;
+    }
+
+    .info-icon {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      display: block;
+      object-fit: contain;
+    }
+
+    .info-content {
+      flex: 1;
+      min-width: 0;
+      margin-left: 14px;
+    }
+
+    .info-title {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .info-description {
+      margin-top: 2px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #71829b;
+      word-break: keep-all;
+    }
+
+    /* 관련 단계 */
+    .related-card {
+      padding: 16px;
+    }
+
+    .related-row {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .related-icon {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .related-content {
+      flex: 1;
+      min-width: 0;
+      margin-left: 14px;
+    }
+
+    .related-title {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .related-path {
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #71829b;
+    }
+
+    .related-path strong {
+      color: #0083cc;
+      font-weight: 700;
+    }
+
+    /* 공통 하단 탭바 */
+    .bottom-tab-bar {
+      width: 100%;
+      height: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid #dbe3eb;
+      background-color: #ffffff;
+    }
+
+    .tab-item {
+      width: 25%;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .tab-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .tab-label {
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 500;
+      color: #71829b;
+    }
+
+    .tab-item.active .tab-label {
+      color: #0d6e7a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="app-bar">
+      <a
+        href="13_explore_faq.html"
+        class="back-button"
+        aria-label="이전 화면으로 이동"
+      >
+        <img
+          src="./icons/back.svg"
+          alt=""
+          class="back-icon"
+        >
+      </a>
+
+      <h1 class="page-title">검사 및 처치 안내</h1>
+    </header>
+
+    <section class="content">
+
+      <div class="guide-tabs">
+        <div class="guide-tab active">
+          검사
+        </div>
+
+        <div class="guide-tab">
+          처치
+        </div>
+      </div>
+
+      <div class="select-box">
+        <span class="select-text">혈액검사</span>
+
+        <img
+          src="./icons/down.svg"
+          alt=""
+          class="down-icon"
+        >
+      </div>
+
+      <div class="card-list">
+
+        <section class="card information-card">
+
+          <div class="info-row">
+            <img
+              src="./icons/flask_blue.svg"
+              alt=""
+              class="info-icon"
+            >
+
+            <div class="info-content">
+              <h2 class="info-title">검사명</h2>
+
+              <p class="info-description">
+                혈액검사
+              </p>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <img
+              src="./icons/document_pen.svg"
+              alt=""
+              class="info-icon"
+            >
+
+            <div class="info-content">
+              <h2 class="info-title">검사 목적</h2>
+
+              <p class="info-description">
+                감염, 빈혈, 염증, 전해질 등<br>
+                전반적인 신체 상태를 확인합니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <img
+              src="./icons/time_blue.svg"
+              alt=""
+              class="info-icon"
+            >
+
+            <div class="info-content">
+              <h2 class="info-title">소요 시간</h2>
+
+              <p class="info-description">
+                약 20~30분
+              </p>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <img
+              src="./icons/warning_blue.svg"
+              alt=""
+              class="info-icon"
+            >
+
+            <div class="info-content">
+              <h2 class="info-title">주의 사항</h2>
+
+              <p class="info-description">
+                검사 전 금식이 필요한 경우가 있어요.<br>
+                검사 부위(팔) 압박을 5분간 유지해 주세요.
+              </p>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="card related-card">
+          <div class="related-row">
+            <img
+              src="./icons/stpe.svg"
+              alt=""
+              class="related-icon"
+            >
+
+            <div class="related-content">
+              <h2 class="related-title">관련 단계</h2>
+
+              <p class="related-path">
+                진료 진행 &gt; <strong>검사 대기 &gt; 검사 중</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </section>
+
+    <nav class="bottom-tab-bar" aria-label="하단 메뉴">
+
+      <a href="07_home.html" class="tab-item">
+        <img
+          src="./icons/tap_home.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">홈</span>
+      </a>
+
+      <a href="09_progress_status.html" class="tab-item">
+        <img
+          src="./icons/tap_check.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">진행상황</span>
+      </a>
+
+      <a href="11_notifications.html" class="tab-item">
+        <img
+          src="./icons/tap_bell.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">알림</span>
+      </a>
+
+      <a href="17_more.html" class="tab-item active">
+        <img
+          src="./icons/tap_menu_active.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">더보기</span>
+      </a>
+
+    </nav>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 진행상황 상세</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .app-bar {
+      width: 100%;
+      height: 112px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 20px 24px;
+      background-color: #ffffff;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      left: 10px;
+      bottom: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .page-title {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .content {
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0 20px 28px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .stage-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 4px 14px;
+      border: 1px solid #0083cc;
+      border-radius: 999px;
+      color: #0083cc;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight: 600;
+      background-color: #ffffff;
+    }
+
+    .stage-title {
+      margin-top: 16px;
+      font-size: 28px;
+      line-height: 36px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .stage-description {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 22px;
+      color: #71829b;
+    }
+
+    .card-list {
+      width: 100%;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      width: 100%;
+      padding: 20px 22px;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .time-icon-large {
+      width: 28px;
+      height: 28px;
+      margin: -2px;
+    }
+
+    .info-content {
+      flex: 1;
+      min-width: 0;
+      margin-left: 10px;
+    }
+
+    .info-title {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 600;
+      color: #71829b;
+    }
+
+    .time-area {
+      margin-left: auto;
+      padding-left: 12px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .time-value {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #71829b;
+    }
+
+    .update-time {
+      margin-top: 2px;
+      font-size: 11px;
+      line-height: 16px;
+      color: #71829b;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin: 18px 0;
+      border: 0;
+      background-color: #dbe3eb;
+    }
+
+    .guide-title {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 600;
+      color: #71829b;
+    }
+
+    .guide-description {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 21px;
+      color: #71829b;
+      word-break: keep-all;
+    }
+
+    .card-title {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .todo-list {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .todo-item {
+      min-height: 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    .todo-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .todo-text {
+      margin-left: 8px;
+      font-size: 13px;
+      line-height: 20px;
+      color: #71829b;
+    }
+
+    .next-stage {
+      margin-top: 14px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .next-stage-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .next-stage-content {
+      margin-left: 10px;
+    }
+
+    .next-stage-title {
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: 600;
+      color: #71829b;
+    }
+
+    .next-stage-description {
+      margin-top: 5px;
+      font-size: 13px;
+      line-height: 20px;
+      color: #71829b;
+    }
+
+    .bottom-tab-bar {
+      width: 100%;
+      height: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid #dbe3eb;
+      background-color: #ffffff;
+    }
+
+    .tab-item {
+      width: 25%;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .tab-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .tab-label {
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 500;
+      color: #71829b;
+    }
+
+    .tab-item.active .tab-label {
+      color: #0d6e7a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="app-bar">
+      <a
+        href="09_progress_status.html"
+        class="back-button"
+        aria-label="이전 화면으로 이동"
+      >
+        <img
+          src="./icons/back.svg"
+          alt=""
+          class="back-icon"
+        >
+      </a>
+
+      <h1 class="page-title">진행상황 상세</h1>
+    </header>
+
+    <section class="content">
+
+      <span class="stage-badge">
+        현재 단계 2 / 7
+      </span>
+
+      <h2 class="stage-title">검사 중</h2>
+
+      <p class="stage-description">
+        혈액 검사 및 X-ray 검사 중이에요.
+      </p>
+
+      <div class="card-list">
+
+        <section class="card">
+
+          <div class="info-row">
+            <img
+              src="./icons/time_green.svg"
+              alt=""
+              class="info-icon time-icon-large"
+            >
+
+            <div class="info-content">
+              <h3 class="info-title">예상 소요 시간</h3>
+            </div>
+
+            <div class="time-area">
+              <p class="time-value">약 35분</p>
+              <p class="update-time">업데이트 09:41</p>
+            </div>
+          </div>
+
+          <hr class="divider">
+
+          <div class="info-row">
+            <img
+              src="./icons/check_green_active_b.svg"
+              alt=""
+              class="info-icon"
+            >
+
+            <div class="info-content">
+              <h3 class="guide-title">검사 / 처치 안내</h3>
+
+              <p class="guide-description">
+                혈액 검사 및 X-ray 검사가 진행 중이에요.<br>
+                검사 완료 후 다음 단계로 넘어가요.
+              </p>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="card">
+          <h3 class="card-title">지금 할 일</h3>
+
+          <div class="todo-list">
+
+            <div class="todo-item">
+              <img
+                src="./icons/check_green_active_b.svg"
+                alt=""
+                class="todo-icon"
+              >
+
+              <span class="todo-text">
+                검사복으로 환복 완료
+              </span>
+            </div>
+
+            <div class="todo-item">
+              <img
+                src="./icons/check_green.svg"
+                alt=""
+                class="todo-icon"
+              >
+
+              <span class="todo-text">
+                채혈 동의서 서명 완료
+              </span>
+            </div>
+
+            <div class="todo-item">
+              <img
+                src="./icons/check_green.svg"
+                alt=""
+                class="todo-icon"
+              >
+
+              <span class="todo-text">
+                대기실에서 잠시 대기
+              </span>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="card">
+          <h3 class="card-title">다음 단계 안내</h3>
+
+          <div class="next-stage">
+            <img
+              src="./icons/card_circle_line.svg"
+              alt=""
+              class="next-stage-icon"
+            >
+
+            <div class="next-stage-content">
+              <p class="next-stage-title">수납 대기</p>
+
+              <p class="next-stage-description">
+                처치가 완료되면 수납 대기로 이동해요.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </section>
+
+    <nav class="bottom-tab-bar" aria-label="하단 메뉴">
+
+      <a href="07_home.html" class="tab-item">
+        <img src="./icons/tap_home.svg" alt="" class="tab-icon">
+        <span class="tab-label">홈</span>
+      </a>
+
+      <a href="09_progress_status.html" class="tab-item active">
+        <img src="./icons/tap_check_active.svg" alt="" class="tab-icon">
+        <span class="tab-label">진행상황</span>
+      </a>
+
+      <a href="11_notifications.html" class="tab-item">
+        <img src="./icons/tap_bell.svg" alt="" class="tab-icon">
+        <span class="tab-label">알림</span>
+      </a>
+
+      <a href="17_more.html" class="tab-item">
+        <img src="./icons/tap_menu.svg" alt="" class="tab-icon">
+        <span class="tab-label">더보기</span>
+      </a>
+
+    </nav>
+
+  </main>
+</body>
+</html>

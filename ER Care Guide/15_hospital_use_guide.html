@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 병원 이용 안내</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .app-bar {
+      width: 100%;
+      height: 112px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 20px 24px;
+      background-color: #ffffff;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      left: 10px;
+      bottom: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .page-title {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .content {
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0 20px 20px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .content-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .procedure-section {
+      width: 100%;
+      padding: 14px 10px 12px;
+      border-radius: 16px;
+      background-color: #f2f6fa;
+    }
+
+    .section-title {
+      font-size: 17px;
+      line-height: 24px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .section-description {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 20px;
+      color: #71829b;
+    }
+
+    .procedure-list {
+      width: 100%;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .procedure-card {
+      width: 100%;
+      min-height: 86px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+    }
+
+    .step-circle-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .procedure-content {
+      flex: 1;
+      min-width: 0;
+      margin-left: 12px;
+    }
+
+    .procedure-title {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .procedure-description {
+      margin-top: 2px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #71829b;
+      word-break: keep-all;
+    }
+
+    .preparation-section {
+      width: 100%;
+      padding: 16px 24px 18px;
+      border-radius: 9px;
+      background-color: #f2f6fa;
+    }
+
+    .preparation-title {
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    .preparation-content {
+      margin-top: 18px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .preparation-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: block;
+    }
+
+    .preparation-text {
+      margin-left: 12px;
+      font-size: 13px;
+      line-height: 21px;
+      color: #0f1e2e;
+      word-break: keep-all;
+    }
+
+    .button-area {
+      width: 100%;
+      display: flex;
+      gap: 14px;
+    }
+
+    .guide-button {
+      width: 50%;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+
+    .faq-button {
+      border: 1px solid #dbe3eb;
+      background-color: #ffffff;
+      color: #71829b;
+    }
+
+    .location-button {
+      border: 1px solid #117d88;
+      background-color: #117d88;
+      color: #ffffff;
+    }
+
+    .bottom-tab-bar {
+      width: 100%;
+      height: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid #dbe3eb;
+      background-color: #ffffff;
+    }
+
+    .tab-item {
+      width: 25%;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .tab-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .tab-label {
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 500;
+      color: #71829b;
+    }
+
+    .tab-item.active .tab-label {
+      color: #0d6e7a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="app-bar">
+      <a
+        href="17_more.html"
+        class="back-button"
+        aria-label="이전 화면으로 이동"
+      >
+        <img
+          src="./icons/back.svg"
+          alt=""
+          class="back-icon"
+        >
+      </a>
+
+      <h1 class="page-title">병원 이용 안내</h1>
+    </header>
+
+    <section class="content">
+
+      <div class="content-list">
+
+        <section class="procedure-section">
+          <h2 class="section-title">병원 이용 절차</h2>
+
+          <p class="section-description">
+            응급실 이용 절차를 단계별로 안내해 드려요.
+          </p>
+
+          <div class="procedure-list">
+
+            <article class="procedure-card">
+              <img
+                src="./icons/circle1.svg"
+                alt="1단계"
+                class="step-circle-icon"
+              >
+
+              <div class="procedure-content">
+                <h3 class="procedure-title">접수</h3>
+
+                <p class="procedure-description">
+                  접수 창구에서 신분증을 제시하고 기본 정보를<br>
+                  입력합니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="procedure-card">
+              <img
+                src="./icons/circle2.svg"
+                alt="2단계"
+                class="step-circle-icon"
+              >
+
+              <div class="procedure-content">
+                <h3 class="procedure-title">수납</h3>
+
+                <p class="procedure-description">
+                  진료 전 선납 또는 후불 안내를 받고 수납을<br>
+                  진행합니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="procedure-card">
+              <img
+                src="./icons/circle3.svg"
+                alt="3단계"
+                class="step-circle-icon"
+              >
+
+              <div class="procedure-content">
+                <h3 class="procedure-title">서류 발급</h3>
+
+                <p class="procedure-description">
+                  필요한 서류는 무인 발급기 또는 원무과에서<br>
+                  발급받을 수 있어요.
+                </p>
+              </div>
+            </article>
+
+            <article class="procedure-card">
+              <img
+                src="./icons/circle4.svg"
+                alt="4단계"
+                class="step-circle-icon"
+              >
+
+              <div class="procedure-content">
+                <h3 class="procedure-title">귀가</h3>
+
+                <p class="procedure-description">
+                  귀가 전 처방전과 주의사항을 꼭 확인해<br>
+                  주세요.
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="preparation-section">
+          <h2 class="preparation-title">준비물 안내</h2>
+
+          <div class="preparation-content">
+            <img
+              src="./icons/bag.svg"
+              alt=""
+              class="preparation-icon"
+            >
+
+            <p class="preparation-text">
+              신분증, 건강보험증(또는 모바일 확인),<br>
+              결제 수단(카드/현금)
+            </p>
+          </div>
+        </section>
+
+        <div class="button-area">
+          <a
+            href="13_explore_faq.html"
+            class="guide-button faq-button"
+          >
+            FAQ 보기
+          </a>
+
+          <a
+            href="16_location_guide.html"
+            class="guide-button location-button"
+          >
+            위치 보기
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <nav class="bottom-tab-bar" aria-label="하단 메뉴">
+
+      <a href="07_home.html" class="tab-item">
+        <img
+          src="./icons/tap_home.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">홈</span>
+      </a>
+
+      <a href="09_progress_status.html" class="tab-item">
+        <img
+          src="./icons/tap_check.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">진행상황</span>
+      </a>
+
+      <a href="11_notifications.html" class="tab-item">
+        <img
+          src="./icons/tap_bell.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">알림</span>
+      </a>
+
+      <a href="17_more.html" class="tab-item active">
+        <img
+          src="./icons/tap_menu_active.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">더보기</span>
+      </a>
+
+    </nav>
+
+  </main>
+</body>
+</html>

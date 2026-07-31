@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>ER 안심가이드 - 진료 진행상황</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: "Pretendard", sans-serif;
+      color: #0f1e2e;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: "Pretendard", sans-serif;
+    }
+
+    .app {
+      width: 100%;
+      height: 100svh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    /* 상단 네비게이션 */
+    .app-bar {
+      width: 100%;
+      height: 112px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 20px 24px;
+      background-color: #ffffff;
+    }
+
+    .back-button {
+      width: 44px;
+      height: 44px;
+      position: absolute;
+      left: 10px;
+      bottom: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .page-title {
+      font-size: 22px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #0f1e2e;
+    }
+
+    /* 스크롤 영역 */
+    .content {
+      width: 100%;
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 12px 20px 32px;
+      scrollbar-width: none;
+    }
+
+    .content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .content-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* 공통 카드 */
+    .card {
+      width: 100%;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+    }
+
+    /* 진료 단계 카드 */
+    .progress-card {
+      padding: 16px 16px 14px;
+    }
+
+    .progress-list {
+      width: 100%;
+      position: relative;
+    }
+
+    .progress-list::before {
+      content: "";
+      position: absolute;
+      top: 13px;
+      bottom: 14px;
+      left: 11px;
+      width: 1px;
+      background-color: #cbd5e1;
+    }
+
+    .progress-item {
+      width: 100%;
+      min-height: 52px;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .progress-item:last-child {
+      min-height: 38px;
+    }
+
+    .step-marker {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      border: 1.5px solid #0d6e7a;
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+
+    .step-marker.completed::after {
+      content: "";
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      border-left: 2px solid #0d6e7a;
+      border-bottom: 2px solid #0d6e7a;
+      transform: rotate(-45deg);
+    }
+
+    .step-marker.current {
+      border: 2px solid #0083cc;
+      box-shadow: inset 0 0 0 3px #ffffff;
+      background-color: #0083cc;
+    }
+
+    .step-info {
+      flex: 1;
+      min-width: 0;
+      margin-left: 16px;
+      padding-top: 1px;
+    }
+
+    .step-title {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 600;
+      color: #71829b;
+    }
+
+    .progress-item.current .step-title {
+      color: #0083cc;
+      font-weight: 700;
+    }
+
+    .step-description {
+      margin-top: 1px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #71829b;
+    }
+
+    .step-time {
+      width: 46px;
+      flex-shrink: 0;
+      padding-top: 2px;
+      font-size: 13px;
+      line-height: 20px;
+      text-align: right;
+      color: #71829b;
+    }
+
+    /* 현재 단계 카드 */
+    .current-card {
+      display: block;
+      padding: 16px;
+    }
+
+    .current-card-top {
+      display: flex;
+      align-items: center;
+    }
+
+    .current-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .current-title {
+      margin-left: 12px;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #0083cc;
+    }
+
+    .current-label {
+      margin-left: 8px;
+      font-size: 11px;
+      line-height: 16px;
+      color: #0d6e7a;
+    }
+
+    .current-description {
+      margin-top: 14px;
+      padding-left: 36px;
+      font-size: 13px;
+      line-height: 21px;
+      color: #71829b;
+      word-break: keep-all;
+    }
+
+    /* 새로고침 */
+    .refresh-button {
+      width: 100%;
+      height: 52px;
+      border: 1px solid #dbe3eb;
+      border-radius: 9px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #0083cc;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .refresh-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .refresh-text {
+      color: #0083cc;
+    }
+
+    /* 공통 하단 탭바 */
+    .bottom-tab-bar {
+      width: 100%;
+      height: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: stretch;
+      border-top: 1px solid #dbe3eb;
+      background-color: #ffffff;
+    }
+
+    .tab-item {
+      width: 25%;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .tab-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .tab-label {
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 500;
+      color: #71829b;
+    }
+
+    .tab-item.active .tab-label {
+      color: #0d6e7a;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+
+    <header class="app-bar">
+      <a
+        href="07_home.html"
+        class="back-button"
+        aria-label="이전 화면으로 이동"
+      >
+        <img
+          src="./icons/back.svg"
+          alt=""
+          class="back-icon"
+        >
+      </a>
+
+      <h1 class="page-title">진료 진행상황</h1>
+    </header>
+
+    <section class="content">
+
+      <div class="content-list">
+
+        <section class="card progress-card">
+          <div class="progress-list">
+
+            <div class="progress-item">
+              <span class="step-marker completed"></span>
+
+              <div class="step-info">
+                <p class="step-title">접수 완료</p>
+              </div>
+
+              <time class="step-time">09:15</time>
+            </div>
+
+            <div class="progress-item current">
+              <span class="step-marker current"></span>
+
+              <div class="step-info">
+                <p class="step-title">검사 중</p>
+                <p class="step-description">
+                  혈액 검사 및 X-ray 검사중
+                </p>
+              </div>
+
+              <time class="step-time">09:15</time>
+            </div>
+
+            <div class="progress-item">
+              <span class="step-marker"></span>
+
+              <div class="step-info">
+                <p class="step-title">진료 및 설명</p>
+              </div>
+
+              <time class="step-time">10:00</time>
+            </div>
+
+            <div class="progress-item">
+              <span class="step-marker"></span>
+
+              <div class="step-info">
+                <p class="step-title">처치 중</p>
+              </div>
+
+              <time class="step-time">10:25</time>
+            </div>
+
+            <div class="progress-item">
+              <span class="step-marker"></span>
+
+              <div class="step-info">
+                <p class="step-title">수납 대기</p>
+              </div>
+
+              <time class="step-time">10:45</time>
+            </div>
+
+            <div class="progress-item">
+              <span class="step-marker"></span>
+
+              <div class="step-info">
+                <p class="step-title">약제 준비</p>
+              </div>
+
+              <time class="step-time">11:00</time>
+            </div>
+
+            <div class="progress-item">
+              <span class="step-marker"></span>
+
+              <div class="step-info">
+                <p class="step-title">귀가 or 입원 준비</p>
+              </div>
+
+              <time class="step-time">11:30</time>
+            </div>
+
+          </div>
+        </section>
+
+        <a
+          href="10_progress_detail.html"
+          class="card current-card"
+        >
+          <div class="current-card-top">
+            <img
+              src="./icons/bell_blue_line.svg"
+              alt=""
+              class="current-icon"
+            >
+
+            <h2 class="current-title">검사 중</h2>
+
+            <span class="current-label">
+              · 현재 단계
+            </span>
+          </div>
+
+          <p class="current-description">
+            검사가 완료되면 다음 단계로<br>
+            자동 안내해 드릴게요.
+          </p>
+        </a>
+
+        <button
+          type="button"
+          class="refresh-button"
+        >
+          <img
+            src="./icons/refresh_blue.svg"
+            alt=""
+            class="refresh-icon"
+          >
+
+          <span class="refresh-text">새로고침</span>
+        </button>
+
+      </div>
+
+    </section>
+
+    <nav class="bottom-tab-bar" aria-label="하단 메뉴">
+
+      <a
+        href="07_home.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_home.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">홈</span>
+      </a>
+
+      <a
+        href="09_progress_status.html"
+        class="tab-item active"
+      >
+        <img
+          src="./icons/tap_check_active.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">진행상황</span>
+      </a>
+
+      <a
+        href="11_notifications.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_bell.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">알림</span>
+      </a>
+
+      <a
+        href="17_more.html"
+        class="tab-item"
+      >
+        <img
+          src="./icons/tap_menu.svg"
+          alt=""
+          class="tab-icon"
+        >
+        <span class="tab-label">더보기</span>
+      </a>
+
+    </nav>
+
+  </main>
+</body>
+</html>
