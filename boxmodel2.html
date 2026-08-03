@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델2</title>
+    <style>
+        .parent1{
+            width: 1000px;
+            height: 300px;
+            border: 4px #fe0100 solid;
+            display: flex;
+            gap: 40px;
+        }
+        .box1{
+            width: 480px;
+            height: 300px;
+            background-color: #f073eb;
+        }
+         .parent2{
+            width: 1000px;
+            height: 300px;
+            border: 4px #000000 solid;
+            display: flex;
+            gap: 20px;
+        }
+        .box2{
+            width: 320px;
+            height: 300px;
+            background-color: #ffff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent1">
+        <div class="box1">박스1</div>
+        <div class="box1">박스2</div>
+    </div>
+    <div class="parent2">
+        <div class="box2">박스1</div>
+        <div class="box2">박스2</div>
+        <div class="box2">박스3</div>
+    </div>
+</body>
+</html>
