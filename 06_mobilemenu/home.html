@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>차박러 홈</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            min-height: 100svh;
+            overflow-x: hidden;
+            color: #222222;
+            background-color: #ffffff;
+            font-family:
+                Pretendard,
+                "Noto Sans KR",
+                Arial,
+                sans-serif;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            padding: 0;
+            border: none;
+            color: inherit;
+            background: none;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+        }
+
+        .app {
+            width: 100%;
+            min-height: 100svh;
+            background-color: #ffffff;
+        }
+
+        /* ==============================
+           상단 메뉴바
+        ============================== */
+
+        .top-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            width: 100%;
+            height: 58px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #ffffff;
+           
+        }
+
+        .menu-button {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-button img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .app-logo {
+            color: #5271bd;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* ==============================
+           메인 콘텐츠
+        ============================== */
+
+        .main-content {
+            width: 100%;
+            padding-bottom: 102px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 285px;
+            object-fit: cover;
+        }
+
+        .content-inner {
+            width: 100%;
+            padding: 0 24px;
+        }
+
+        .section-title {
+            margin: 28px 0 20px;
+            color: #5271bd;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.7px;
+        }
+
+        /* ==============================
+           테마별 카테고리
+        ============================== */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            row-gap: 24px;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        .category-item img {
+            width: 38px;
+            height: 38px;
+            margin-bottom: 8px;
+            object-fit: contain;
+        }
+
+        /* ==============================
+           쿠폰, 이벤트, 혜택
+        ============================== */
+
+        .benefit-menu {
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .benefit-menu a {
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            color: #5271bd;
+            background-color: #f0f3fa;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .benefit-menu img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        /* ==============================
+           장소 랭킹
+        ============================== */
+
+        .ranking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .ranking-grid img {
+            width: 100%;
+            height: 205px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .ranking-grid .wide-image {
+            grid-column: 1 / 3;
+            height: 195px;
+            margin-top: 8px;
+        }
+
+        /* ==============================
+           장소 상세 정보
+        ============================== */
+
+        .place-info {
+            padding-top: 26px;
+        }
+
+        .place-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .place-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.4px;
+        }
+
+        .bookmark-button {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bookmark-button img {
+            width: 23px;
+            height: 23px;
+            object-fit: contain;
+        }
+
+        .place-address {
+            margin-top: 20px;
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .place-buttons {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 14px;
+        }
+
+        .route-button,
+        .cancel-button {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .route-button {
+            color: #ffffff;
+            background-color: #5271bd;
+        }
+
+        .cancel-button {
+            color: #333333;
+            background-color: #ffffff;
+            border: 1px solid #5271bd;
+        }
+
+        /* ==============================
+           하단 탭바
+        ============================== */
+
+        .bottom-tabbar {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 40;
+            width: 100%;
+            height: 78px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            background-color: #ffffff;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            color: #111111;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tab-item img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .tab-item.active {
+            color: #5271bd;
+        }
+
+        /* ==============================
+           메뉴 배경 오버레이
+        ============================== */
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 90;
+            visibility: hidden;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.58);
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+        }
+
+        .menu-overlay.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* ==============================
+           왼쪽 슬라이드 메뉴
+        ============================== */
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 80%;
+            height: 100svh;
+            padding: 32px 24px 36px;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            background-color: #ffffff;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 8px 0 28px rgba(0, 0, 0, 0.14);
+            transform: translateX(-105%);
+            transition: transform 0.35s ease;
+        }
+
+        .side-menu.open {
+            transform: translateX(0);
+        }
+
+        .side-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .side-menu-title {
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .close-button {
+            min-width: 48px;
+            height: 34px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555555;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ==============================
+           프로필 영역
+        ============================== */
+
+        .profile-area {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .profile-image {
+            width: 66px;
+            height: 66px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-title {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .profile-title strong {
+            color: #5271bd;
+        }
+
+        .profile-description {
+            margin-top: 6px;
+            color: #999999;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* 수정된 로그인 버튼 */
+        .login-button {
+            width: 100%;
+            height: 49px;
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            background-color: #5271bd;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .menu-divider {
+            width: 100%;
+            height: 1px;
+            margin: 24px 0 18px;
+            background-color: #eeeeee;
+        }
+
+        .menu-section-title {
+            margin-bottom: 14px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        /* ==============================
+           바로가기
+        ============================== */
+
+        .shortcut-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 9px;
+        }
+
+        .shortcut-item {
+            height: 72px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            color: #777777;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            font-size: 11px;
+        }
+
+        .shortcut-item img {
+            width: 23px;
+            height: 23px;
+            object-fit: contain;
+        }
+
+        /* ==============================
+           테마로 찾기
+        ============================== */
+
+        .theme-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 9px;
+        }
+
+        .theme-menu-item {
+            height: 72px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            color: #777777;
+            border: 1px solid #eeeeee;
+            border-radius: 8px;
+            font-size: 11px;
+        }
+
+        .theme-menu-item img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        /* ==============================
+           서비스 목록
+        ============================== */
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-item {
+            min-height: 49px;
+            display: grid;
+            grid-template-columns: 28px 1fr 18px;
+            align-items: center;
+            gap: 10px;
+            color: #666666;
+            font-size: 15px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-main-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        .service-next {
+            width: 15px;
+            height: 15px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- 상단 메뉴바 -->
+        <header class="top-header">
+            <button
+                type="button"
+                class="menu-button"
+                id="menuOpenButton"
+                aria-label="모바일 메뉴 열기"
+                aria-controls="sideMenu"
+                aria-expanded="false"
+            >
+                <img
+                    src="./icons/menu.svg"
+                    alt="햄버거 메뉴 아이콘"
+                >
+            </button>
+
+            <a
+                href="home.html"
+                class="app-logo"
+                aria-label="차박러 홈으로 이동"
+            >
+                차박러
+            </a>
+        </header>
+
+        <!-- 홈 화면 -->
+        <main class="main-content">
+
+            <!-- 메인 이미지 -->
+            <img
+                src="./images/m_ill1.png"
+                alt="차박 여행을 즐기는 캠핑카와 자연 풍경"
+                class="hero-image"
+            >
+
+            <div class="content-inner">
+
+                <!-- 테마별 카테고리 -->
+                <section aria-labelledby="categoryTitle">
+                    <h2
+                        class="section-title"
+                        id="categoryTitle"
+                    >
+                        테마별 카테고리
+                    </h2>
+
+                    <div class="category-grid">
+                        <a href="#" class="category-item">
+                            <img
+                                src="./icons/flowers.svg"
+                                alt="꽃놀이 아이콘"
+                            >
+                            <span>꽃놀이</span>
+                        </a>
+
+                        <a href="#" class="category-item">
+                            <img
+                                src="./icons/fire.svg"
+                                alt="불멍 아이콘"
+                            >
+                            <span>불멍</span>
+                        </a>
+
+                        <a href="#" class="category-item">
+                            <img
+                                src="./icons/city.svg"
+                                alt="도심 아이콘"
+                            >
+                            <span>도심</span>
+                        </a>
+
+                        <a href="#" class="category-item">
+                            <img
+                                src="./icons/star.svg"
+                                alt="별 감상 아이콘"
+                            >
+                            <span>별감상</span>
+                        </a>
+
+                        <a href="#" class="category-item">
+                            <img
+                                src="./icons/dog.svg"
+                                alt="반려견 동반 아이콘"
+                            >
+                            <span>반려견</span>
+                        </a>
+
+                        <a href="#" class="category-item">
+                            <img
+                                src="./icons/mountain.svg"
+                                alt="오지 여행 아이콘"
+                            >
+                            <span>오지</span>
+                        </a>
+
+                        <a href="#" class="category-item">
+                            <img
+                                src="./icons/bbq.svg"
+                                alt="바베큐 아이콘"
+                            >
+                            <span>바베큐</span>
+                        </a>
+
+                        <a href="#" class="category-item">
+                            <img
+                                src="./icons/camp.svg"
+                                alt="캠핑 장비 아이콘"
+                            >
+                            <span>장비</span>
+                        </a>
+                    </div>
+
+                    <div class="benefit-menu">
+                        <a href="#">
+                            <img
+                                src="./icons/coupon.svg"
+                                alt="쿠폰 아이콘"
+                            >
+                            <span>쿠폰</span>
+                        </a>
+
+                        <a href="#">
+                            <img
+                                src="./icons/event.svg"
+                                alt="이벤트 아이콘"
+                            >
+                            <span>이벤트</span>
+                        </a>
+
+                        <a href="#">
+                            <img
+                                src="./icons/gift.svg"
+                                alt="혜택 아이콘"
+                            >
+                            <span>혜택</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 장소 랭킹 -->
+                <section aria-labelledby="rankingTitle">
+                    <h2
+                        class="section-title"
+                        id="rankingTitle"
+                    >
+                        장소 랭킹 Top 10
+                    </h2>
+
+                    <div class="ranking-grid">
+                        <img
+                            src="./images/poto1.png"
+                            alt="숲속 차박 장소 전경"
+                        >
+
+                        <img
+                            src="./images/poto2.png"
+                            alt="바다 근처 차박 장소 전경"
+                        >
+
+                        <img
+                            src="./images/poto3.png"
+                            alt="산과 호수가 보이는 차박 장소 전경"
+                            class="wide-image"
+                        >
+                    </div>
+
+                    <div class="place-info">
+                        <div class="place-title-row">
+                            <h3 class="place-title">
+                                치악산 차박 명소
+                            </h3>
+
+                            <button
+                                type="button"
+                                class="bookmark-button"
+                                aria-label="치악산 차박 명소 저장하기"
+                            >
+                                <img
+                                    src="./icons/bookmark.svg"
+                                    alt="장소 저장 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <p class="place-address">
+                            강원도 원주시 치악면 치악산 1번지
+                        </p>
+
+                        <div class="place-buttons">
+                            <button
+                                type="button"
+                                class="route-button"
+                                id="routeButton"
+                            >
+                                길찾기
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cancel-button"
+                            >
+                                해제하기
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- 하단 탭바 -->
+        <nav
+            class="bottom-tabbar"
+            aria-label="하단 주요 메뉴"
+        >
+            <a
+                href="home.html"
+                class="tab-item active"
+                aria-current="page"
+            >
+                <img
+                    src="./icons/tap_home.svg"
+                    alt="홈 아이콘"
+                >
+                <span>홈</span>
+            </a>
+
+            <a
+                href="./search.html"
+                class="tab-item"
+            >
+                <img
+                    src="./icons/tap_search.svg"
+                    alt="검색 아이콘"
+                >
+                <span>검색</span>
+            </a>
+
+            <a
+                href="#"
+                class="tab-item"
+            >
+                <img
+                    src="./icons/tap_community.svg"
+                    alt="모임 아이콘"
+                >
+                <span>모임</span>
+            </a>
+
+            <a
+                href="#"
+                class="tab-item"
+            >
+                <img
+                    src="./icons/tap_live.svg"
+                    alt="라이브 방송 아이콘"
+                >
+                <span>LIVE</span>
+            </a>
+
+            <a
+                href="#"
+                class="tab-item"
+            >
+                <img
+                    src="./icons/tap_user.svg"
+                    alt="마이페이지 아이콘"
+                >
+                <span>MY</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- 메뉴가 열렸을 때 메인 화면을 덮는 배경 -->
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+        aria-hidden="true"
+    ></div>
+
+    <!-- 왼쪽 슬라이드 모바일 메뉴 -->
+    <aside
+        class="side-menu"
+        id="sideMenu"
+        aria-hidden="true"
+        aria-label="모바일 전체 메뉴"
+    >
+        <div class="side-menu-header">
+            <h2 class="side-menu-title">메뉴</h2>
+
+            <button
+                type="button"
+                class="close-button"
+                id="menuCloseButton"
+                aria-label="모바일 메뉴 닫기"
+            >
+                닫기
+            </button>
+        </div>
+
+        <!-- 프로필 -->
+        <div class="profile-area">
+            <img
+                src="./images/bearprofile.png"
+                alt="탐험가 모자를 쓴 파란 곰 프로필 이미지"
+                class="profile-image"
+            >
+
+            <div>
+                <p class="profile-title">
+                    안녕하세요,
+                    <strong>차박러님</strong>
+                </p>
+
+                <p class="profile-description">
+                    나만의 차박 여행을 시작해보세요
+                </p>
+            </div>
+        </div>
+
+        <a
+            href="#"
+            class="login-button"
+        >
+            로그인 / 회원가입
+        </a>
+
+        <div class="menu-divider"></div>
+
+        <!-- 바로가기 -->
+        <section aria-labelledby="shortcutTitle">
+            <h3
+                class="menu-section-title"
+                id="shortcutTitle"
+            >
+                바로가기
+            </h3>
+
+            <div class="shortcut-grid">
+                <a
+                    href="home.html"
+                    class="shortcut-item"
+                >
+                    <img
+                        src="./icons/home.svg"
+                        alt="홈 아이콘"
+                    >
+                    <span>홈</span>
+                </a>
+
+                <a
+                    href="serch.html"
+                    class="shortcut-item"
+                >
+                    <img
+                        src="./icons/search.svg"
+                        alt="검색 아이콘"
+                    >
+                    <span>검색</span>
+                </a>
+
+                <a
+                    href="#"
+                    class="shortcut-item"
+                >
+                    <img
+                        src="./icons/bookmark.svg"
+                        alt="저장한 장소 아이콘"
+                    >
+                    <span>저장</span>
+                </a>
+
+                <a
+                    href="#"
+                    class="shortcut-item"
+                >
+                    <img
+                        src="./icons/user.svg"
+                        alt="마이페이지 아이콘"
+                    >
+                    <span>MY</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="menu-divider"></div>
+
+        <!-- 테마로 찾기 -->
+        <section aria-labelledby="themeTitle">
+            <h3
+                class="menu-section-title"
+                id="themeTitle"
+            >
+                테마로 찾기
+            </h3>
+
+            <div class="theme-menu-grid">
+                <a
+                    href="#"
+                    class="theme-menu-item"
+                >
+                    <img
+                        src="./icons/camp.svg"
+                        alt="차박 아이콘"
+                    >
+                    <span>차박</span>
+                </a>
+
+                <a
+                    href="#"
+                    class="theme-menu-item"
+                >
+                    <img
+                        src="./icons/mountain.svg"
+                        alt="오지 여행 아이콘"
+                    >
+                    <span>오지</span>
+                </a>
+
+                <a
+                    href="#"
+                    class="theme-menu-item"
+                >
+                    <img
+                        src="./icons/bbq.svg"
+                        alt="바베큐 아이콘"
+                    >
+                    <span>바베큐</span>
+                </a>
+
+                <a
+                    href="#"
+                    class="theme-menu-item"
+                >
+                    <img
+                        src="./icons/dog.svg"
+                        alt="반려견 동반 아이콘"
+                    >
+                    <span>반려견</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="menu-divider"></div>
+
+        <!-- 서비스 -->
+        <section aria-labelledby="serviceTitle">
+            <h3
+                class="menu-section-title"
+                id="serviceTitle"
+            >
+                서비스
+            </h3>
+
+            <div class="service-list">
+                <a
+                    href="#"
+                    class="service-item"
+                >
+                    <img
+                        src="./icons/speakerphone.svg"
+                        alt="공지사항 아이콘"
+                        class="service-main-icon"
+                    >
+
+                    <span>공지사항</span>
+
+                    <img
+                        src="./icons/next.svg"
+                        alt="공지사항 페이지로 이동"
+                        class="service-next"
+                    >
+                </a>
+
+                <a
+                    href="#"
+                    class="service-item"
+                >
+                    <img
+                        src="./icons/headset.svg"
+                        alt="고객센터 아이콘"
+                        class="service-main-icon"
+                    >
+
+                    <span>고객센터</span>
+
+                    <img
+                        src="./icons/next.svg"
+                        alt="고객센터 페이지로 이동"
+                        class="service-next"
+                    >
+                </a>
+
+                <a
+                    href="#"
+                    class="service-item"
+                >
+                    <img
+                        src="./icons/settings.svg"
+                        alt="설정 아이콘"
+                        class="service-main-icon"
+                    >
+
+                    <span>설정</span>
+
+                    <img
+                        src="./icons/next.svg"
+                        alt="설정 페이지로 이동"
+                        class="service-next"
+                    >
+                </a>
+            </div>
+        </section>
+    </aside>
+
+    <script>
+        const menuOpenButton =
+            document.getElementById("menuOpenButton");
+
+        const menuCloseButton =
+            document.getElementById("menuCloseButton");
+
+        const sideMenu =
+            document.getElementById("sideMenu");
+
+        const menuOverlay =
+            document.getElementById("menuOverlay");
+
+        const routeButton =
+            document.getElementById("routeButton");
+
+        /*
+            카카오맵 JavaScript API 키
+
+            아래 문자열을 카카오 디벨로퍼스에서 발급받은
+            JavaScript 키로 변경하면 됩니다.
+        */
+        const KAKAO_JAVASCRIPT_KEY =
+            "96a7a58d2bdc24d0dc8c4cb3a1420557";
+
+        /*
+            목적지 정보
+
+            실제 장소의 이름, 위도, 경도로 변경하면 됩니다.
+        */
+        const destination = {
+            name: "치악산 차박 명소",
+            latitude: 37.3654,
+            longitude: 128.0493
+        };
+
+        /*
+            카카오 지도 JavaScript SDK 불러오기
+
+            현재 길찾기 버튼은 카카오맵 길찾기 링크를 사용하므로
+            SDK 로딩에 실패해도 길찾기 기능은 작동합니다.
+        */
+        function loadKakaoMapSdk() {
+            if (
+                !KAKAO_JAVASCRIPT_KEY ||
+                KAKAO_JAVASCRIPT_KEY ===
+                    "YOUR_KAKAO_JAVASCRIPT_KEY"
+            ) {
+                return;
+            }
+
+            const kakaoScript =
+                document.createElement("script");
+
+            kakaoScript.src =
+                "https://dapi.kakao.com/v2/maps/sdk.js" +
+                "?appkey=" +
+                encodeURIComponent(
+                    KAKAO_JAVASCRIPT_KEY
+                ) +
+                "&autoload=false";
+
+            kakaoScript.async = true;
+
+            kakaoScript.onerror = function () {
+                console.error(
+                    "카카오맵 SDK를 불러오지 못했습니다."
+                );
+            };
+
+            document.head.appendChild(kakaoScript);
+        }
+
+        function openMenu() {
+            sideMenu.classList.add("open");
+            menuOverlay.classList.add("open");
+            document.body.classList.add("menu-open");
+
+            sideMenu.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            menuOverlay.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            menuOpenButton.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+            menuCloseButton.focus();
+        }
+
+        function closeMenu() {
+            sideMenu.classList.remove("open");
+            menuOverlay.classList.remove("open");
+            document.body.classList.remove("menu-open");
+
+            sideMenu.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            menuOverlay.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            menuOpenButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuOpenButton.focus();
+        }
+
+        menuOpenButton.addEventListener(
+            "click",
+            openMenu
+        );
+
+        menuCloseButton.addEventListener(
+            "click",
+            closeMenu
+        );
+
+        /*
+            메뉴 바깥의 어두운 배경을 누르면
+            메뉴가 닫히고 홈 화면이 다시 보입니다.
+        */
+        menuOverlay.addEventListener(
+            "click",
+            closeMenu
+        );
+
+        /*
+            햄버거 메뉴가 열린 상태에서
+            Esc 키를 누르면 메뉴가 닫히고
+            홈 화면이 다시 보입니다.
+        */
+        document.addEventListener(
+            "keydown",
+            function (event) {
+                const isMenuOpen =
+                    sideMenu.classList.contains("open");
+
+                if (
+                    event.key === "Escape" &&
+                    isMenuOpen
+                ) {
+                    closeMenu();
+                }
+            }
+        );
+
+        function openDestinationOnly() {
+            const destinationUrl =
+                "https://map.kakao.com/link/to/" +
+                encodeURIComponent(
+                    destination.name
+                ) +
+                "," +
+                destination.latitude +
+                "," +
+                destination.longitude;
+
+            window.open(
+                destinationUrl,
+                "_blank",
+                "noopener,noreferrer"
+            );
+        }
+
+        /*
+            현재 위치를 허용하면 현재 위치에서 목적지까지
+            카카오맵 길찾기를 실행합니다.
+
+            위치 권한이 없거나 불러오지 못하면
+            목적지만 카카오맵에 표시합니다.
+        */
+        routeButton.addEventListener(
+            "click",
+            function () {
+                if (!navigator.geolocation) {
+                    openDestinationOnly();
+                    return;
+                }
+
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        const currentLatitude =
+                            position.coords.latitude;
+
+                        const currentLongitude =
+                            position.coords.longitude;
+
+                        const routeUrl =
+                            "https://map.kakao.com/link/from/" +
+                            encodeURIComponent(
+                                "현재 위치"
+                            ) +
+                            "," +
+                            currentLatitude +
+                            "," +
+                            currentLongitude +
+                            "/to/" +
+                            encodeURIComponent(
+                                destination.name
+                            ) +
+                            "," +
+                            destination.latitude +
+                            "," +
+                            destination.longitude;
+
+                        window.open(
+                            routeUrl,
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+                    },
+
+                    function () {
+                        alert(
+                            "현재 위치를 불러오지 못했습니다. 목적지를 카카오맵에서 표시합니다."
+                        );
+
+                        openDestinationOnly();
+                    },
+
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            }
+        );
+
+        loadKakaoMapSdk();
+    </script>
+</body>
+</html>
