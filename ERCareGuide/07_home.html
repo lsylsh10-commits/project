@@ -10,437 +10,121 @@
 
   <title>ER 안심가이드 - 홈</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+  >
 
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-    }
-
-    body {
-      overflow: hidden;
-      background-color: #f2f6fa;
-      font-family: "Pretendard", sans-serif;
-      color: #0f1e2e;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .app {
-      width: 100%;
-      height: 100svh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      background-color: #f2f6fa;
-    }
-
-    .content {
-      width: 100%;
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 48px 20px 24px;
-      scrollbar-width: none;
-    }
-
-    .content::-webkit-scrollbar {
-      display: none;
-    }
-
-    .top-area {
-      width: 100%;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .welcome-text {
-      font-size: 20px;
-      line-height: 28px;
-      font-weight: 700;
-      color: #0f1e2e;
-    }
-
-    .notification-button {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .notification-icon {
-      width: 24px;
-      height: 24px;
-      display: block;
-    }
-
-    .card-list {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .card {
-      width: 100%;
-      border: 1px solid #dbe3eb;
-      border-radius: 10px;
-      background-color: #ffffff;
-      overflow: hidden;
-    }
-
-    .card-title {
-      font-size: 18px;
-      line-height: 26px;
-      font-weight: 700;
-      color: #0f1e2e;
-    }
-
-    .patient-card {
-      padding: 16px;
-    }
-
-    .patient-card-header {
-      width: 100%;
-      display: block;
-    }
-
-    .patient-info {
-      width: 100%;
-      margin-top: 16px;
-      display: flex;
-      align-items: center;
-    }
-
-    .patient-profile {
-      width: 52px;
-      height: 52px;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .patient-detail {
-      flex: 1;
-      min-width: 0;
-      margin-left: 14px;
-    }
-
-    .patient-name {
-      font-size: 16px;
-      line-height: 22px;
-      font-weight: 700;
-      color: #0f1e2e;
-    }
-
-    .patient-number {
-      margin-top: 4px;
-      font-size: 13px;
-      line-height: 20px;
-      color: #64748b;
-      white-space: nowrap;
-    }
-
-    .change-button {
-      min-width: 72px;
-      height: 32px;
-      margin-left: 10px;
-      padding: 0 12px;
-      border: 1px solid #168ba0;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      line-height: 18px;
-      font-weight: 500;
-      color: #168ba0;
-      background-color: #ffffff;
-      flex-shrink: 0;
-    }
-
-    .progress-card {
-      display: block;
-      padding: 16px 16px 18px;
-    }
-
-    .progress-stepper {
-      width: 100%;
-      margin-top: 18px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-
-    .step {
-      width: 20%;
-      position: relative;
-      text-align: center;
-    }
-
-    .step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      top: 12px;
-      left: calc(50% + 13px);
-      width: calc(100% - 26px);
-      height: 1px;
-      background-color: #7a8ca5;
-    }
-
-    .step-icon {
-      width: 26px;
-      height: 26px;
-      position: relative;
-      z-index: 1;
-      display: block;
-      margin: 0 auto;
-      background-color: #ffffff;
-    }
-
-    .step-label {
-      display: block;
-      margin-top: 5px;
-      font-size: 11px;
-      line-height: 16px;
-      color: #64748b;
-    }
-
-    .step.current .step-label {
-      color: #168ba0;
-      font-weight: 600;
-    }
-
-    .waiting-card {
-      display: block;
-      padding: 16px;
-    }
-
-    .waiting-layout {
-      width: 100%;
-      display: flex;
-    }
-
-    .waiting-left,
-    .waiting-right {
-      width: 50%;
-    }
-
-    .waiting-left {
-      padding-right: 14px;
-      border-right: 1px solid #dbe3eb;
-    }
-
-    .waiting-right {
-      padding-left: 14px;
-    }
-
-    .waiting-time {
-      margin-top: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .time-icon {
-      width: 40px;
-      height: 40px;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .time-value {
-      font-size: 24px;
-      line-height: 32px;
-      font-weight: 700;
-      color: #0f1e2e;
-      white-space: nowrap;
-    }
-
-    .update-text {
-      margin-top: 6px;
-      padding-left: 48px;
-      font-size: 12px;
-      line-height: 18px;
-      color: #64748b;
-      white-space: nowrap;
-    }
-
-    .delay-title {
-      font-size: 17px;
-      line-height: 26px;
-      font-weight: 700;
-      color: #71829b;
-    }
-
-    .delay-text {
-      margin-top: 10px;
-      font-size: 13px;
-      line-height: 21px;
-      color: #71829b;
-      word-break: keep-all;
-    }
-
-    .todo-card {
-      display: block;
-      padding: 16px;
-    }
-
-    .todo-list {
-      margin-top: 12px;
-    }
-
-    .todo-item {
-      min-height: 40px;
-      display: flex;
-      align-items: center;
-    }
-
-    .todo-item + .todo-item {
-      border-top: 1px solid #e2e8f0;
-    }
-
-    .todo-icon {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .todo-text {
-      flex: 1;
-      margin-left: 10px;
-      font-size: 13px;
-      line-height: 20px;
-      color: #71829b;
-    }
-
-    .next-icon {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .recent-card {
-      display: block;
-      padding: 16px;
-    }
-
-    .recent-content {
-      margin-top: 12px;
-      min-height: 36px;
-      display: flex;
-      align-items: center;
-    }
-
-    .recent-icon {
-      width: 24px;
-      height: 24px;
-      flex-shrink: 0;
-      display: block;
-    }
-
-    .recent-text {
-      flex: 1;
-      margin-left: 12px;
-      font-size: 13px;
-      line-height: 20px;
-      color: #71829b;
-    }
-
-    .recent-time {
-      margin-left: 8px;
-      font-size: 13px;
-      line-height: 20px;
-      color: #71829b;
-      white-space: nowrap;
-    }
-
-    .recent-next {
-      width: 16px;
-      height: 16px;
-      margin-left: 6px;
-      display: block;
-    }
-
-    .bottom-tab-bar {
-      width: 100%;
-      height: 72px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: stretch;
-      border-top: 1px solid #dbe3eb;
-      background-color: #ffffff;
-    }
-
-    .tab-item {
-      width: 25%;
-      min-height: 72px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-    }
-
-    .tab-icon {
-      width: 24px;
-      height: 24px;
-      display: block;
-    }
-
-    .tab-label {
-      font-size: 11px;
-      line-height: 14px;
-      font-weight: 500;
-      color: #71829b;
-    }
-
-    .tab-item.active .tab-label {
-      color: #0d6e7a;
-      font-weight: 700;
-    }
-  </style>
+  <!-- 홈 화면 CSS -->
+  <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
   <main class="app">
 
+    <!-- 스크롤되는 본문 -->
     <section class="content">
 
+      <!-- 상단 헤더 -->
       <header class="top-area">
         <h1 class="welcome-text">
           박수영님, 안녕하세요!
         </h1>
 
-        <a
-          href="11_notifications.html"
-          class="notification-button"
-          aria-label="알림 화면으로 이동"
-        >
-          <img
-            src="./icons/bell_black.svg"
-            alt=""
-            class="notification-icon"
+        <div class="top-buttons">
+          <a
+            href="11_notifications.html"
+            class="header-icon-button"
+            aria-label="알림 화면으로 이동"
           >
-        </a>
+            <img
+              src="./icons/bell_black.svg"
+              alt=""
+              class="header-icon"
+            >
+          </a>
+
+          <button
+            type="button"
+            class="header-icon-button menu-open-button"
+            aria-label="전체 메뉴 열기"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+          >
+            <img
+              src="./icons/navi_menu.svg"
+              alt=""
+              class="header-icon"
+            >
+          </button>
+        </div>
       </header>
 
+      <!-- 메인 배너 슬라이드 -->
+      <section
+        class="main-banner-section"
+        aria-label="주요 서비스 안내"
+      >
+        <div class="swiper main-banner-swiper">
+
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <a
+                href="09_progress_status.html"
+                class="banner-link"
+                aria-label="진료 진행상황 확인하기"
+              >
+                <img
+                  src="./images/home_banner1.png"
+                  alt="현재 진료 상황을 한눈에 확인하세요"
+                  class="banner-image"
+                >
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a
+                href="11_notifications.html"
+                class="banner-link"
+                aria-label="진료 알림 확인하기"
+              >
+                <img
+                  src="./images/home_banner2.png"
+                  alt="응급실 진료 알림을 확인하세요"
+                  class="banner-image"
+                >
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a
+                href="16_location.html"
+                class="banner-link"
+                aria-label="응급실 길찾기 화면으로 이동"
+              >
+                <img
+                  src="./images/home_banner3.png"
+                  alt="응급실 위치와 길찾기를 확인하세요"
+                  class="banner-image"
+                >
+              </a>
+            </div>
+
+          </div>
+
+          <div
+            class="swiper-pagination"
+            aria-label="배너 페이지 선택"
+          ></div>
+        </div>
+      </section>
+
+      <!-- 기존 카드 목록 -->
       <div class="card-list">
 
+        <!-- 환자 정보 -->
         <section class="card patient-card">
           <a
             href="17_more.html"
@@ -468,8 +152,9 @@
               aria-label="환자 정보 자세히 보기"
             >
               <p class="patient-name">김민준 (남, 12세)</p>
+
               <p class="patient-number">
-                접수번호　2024-0501-0001
+                접수번호 2024-0501-0001
               </p>
             </a>
 
@@ -482,6 +167,7 @@
           </div>
         </section>
 
+        <!-- 진료 진행상황 -->
         <a
           href="09_progress_status.html"
           class="card progress-card"
@@ -538,6 +224,7 @@
           </div>
         </a>
 
+        <!-- 예상 대기시간 -->
         <a
           href="08_expected_wait_time.html"
           class="card waiting-card"
@@ -566,15 +253,14 @@
               <h2 class="delay-title">지연 사유</h2>
 
               <p class="delay-text">
-                응급 환자 발생 증가로<br>
-                인해 대기시간이 길어<br>
-                지고 있어요.
+                응급 환자 발생 증가로 인해 대기시간이 길어지고 있어요.
               </p>
             </div>
 
           </div>
         </a>
 
+        <!-- 지금 할 일 -->
         <a
           href="10_progress_detail.html"
           class="card todo-card"
@@ -622,6 +308,7 @@
           </div>
         </a>
 
+        <!-- 최근 알림 -->
         <a
           href="11_notifications.html"
           class="card recent-card"
@@ -652,9 +339,9 @@
         </a>
 
       </div>
-
     </section>
 
+    <!-- 하단 탭바 -->
     <nav class="bottom-tab-bar" aria-label="하단 메뉴">
 
       <a
@@ -707,6 +394,217 @@
 
     </nav>
 
-  </main>
+    <!-- 햄버거 메뉴 전체 영역 -->
+    <div
+      class="mobile-menu-wrap"
+      id="mobileMenu"
+      aria-hidden="true"
+    >
+      <!-- 딤 오버레이 -->
+      <button
+        type="button"
+        class="menu-overlay"
+        aria-label="전체 메뉴 닫기"
+      ></button>
+
+      <!-- 왼쪽 메뉴 패널 -->
+      <aside
+        class="mobile-menu-panel"
+        aria-label="전체 메뉴"
+        tabindex="-1"
+      >
+        <div class="mobile-menu-scroll">
+
+          <div class="menu-top">
+            <img
+              src="./images/logo2.png"
+              alt="ER 안심가이드"
+              class="menu-logo"
+            >
+
+            <button
+              type="button"
+              class="menu-close-button"
+              aria-label="전체 메뉴 닫기"
+            >
+              <img
+                src="./icons/close.svg"
+                alt=""
+                class="menu-close-icon"
+              >
+            </button>
+          </div>
+
+          <!-- 환자 정보 카드 -->
+          <a
+            href="17_more.html"
+            class="menu-patient-card"
+          >
+            <img
+              src="./icons/profile_m.svg"
+              alt=""
+              class="menu-profile"
+            >
+
+            <div class="menu-patient-text">
+              <strong class="menu-hospital-name">
+                가온대병원 응급실
+              </strong>
+
+              <span class="menu-patient-name">
+                김민준 (남, 12세)
+              </span>
+
+              <span class="menu-patient-number">
+                접수번호&nbsp; 2024-0501-0001
+              </span>
+            </div>
+          </a>
+
+          <!-- 바로가기 -->
+          <section class="menu-section">
+            <h2 class="menu-section-title">바로가기</h2>
+
+            <nav class="menu-list" aria-label="바로가기 메뉴">
+
+              <a href="07_home.html" class="menu-item">
+                <img
+                  src="./icons/tap_home_active.svg"
+                  alt=""
+                  class="menu-item-icon"
+                >
+                <span class="menu-item-text">홈</span>
+                <img
+                  src="./icons/next.svg"
+                  alt=""
+                  class="menu-next-icon"
+                >
+              </a>
+
+              <a
+                href="09_progress_status.html"
+                class="menu-item"
+              >
+                <img
+                  src="./icons/tap_check.svg"
+                  alt=""
+                  class="menu-item-icon"
+                >
+                <span class="menu-item-text">진행상황</span>
+                <img
+                  src="./icons/next.svg"
+                  alt=""
+                  class="menu-next-icon"
+                >
+              </a>
+
+              <a
+                href="11_notifications.html"
+                class="menu-item"
+              >
+                <img
+                  src="./icons/tap_bell.svg"
+                  alt=""
+                  class="menu-item-icon"
+                >
+                <span class="menu-item-text">알림</span>
+                <img
+                  src="./icons/next.svg"
+                  alt=""
+                  class="menu-next-icon"
+                >
+              </a>
+
+              <a href="17_more.html" class="menu-item">
+                <img
+                  src="./icons/tap_menu.svg"
+                  alt=""
+                  class="menu-item-icon"
+                >
+                <span class="menu-item-text">더보기</span>
+                <img
+                  src="./icons/next.svg"
+                  alt=""
+                  class="menu-next-icon"
+                >
+              </a>
+
+            </nav>
+          </section>
+
+          <!-- 고객지원 -->
+<section class="menu-section support-section">
+  <h2 class="menu-section-title">고객지원</h2>
+
+  <nav class="menu-list" aria-label="고객지원 메뉴">
+
+    <a href="./13_explore_faq.html" class="menu-item">
+      <img
+        src="./icons/search2.svg"
+        alt=""
+        class="menu-item-icon"
+      >
+
+      <span class="menu-item-text">
+        자주 묻는 질문
+      </span>
+
+      <img
+        src="./icons/next.svg"
+        alt=""
+        class="menu-next-icon"
+      >
+    </a>
+
+    <a href="./16_location_guide.html" class="menu-item">
+      <img
+        src="./icons/location3.svg"
+        alt=""
+        class="menu-item-icon"
+      >
+
+      <span class="menu-item-text">
+        길찾기
+      </span>
+
+      <img
+        src="./icons/next.svg"
+        alt=""
+        class="menu-next-icon"
+      >
+    </a>
+
+    <a href="./18_service_end.html" class="menu-item">
+      <img
+        src="./icons/logout2.svg"
+        alt=""
+        class="menu-item-icon"
+      >
+
+      <span class="menu-item-text">
+        로그아웃
+      </span>
+
+      <img
+        src="./icons/next.svg"
+        alt=""
+        class="menu-next-icon"
+      >
+    </a>
+
+  </nav>
+</section>
+
+</div>
+</aside>
+</div>
+
+</main>
+
+  <!-- Swiper JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <!-- 홈 화면 JavaScript -->
+  <script src="./js/home.js"></script>
 </body>
 </html>
