@@ -34,6 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
         el: ".main-banner-swiper .swiper-pagination",
         clickable: true
       },
+      navigation: {
+        nextEl: ".main-banner-swiper .swiper-button-next",
+        prevEl: ".main-banner-swiper .swiper-button-prev"
+      },
 
       keyboard: {
         enabled: true,
