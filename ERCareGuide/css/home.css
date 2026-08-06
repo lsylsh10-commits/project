@@ -773,3 +773,26 @@ button:focus-visible {
   outline: 2px solid #0083cc;
   outline-offset: 2px;
 }
+/* 배너 이전·다음 버튼 */
+.main-banner-swiper .swiper-button-prev,
+.main-banner-swiper .swiper-button-next {
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+.main-banner-swiper .swiper-button-prev {
+  left: 12px;
+}
+
+.main-banner-swiper .swiper-button-next {
+  right: 12px;
+}
+
+.main-banner-swiper .swiper-button-prev::after,
+.main-banner-swiper .swiper-button-next::after {
+  font-size: 14px;
+  font-weight: 700;
+}
