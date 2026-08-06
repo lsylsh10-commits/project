@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>모바일아산병원</title>
+
+    <!-- Swiper CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    >
+
+    <!-- 사용자 CSS -->
+    <link rel="stylesheet" href="./css/mainai.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- 헤더 -->
+        <header class="header">
+
+            <button class="header-button" type="button">
+                <img
+                    src="./images/bg_header_lnb.png"
+                    alt="메뉴 열기"
+                >
+            </button>
+
+            <h1 class="header-logo">
+                <a href="./index.html">
+                    <img
+                        src="./images/asan_logo.png"
+                        alt="서울아산병원"
+                    >
+                </a>
+            </h1>
+
+            <button class="header-button" type="button">
+                <img
+                    src="./images/img_topSerch.png"
+                    alt="검색"
+                >
+            </button>
+
+        </header>
+
+        <!-- 메인 배너 슬라이드 -->
+        <main class="main">
+
+            <div class="swiper main-banner">
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <img
+                            src="./images/main_visual_640.png"
+                            alt="서울아산병원 메인 배너 1"
+                        >
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img
+                            src="./images/main_visual_newsweek.png"
+                            alt="서울아산병원 메인 배너 2"
+                        >
+                    </div>
+
+                    <div class="swiper-slide">
+                        <img
+                            src="./images/main_visual_3.png"
+                            alt="서울아산병원 메인 배너 3"
+                        >
+                    </div>
+
+                </div>
+
+                <!-- 페이지 표시 -->
+                <div class="swiper-pagination"></div>
+
+                <!-- 이전 버튼 -->
+                <div class="swiper-button-prev"></div>
+
+                <!-- 다음 버튼 -->
+                <div class="swiper-button-next"></div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Swiper JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+    <!-- 사용자 JavaScript -->
+    <script src="./js/mainai.js"></script>
+
+</body>
+</html>

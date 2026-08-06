@@ -1,0 +1,159 @@
+@charset "utf-8";
+
+/* 기본 초기화 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100svh;
+}
+
+body {
+    font-family: "Pretendard", "Malgun Gothic", sans-serif;
+    background-color: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+}
+
+/* 모바일 앱 전체 영역 */
+.app {
+    width: 100%;
+    min-height: 100svh;
+    overflow-x: hidden;
+    background-color: #ffffff;
+}
+
+/* 헤더 */
+.header {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #343741;
+}
+
+/* 좌우 버튼 */
+.header-button {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-button img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* 중앙 로고 */
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo a {
+    display: block;
+}
+
+.header-logo img {
+    width: 82px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 메인 */
+.main {
+    width: 100%;
+}
+
+/* 배너 슬라이드 */
+.main-banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #7651b4;
+}
+
+/* 각 슬라이드 */
+.main-banner .swiper-slide {
+    width: 100%;
+}
+
+/* 배너 이미지 */
+.main-banner .swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 이전·다음 화살표 */
+.main-banner .swiper-button-prev,
+.main-banner .swiper-button-next {
+    width: 32px;
+    height: 50px;
+    margin-top: -25px;
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.main-banner .swiper-button-prev {
+    left: 8px;
+}
+
+.main-banner .swiper-button-next {
+    right: 8px;
+}
+
+.main-banner .swiper-button-prev::after,
+.main-banner .swiper-button-next::after {
+    font-size: 34px;
+    font-weight: 300;
+}
+
+/* 페이지 버튼 영역 */
+.main-banner .swiper-pagination {
+    bottom: 8px;
+}
+
+/* 기본 페이지 버튼 */
+.main-banner .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
+
+    background-color: rgba(50, 50, 60, 0.65);
+    opacity: 1;
+}
+
+/* 활성 페이지 버튼 */
+.main-banner .swiper-pagination-bullet-active {
+    height: 14px;
+    border-radius: 6px;
+    background-color: #0083cc;
+}
