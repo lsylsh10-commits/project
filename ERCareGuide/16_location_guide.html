@@ -554,8 +554,8 @@
     카카오 JavaScript 키로 변경하세요.
   -->
   <script
-    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=96a7a58d2bdc24d0dc8c4cb3a1420557"
-  ></script>
+  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=96a7a58d2bdc24d0dc8c4cb3a1420557&autoload=false"
+></script>
 
   <script>
     "use strict";
@@ -951,10 +951,19 @@
     /*
       API 스크립트가 로드된 뒤 지도 실행
     */
-    window.addEventListener(
-      "load",
-      createMap
-    );
+    window.addEventListener("load", function () {
+  if (
+    typeof kakao !== "undefined" &&
+    kakao.maps
+  ) {
+    kakao.maps.load(function () {
+      createMap();
+    });
+  } else {
+    mapLoading.textContent =
+      "카카오 지도 API를 불러오지 못했습니다.";
+  }
+});
   </script>
 </body>
 </html>
