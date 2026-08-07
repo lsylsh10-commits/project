@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+body{
+    font-family: "맑은 고딕","malgun gothic", sans-serif;
+}
+
+*{margin: 0; padding: 0;}
+fieldset{
+padding: 30px;
+}
+
+li{margin-bottom: 24px;}
+
+ul li{list-style: none;}
+
+.name{padding-left: 32px;}
+.id{padding-left: 15px;}
