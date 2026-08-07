@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TETRIS</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+<div class="game-wrapper">
+
+  <div class="game-area">
+
+    <canvas id="game" width="300" height="600"></canvas>
+
+    <div class="pause" id="pauseScreen">
+      PAUSED
+    </div>
+
+    <div class="game-over" id="gameOver">
+      <h2>GAME OVER</h2>
+      <p>최종 점수 <strong id="finalScore">0</strong></p>
+      <button id="restartButton">다시 시작</button>
+    </div>
+
+  </div>
+
+  <div class="side-panel">
+
+    <div class="logo">TETRIS</div>
+
+    <div class="panel">
+      <div class="panel-title">SCORE</div>
+      <div class="value" id="score">0</div>
+    </div>
+
+    <div class="stats">
+
+      <div class="panel">
+        <div class="panel-title">LEVEL</div>
+        <div class="value" id="level">1</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">LINES</div>
+        <div class="value" id="lines">0</div>
+      </div>
+
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">NEXT</div>
+
+      <div class="next-box">
+        <canvas id="next" width="120" height="100"></canvas>
+      </div>
+    </div>
+
+    <div class="panel controls">
+
+      <div class="panel-title">CONTROLS</div>
+
+      <div class="control-row">
+        <span>이동</span>
+        <span class="key">← →</span>
+      </div>
+
+      <div class="control-row">
+        <span>내리기</span>
+        <span class="key">↓</span>
+      </div>
+
+      <div class="control-row">
+        <span>회전</span>
+        <span class="key">↑</span>
+      </div>
+
+      <div class="control-row">
+        <span>바로 내리기</span>
+        <span class="key">SPACE</span>
+      </div>
+
+      <div class="control-row">
+        <span>일시정지</span>
+        <span class="key">P</span>
+      </div>
+
+    </div>
+
+    <button id="newGameButton">새 게임</button>
+
+  </div>
+
+</div>
+
+<script src="./js/main.js"></script>
+
+</body>
+</html>
