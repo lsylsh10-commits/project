@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/project/static/css/main.ac69384c.css",
-    "main.js": "/project/static/js/main.5f90719e.js",
-    "static/media/hero-model.jpg": "/project/static/media/hero-model.29b4edd9c9620141a497.jpg",
-    "static/media/model-face.jpg": "/project/static/media/model-face.65757cd068f600180191.jpg",
-    "static/media/model-eye.jpg": "/project/static/media/model-eye.f4eb1ad982522ec0b857.jpg",
-    "static/media/model-nose.jpg": "/project/static/media/model-nose.fc2a775b04a4e9e8b073.jpg",
+    "main.css": "/project/static/css/main.a5de7dff.css",
+    "main.js": "/project/static/js/main.fb7c8a6f.js",
+    "static/media/brand-intro.png": "/project/static/media/brand-intro.0391d596df2bb83722a9.png",
+    "static/media/hero.png": "/project/static/media/hero.793495a66cdb54d7b9fb.png",
+    "static/media/private-sanctuary.png": "/project/static/media/private-sanctuary.731fc70cd3b41b37304b.png",
+    "static/media/signature-ritual.png": "/project/static/media/signature-ritual.d35ca36871b220a8d203.png",
+    "static/media/first-ritual.png": "/project/static/media/first-ritual.1bfb841a3b85b2c0a419.png",
+    "static/media/afterglow.png": "/project/static/media/afterglow.204275383d5cb19fe0c6.png",
     "index.html": "/project/index.html",
-    "main.ac69384c.css.map": "/project/static/css/main.ac69384c.css.map",
-    "main.5f90719e.js.map": "/project/static/js/main.5f90719e.js.map"
+    "main.a5de7dff.css.map": "/project/static/css/main.a5de7dff.css.map",
+    "main.fb7c8a6f.js.map": "/project/static/js/main.fb7c8a6f.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac69384c.css",
-    "static/js/main.5f90719e.js"
+    "static/css/main.a5de7dff.css",
+    "static/js/main.fb7c8a6f.js"
   ]
 }
