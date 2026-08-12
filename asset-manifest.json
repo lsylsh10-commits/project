@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/project/static/css/main.a5de7dff.css",
-    "main.js": "/project/static/js/main.fb7c8a6f.js",
+    "main.js": "/project/static/js/main.0379f435.js",
     "static/media/brand-intro.png": "/project/static/media/brand-intro.0391d596df2bb83722a9.png",
     "static/media/hero.png": "/project/static/media/hero.793495a66cdb54d7b9fb.png",
     "static/media/private-sanctuary.png": "/project/static/media/private-sanctuary.731fc70cd3b41b37304b.png",
-    "static/media/signature-ritual.png": "/project/static/media/signature-ritual.d35ca36871b220a8d203.png",
+    "static/media/signature-ritual.png": "/project/static/media/signature-ritual.dd1410b9bef3e4890fa1.png",
     "static/media/first-ritual.png": "/project/static/media/first-ritual.1bfb841a3b85b2c0a419.png",
     "static/media/afterglow.png": "/project/static/media/afterglow.204275383d5cb19fe0c6.png",
     "index.html": "/project/index.html",
     "main.a5de7dff.css.map": "/project/static/css/main.a5de7dff.css.map",
-    "main.fb7c8a6f.js.map": "/project/static/js/main.fb7c8a6f.js.map"
+    "main.0379f435.js.map": "/project/static/js/main.0379f435.js.map"
   },
   "entrypoints": [
     "static/css/main.a5de7dff.css",
-    "static/js/main.fb7c8a6f.js"
+    "static/js/main.0379f435.js"
   ]
 }
