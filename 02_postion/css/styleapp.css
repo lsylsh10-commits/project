@@ -1,0 +1,99 @@
+@charset "utf-8";
+body{font-family: "맑은 고딕", "malgun gothic", sans-serif;}
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.parent{
+    width: 1000px;
+    height: 1000px;
+    background: #87ceea;
+    margin: 0 auto;
+    position: relative;
+}
+
+.parent div{
+    width: 200px;
+    height: 200px;
+}
+.parent .box1{
+    background: #81007f;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.parent .box2{
+    background: #81007f;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.parent .box3{
+    background: #81007f;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.parent .box4{
+    background: #81007f;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+
+.parent .box5{
+    background: #ffff00;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+.parent .box6{
+    background: #ffff00;
+    position: absolute;
+    right: 100px;
+    top: 100px;
+}
+.parent .box7{
+    background: #ffff00;
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+}
+.parent .box8{
+    background: #ffff00;
+    position: absolute;
+    left: 100px;
+    bottom: 100px;
+}
+
+
+.parent .box9{
+    background: #fe0000;
+    position: absolute;
+    left: 200px;
+    top: 200px;
+}
+.parent .box10{
+    background: #fe0000;
+    position: absolute;
+    right: 200px;
+    top: 200px;
+}
+.parent .box11{
+    background: #fe0000;
+    position: absolute;
+    right: 200px;
+    bottom: 200px;
+}
+.parent .box12{
+    background: #fe0000;
+    position: absolute;
+    left: 200px;
+    bottom: 200px;
+}
+
+.parent .box13{
+    background: #000000;
+    position: absolute;
+    left: 400px;
+    bottom: 400px;
+}
