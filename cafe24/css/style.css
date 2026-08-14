@@ -1,0 +1,1429 @@
+@charset "utf-8";
+body{font-family: "맑은 고딕", "malgun gothic", sans-serif;}
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+body{
+    font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+/* header */
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #fdfbf7;
+}
+/* inner */
+.inner{
+    width: 1280px;
+    height: 80px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+/* logo */
+.logo{
+    width: 180px;
+}
+.logo a{
+    display: block;
+}
+.logo img{
+    display: block;
+    width: 130px;
+    height: auto;
+}
+/* menu */
+nav{
+    margin-left: 70px;
+}
+.gnb{
+    display: flex;
+    align-items: center;
+    gap: 58px;
+}
+.gnb li a{
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    color: #4b352a;
+    white-space: nowrap;
+}
+.gnb li a:hover{
+    font-weight: 700;
+}
+/* 가까운 매장 찾기 */
+.store-btn{
+    margin-left: auto;
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #4b2d1d;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+/* 위치 아이콘 */
+.store-btn img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+.store-btn:hover{
+    font-weight: 700;
+}
+/* ==================== HERO SECTION ==================== */
+.hero {
+    width: 100%;
+    height: 700px;
+
+    background-image: url("../images/Hero.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* ==================== HERO 내부 영역 ==================== */
+.hero-inner {
+    width: 1280px;
+    height: 700px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* ==================== HERO 텍스트 영역 ==================== */
+.hero-content {
+    width: 700px;
+}
+
+
+/* ==================== 상단 라벨 ==================== */
+.hero-label {
+    display: inline-block;
+
+    margin-bottom: 30px;
+    padding: 9px 18px;
+
+    background-color: #fff3e5;
+
+    border-radius: 30px;
+
+    color: #df7c21;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* ==================== 메인 타이틀 ==================== */
+.hero-title {
+    margin-bottom: 30px;
+
+    color: #3b281d;
+
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.12;
+
+    letter-spacing: -3px;
+
+    white-space: nowrap;
+}
+
+
+/* ==================== 메인 타이틀 강조 ==================== */
+.hero-title strong {
+    color: #dd7418;
+
+    font-weight: 800;
+}
+
+
+/* ==================== 중제목 ==================== */
+.hero-sub-title {
+    margin-bottom: 8px;
+
+    color: #51443c;
+
+    font-size: 24px;
+    font-weight: 500;
+}
+
+
+/* ==================== 설명 문구 ==================== */
+.hero-description {
+    margin-bottom: 48px;
+
+    color: #62554e;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+
+/* ==================== 버튼 영역 ==================== */
+.hero-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* ==================== 공통 버튼 ==================== */
+.hero-btn {
+    height: 48px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* ==================== 버튼 아이콘 ==================== */
+.hero-btn img {
+    width: 18px;
+    height: 18px;
+
+    display: block;
+}
+
+
+/* ==================== 가까운 매장 찾기 버튼 ==================== */
+.hero-btn-primary {
+    background-color: #df8125;
+
+    border: 1px solid #df8125;
+
+    color: #ffffff;
+}
+
+
+/* ==================== 이용 방법 보기 버튼 ==================== */
+.hero-btn-outline {
+    background-color: #ffffff;
+
+    border: 1px solid #8b7061;
+
+    color: #4c3a30;
+}
+/* ==================== INTRO SECTION ==================== */
+.intro {
+    width: 100%;
+    height: 624px;
+
+    background-color: #f7e9d2;
+}
+
+
+/* ==================== INTRO 내부 영역 ==================== */
+.intro-inner {
+    width: 1180px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================== INTRO 상단 소개 영역 ==================== */
+.intro-heading {
+    text-align: center;
+
+    margin-bottom: 52px;
+}
+
+
+/* ==================== INTRO 상단 아이콘 ==================== */
+.intro-main-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 24px;
+}
+
+
+/* ==================== INTRO 큰 제목 ==================== */
+.intro-title {
+    margin-bottom: 20px;
+
+    color: #402c22;
+
+    font-size: 40px;
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+/* ==================== INTRO 소개 문구 ==================== */
+.intro-description {
+    color: #7a6c64;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.7;
+}
+
+
+/* ==================== INTRO 특징 영역 ==================== */
+.intro-feature-list {
+    width: 820px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* ==================== INTRO 특징 공통 ==================== */
+.intro-feature {
+    position: relative;
+
+    width: 205px;
+
+    text-align: center;
+
+    font-size: 16px;
+    color: #6d615a;
+
+    line-height: 1.5;
+}
+
+
+
+/* ==================== INTRO 특징 아이콘 ==================== */
+.intro-feature-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ==================== BEST SECTION ==================== */
+.best-section{
+    width: 100%;
+    height: 683px;
+    background-color: #fdfaf5;
+}
+
+
+/* ==================== BEST INNER ==================== */
+.best-inner{
+    width: 1180px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 105px;
+}
+
+
+/* ==================== BEST TITLE ==================== */
+.best-title-wrap{
+    position: relative;
+    width: 100%;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.best-title-wrap h2{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    color: #4b3024;
+}
+
+
+/* ==================== MORE MENU ==================== */
+.more-menu{
+    position: absolute;
+    right: 0;
+    top: 10px;
+
+    font-size: 13px;
+    font-weight: 400;
+    color: #777;
+}
+
+.more-menu:hover{
+    font-weight: 700;
+}
+
+
+/* ==================== BEST MENU LIST ==================== */
+.best-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+
+/* ==================== MENU CARD ==================== */
+.menu-card{
+    width: 240px;
+    height: 370px;
+    padding: 18px;
+
+    background-color: #fffdfa;
+
+    border: 1px solid #dccdbf;
+    border-radius: 7px;
+
+    text-align: center;
+}
+
+
+/* ==================== MENU IMAGE ==================== */
+.menu-img{
+    position: relative;
+
+    width: 100%;
+    height: 210px;
+
+    margin: 0 0 20px;
+
+    overflow: visible;
+}
+
+
+/* ==================== IMAGE BOX ==================== */
+.img-box{
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.img-box img{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* ==================== MENU CARD HOVER ==================== */
+.menu-card:hover .img-box img{
+    transform: scale(1.1);
+}
+
+
+/* ==================== BEST / NEW BADGE ==================== */
+.badge{
+    position: absolute;
+
+    top: -14px;
+    left: -12px;
+
+    z-index: 10;
+
+    padding: 7px 12px;
+
+    background-color: #df842d;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+
+    line-height: 1;
+}
+
+
+/* ==================== MENU TEXT ==================== */
+.menu-text h3{
+    margin: 14px 0 24px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    color: #3b2920;
+}
+
+
+/* ==================== MENU DESCRIPTION ==================== */
+.menu-text p{
+    margin-bottom: 17px;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #8b817b;
+
+    white-space: nowrap;
+}
+
+
+/* ==================== MENU PRICE ==================== */
+.menu-text strong{
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #3b2920;
+}
+
+/* ==================== GUIDE SECTION ==================== */
+.guide-section{
+    width: 100%;
+    height: 407px;
+
+    background-color: #f6e7cf;
+}
+
+
+/* ==================== GUIDE INNER ==================== */
+.guide-inner{
+    width: 1280px;
+    height: 100%;
+
+    margin: 0 auto;
+    padding-top: 95px;
+}
+
+
+/* ==================== GUIDE TITLE ==================== */
+.guide-title{
+    margin-bottom: 50px;
+
+    text-align: center;
+}
+
+.guide-title h2{
+    font-size: 40px;
+    font-weight: 700;
+
+    color: #4b2f20;
+}
+
+
+/* ==================== GUIDE LIST ==================== */
+.guide-list{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+
+/* ==================== GUIDE CARD ==================== */
+.guide-card{
+    position: relative;
+
+    width: 230px;
+    height: 118px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+
+    padding: 18px 12px;
+
+    background-color: #fff;
+
+    border: 1px solid #eadbc7;
+    border-radius: 7px;
+}
+
+
+/* ==================== STEP NUMBER ==================== */
+.step-num{
+    width: 24px;
+    height: 24px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 4px;
+
+    background-color: #5a3825;
+
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #fff;
+}
+
+
+/* ==================== GUIDE ICON ==================== */
+.guide-icon{
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    margin-right: 10px;
+}
+
+.guide-icon img{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ==================== GUIDE TEXT ==================== */
+.guide-text{
+    flex: 1;
+    min-width: 0;
+}
+
+.guide-text h3{
+    margin-bottom: 6px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    color: #4a3021;
+
+    white-space: nowrap;
+}
+
+.guide-text p{
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    color: #81756d;
+
+    white-space: nowrap;
+}
+
+
+/* ==================== GUIDE ARROW ==================== */
+.guide-arrow{
+    width: 18px;
+    height: 24px;
+
+    margin: 0 2px;
+
+    flex-shrink: 0;
+}
+
+.guide-arrow img{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+
+/* ==================== BENEFIT SECTION ==================== */
+.benefit-section{
+    width: 100%;
+    height: 493px;
+
+    background-color: #fffdfa;
+}
+
+
+/* ==================== BENEFIT INNER ==================== */
+.benefit-inner{
+    width: 1280px;
+    height: 100%;
+
+    margin: 0 auto;
+    padding-top: 96px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================== BENEFIT TITLE ==================== */
+.benefit-title{
+    margin-bottom: 64px;
+
+    text-align: center;
+}
+
+.benefit-title h2{
+    font-size: 40px;
+    font-weight: 700;
+
+    color: #4b3024;
+}
+
+
+/* ==================== BENEFIT LIST ==================== */
+.benefit-list{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+/* ==================== BENEFIT CARD ==================== */
+.benefit-card{
+    position: relative;
+
+    width: 248px;
+
+    flex-shrink: 0;
+
+    text-align: center;
+}
+
+
+/* ==================== BENEFIT DIVIDER ==================== */
+.benefit-card:not(:last-child)::after{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 1px;
+    height: 221px;
+
+    background-color: #eadfce;
+}
+
+
+/* ==================== BENEFIT ICON ==================== */
+.benefit-icon{
+    width: 96px;
+    height: 96px;
+
+    margin: 0 auto 24px;
+}
+
+.benefit-icon img{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ==================== BENEFIT CARD TITLE ==================== */
+.benefit-card h3{
+    margin-bottom: 18px;
+
+    font-size: 24px;
+    font-weight: 500;
+
+    color: #4b3024;
+}
+
+
+/* ==================== BENEFIT DESCRIPTION ==================== */
+.benefit-card p{
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.6;
+
+    color: #766b64;
+}
+/* ==================== STORE SECTION ==================== */
+.store-section{
+    width: 100%;
+    height: 660px;
+
+    background-color: #f6e7cf;
+}
+
+
+/* ==================== STORE INNER ==================== */
+.store-inner{
+    width: 1280px;
+    height: 100%;
+
+    margin: 0 auto;
+    padding-top: 95px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================== STORE TITLE ==================== */
+.store-title{
+    margin-bottom: 50px;
+
+    text-align: center;
+}
+
+.store-title h2{
+    font-size: 40px;
+    font-weight: 700;
+
+    color: #4b3024;
+}
+
+
+/* ==================== STORE CONTENT ==================== */
+.store-content{
+    width: 1232px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: stretch;
+
+    gap: 20px;
+}
+
+
+/* ==================== STORE INFO CARD ==================== */
+.store-card{
+    width: 350px;
+    height: 375px;
+
+    flex-shrink: 0;
+
+    padding: 55px 24px 35px;
+
+    box-sizing: border-box;
+
+    background-color: #fffdfa;
+
+    border: 1px solid #eadbc7;
+    border-radius: 7px;
+}
+
+
+/* ==================== STORE NAME ==================== */
+.store-name{
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 26px;
+}
+
+.store-name h3{
+    font-size: 24px;
+    font-weight: 500;
+
+    color: #4b3024;
+}
+
+.store-status{
+    margin-left: 12px;
+
+    padding: 5px 9px;
+
+    background-color: #fff0df;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    color: #e98228;
+}
+
+
+/* ==================== STORE INFO ==================== */
+.store-info{
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 19px;
+}
+
+.store-info img{
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    margin-right: 12px;
+
+    object-fit: contain;
+}
+
+.store-info p{
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #746860;
+}
+
+
+/* ==================== STORE BUTTON WRAP ==================== */
+.store-btn-wrap{
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+
+/* ==================== STORE SEARCH BUTTON ==================== */
+.store-search-btn{
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 20px;
+
+    box-sizing: border-box;
+
+    background-color: #4b3024;
+
+    border: 1px solid #4b3024;
+    border-radius: 7px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #fff;
+
+    text-decoration: none;
+}
+
+
+/* ==================== STORE DETAIL BUTTON ==================== */
+.store-detail-btn{
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 20px;
+
+    box-sizing: border-box;
+
+    background-color: #fffdfa;
+
+    border: 1px solid #8b6d5b;
+    border-radius: 7px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #4b3024;
+
+    text-decoration: none;
+}
+
+
+/* ==================== STORE BUTTON HOVER ==================== */
+.store-search-btn:hover{
+    background-color: #372218;
+}
+
+.store-detail-btn:hover{
+    background-color: #f7eee5;
+}
+
+
+/* ==================== STORE MAP CARD ==================== */
+.store-map-card{
+    width: 862px;
+    height: 375px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    background-color: #fff;
+
+    border-radius: 7px;
+}
+
+
+/* ==================== KAKAO MAP ==================== */
+#map{
+    width: 100%;
+    height: 100%;
+}
+
+/* ==================== FAQ SECTION ==================== */
+.faq-section{
+    width: 100%;
+    height: 452px;
+
+    background-color: #fffdfa;
+}
+
+
+/* ==================== FAQ INNER ==================== */
+.faq-inner{
+    width: 1280px;
+    height: 100%;
+
+    margin: 0 auto;
+    padding-top: 85px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================== FAQ TITLE ==================== */
+.faq-title-wrap{
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 80px;
+
+    text-align: center;
+}
+
+.faq-title-wrap h2{
+    font-size: 40px;
+    font-weight: 700;
+
+    color: #4b3024;
+}
+
+
+/* ==================== FAQ MORE ==================== */
+.faq-more{
+    position: absolute;
+
+    top: 12px;
+    right: 90px;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #857a72;
+
+    text-decoration: none;
+}
+
+
+/* ==================== FAQ LIST ==================== */
+.faq-list{
+    width: 1020px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px 20px;
+}
+
+
+/* ==================== FAQ ITEM ==================== */
+.faq-item{
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    box-sizing: border-box;
+
+    background-color: #fffdfa;
+
+    border: 1px solid #decdbb;
+    border-radius: 7px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    color: #4b3024;
+
+    text-decoration: none;
+}
+
+
+/* ==================== FAQ ITEM ICON ==================== */
+.faq-item img{
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    margin-left: 15px;
+
+    object-fit: contain;
+}
+
+
+/* ==================== FAQ ITEM HOVER ==================== */
+.faq-item:hover{
+    border-color: #b99478;
+}
+
+/* ==================== BANNER SECTION ==================== */
+.banner-section{
+    width: 100%;
+    height: 300px;
+
+    background-color: #fffdfa;
+    margin-bottom: 100px
+}
+
+
+/* ==================== BANNER INNER ==================== */
+.banner-inner{
+    width: 1280px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================== BANNER BOX ==================== */
+.banner-box{
+    width: 1180px;
+    height: 190px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 65px;
+
+    box-sizing: border-box;
+
+    background-image: url("../images/banner.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 16px;
+}
+
+
+/* ==================== BANNER TEXT ==================== */
+.banner-text{
+    margin-left: 250px;
+}
+
+.banner-text h2{
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -2.5px;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.banner-text p{
+    font-size: 24px;
+    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* ==================== BANNER BUTTON WRAP ==================== */
+.banner-btn-wrap{
+    margin-left: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* ==================== BANNER BUTTON ==================== */
+.banner-btn{
+    width: 160px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    text-decoration: none;
+}
+
+
+/* ==================== BANNER BUTTON ICON ==================== */
+.banner-btn img{
+    width: 18px;
+    height: 18px;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* ==================== FIND BUTTON ==================== */
+.find-btn{
+    background-color: #e78622;
+
+    border: 1px solid #e78622;
+
+    color: #fff;
+}
+
+
+/* ==================== GUIDE BUTTON ==================== */
+.guide-btn{
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+
+/* ==================== BANNER BUTTON HOVER ==================== */
+.find-btn:hover{
+    background-color: #cf7418;
+}
+
+.guide-btn:hover{
+    background-color: rgba(255, 255, 255, 0.12);
+}
+/* ==================== FOOTER SECTION ==================== */
+.footer-section{
+    width: 100%;
+    height: 425px;
+
+    color: #f7eee8;
+}
+
+
+/* ==================== FOOTER TOP ==================== */
+.footer-top{
+    width: 100%;
+    height: 345px;
+
+    background-color: #553421;
+}
+
+
+/* ==================== FOOTER INNER ==================== */
+.footer-inner{
+    width: 1280px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-start;
+
+    padding-top: 65px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================== FOOTER BRAND ==================== */
+.footer-brand{
+    width: 320px;
+    height: 215px;
+
+    padding-right: 55px;
+
+    box-sizing: border-box;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+
+/* ==================== FOOTER LOGO ==================== */
+.footer-logo{
+    margin-bottom: 24px;
+}
+
+.footer-logo img{
+    display: block;
+
+    width: 150px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* ==================== FOOTER BRAND TEXT ==================== */
+.footer-brand-text{
+    margin-bottom: 24px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    line-height: 1.7;
+
+    color: #f5e8df;
+}
+
+
+/* ==================== FOOTER SOCIAL ==================== */
+.footer-social{
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.footer-social a{
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-social img{
+    display: block;
+
+    width: 34px;
+    height: 34px;
+
+    object-fit: contain;
+}
+
+
+/* ==================== FOOTER MENU ==================== */
+.footer-menu{
+    width: 220px;
+    height: 215px;
+
+    padding-left: 55px;
+
+    box-sizing: border-box;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.footer-menu h3{
+    margin-bottom: 28px;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #fff;
+}
+
+
+/* ==================== FOOTER MENU LIST ==================== */
+.footer-menu ul{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-menu li{
+    margin-bottom: 18px;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #eaded6;
+}
+
+.footer-menu a{
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #eaded6;
+
+    text-decoration: none;
+}
+
+
+/* ==================== FOOTER MENU HOVER ==================== */
+.footer-menu a:hover{
+    font-weight: 700;
+}
+
+
+/* ==================== FOOTER DOWNLOAD ==================== */
+.footer-download{
+    width: 220px;
+
+    border-right: 0;
+}
+
+.footer-download p{
+    margin-bottom: 14px;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #eaded6;
+}
+
+
+/* ==================== FOOTER BOTTOM ==================== */
+.footer-bottom{
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #2f1b11;
+}
+
+.footer-bottom p{
+    font-size: 13px;
+    font-weight: 400;
+
+    color: #eaded6;
+}
