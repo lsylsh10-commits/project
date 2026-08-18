@@ -1776,7 +1776,8 @@ nav{
         font-size: 11px;
     }
 
-/* ==================== MOBILE GUIDE ==================== */
+
+    /* ==================== MOBILE GUIDE ==================== */
 .guide-section{
     height: auto;
     padding: 60px 0;
@@ -1816,21 +1817,20 @@ nav{
 
     -webkit-overflow-scrolling: touch;
 
-    /* Firefox */
     scrollbar-width: none;
 }
 
-/* Chrome, Safari */
 .guide-list::-webkit-scrollbar{
     display: none;
 }
 
+
 /* ==================== MOBILE GUIDE CARD ==================== */
 .guide-card{
-    width: 45%;
+    width: 180px;
     height: 105px;
 
-    flex: 0 0 45%;
+    flex: 0 0 180px;
 
     padding: 10px 8px;
 }
@@ -1893,8 +1893,6 @@ nav{
 
     margin: 0;
 }
- 
-
 
     /* ==================== MOBILE BENEFIT ==================== */
     .benefit-section{
@@ -2103,7 +2101,6 @@ nav{
         width: 14px;
         height: 14px;
     }
-
 
 /* ==================== MOBILE BANNER ==================== */
 .banner-section{
@@ -2358,4 +2355,6 @@ nav{
     font-size: 7px;
 
     color: #eaded6;
+}
+    
 }
