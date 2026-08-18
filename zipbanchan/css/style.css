@@ -1,0 +1,2428 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+    color: #222;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.mobile-menu{
+    display: none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    width: 100%;
+    background-color: #fff;
+    padding: 40px 0;
+}
+
+.header-inner{
+    width: 1200px;
+    height: 82px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+/* =========================
+   검색 영역
+========================= */
+
+.search-box{
+    width: 350px;
+    height: 50px;
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+
+    padding: 4px 6px 4px 14px;
+
+    border: 1px solid #ddd;
+    border-radius: 9px;
+
+    background-color: #fff;
+}
+
+
+/* 검색 입력창 */
+
+.search-box input{
+    flex: 1;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+    background: transparent;
+}
+
+.search-box input::placeholder{
+    color: #c8c8c8;
+}
+
+
+/* 검색 버튼 */
+
+.search-btn{
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 11px;
+
+    background-color: #146b24;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+
+/* 검색 아이콘 */
+
+.search-btn img{
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+}
+/* =========================
+   로고
+========================= */
+
+.logo{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.logo a{
+    display: block;
+    cursor: pointer;
+}
+
+.logo img{
+    display: block;
+
+    width: auto;
+    height: 65px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   오른쪽 메뉴 영역
+========================= */
+
+.header-right{
+    height: 82px;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+/* =========================
+   상단 회원 메뉴
+========================= */
+
+.member-menu{
+    display: flex;
+    align-items: center;
+
+    gap: 26px;
+
+    font-size: 14px;
+    color: #777;
+}
+
+.member-menu li{
+    cursor: pointer;
+}
+
+.member-menu a{
+    display: block;
+}
+
+
+/* =========================
+   하단 메뉴
+========================= */
+
+.main-menu{
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    font-size: 17px;
+}
+
+.main-menu li{
+    cursor: pointer;
+}
+
+.main-menu a{
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+/* 아이콘 공통 */
+
+.main-menu img{
+    display: block;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+/* 전화주문 아이콘 */
+
+.icon-tel{
+    width: 20px;
+    height: 20px;
+}
+
+
+/* 브랜드 아이콘 */
+
+.icon-brand{
+    width: 25px;
+    height: 25px;
+}
+
+
+/* 반찬보기 아이콘 */
+
+.icon-list{
+    width: 25px;
+    height: 25px;
+}
+
+
+/* 장바구니 아이콘 */
+
+.icon-cart{
+    width: 25px;
+    height: 25px;
+}
+
+
+/* =========================
+   HERO 섹션
+========================= */
+
+.hero{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.hero img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================
+   HERO 섹션 끝
+========================= */
+
+/* =========================
+   알뜰반찬 섹션
+========================= */
+
+.frugal{
+    width: 100%;
+    height: 1256px;
+    background-color: #fff;
+}
+
+.frugal-inner{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   알뜰반찬 타이틀
+========================= */
+
+.frugal-title{
+    padding-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.frugal-title h2{
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #111;
+}
+
+.frugal-title p{
+    margin-top: 14px;
+    font-size: 24px;
+    line-height: 1.4;
+    color: #555;
+}
+
+
+/* =========================
+   알뜰반찬 상품 목록
+========================= */
+
+.frugal-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 20px;
+}
+
+
+/* =========================
+   알뜰반찬 상품 카드
+========================= */
+
+.frugal-card > img{
+    display: block;
+    width: 285px;
+    height: 364px;
+    object-fit: cover;
+}
+
+
+/* =========================
+   상품 이미지
+========================= */
+
+.frugal-card > img{
+    display: block;
+    width: 285px;
+    height: 364px;
+    object-fit: cover;
+}
+
+.badge{
+    display: inline-block;
+    min-height: 17px;
+    margin-bottom: 7px;
+    padding: 3px 4px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    border-radius: 2px;
+}
+
+.empty-badge{
+    visibility: hidden;
+}
+
+/* =========================
+   상품 카드 텍스트
+========================= */
+
+.card-text{
+    padding-top: 12px;
+}
+
+
+/* =========================
+   상품 뱃지
+========================= */
+
+.badge{
+    display: inline-block;
+
+    margin-bottom: 7px;
+    padding: 3px 4px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    border-radius: 2px;
+}
+
+.badge.new{
+    color: #e54e48;
+    background-color: #fbe3e1;
+}
+
+.badge.popular{
+    color: #4e865d;
+    background-color: #e2efe5;
+}
+
+
+/* =========================
+   카드 제목
+========================= */
+
+.card-text h3{
+    margin-bottom: 7px;
+
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================
+   카드 중제목
+========================= */
+
+.card-description{
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    color: #999;
+}
+
+
+/* =========================
+   카드 금액
+========================= */
+
+.card-price{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.card-price strong{
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+}
+
+
+/* =========================
+   할인율
+========================= */
+
+.card-price .discount{
+    font-size: 20px;
+    font-weight: 700;
+    color: #e53935;
+}
+
+
+/* =========================
+   기존 가격
+========================= */
+
+.card-text del{
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 11px;
+    color: #aaa;
+}
+
+
+/* =========================
+   알뜰반찬 섹션 끝
+========================= */
+
+
+/* =========================
+   집밥 한 끼 섹션
+========================= */
+
+.home-meal{
+    width: 100%;
+    height: 689px;
+    background-color: #fff;
+}
+
+.home-meal-inner{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   집밥 한 끼 타이틀
+========================= */
+
+.home-meal-title{
+    padding-top: 50px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.home-meal-title h2{
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #111;
+}
+
+.home-meal-title p{
+    margin-top: 14px;
+
+    font-size: 24px;
+    line-height: 1.4;
+
+    color: #777;
+}
+
+
+/* =========================
+   집밥 한 끼 상품 목록
+========================= */
+
+.home-meal-list{
+    display: flex;
+    gap: 20px;
+}
+
+
+/* =========================
+   집밥 한 끼 상품 카드
+========================= */
+
+.home-meal-card{
+    width: 285px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   상품 이미지 영역
+========================= */
+
+.home-meal-image{
+    width: 285px;
+    height: 364px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* 상품 이미지 */
+
+.product-image{
+    display: block;
+
+    width: 285px;
+    height: 364px;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   이미지 위 할인율
+========================= */
+
+.image-discount{
+    width: 58px;
+    height: 58px;
+
+    position: absolute;
+    left: 16px;
+    top: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background-color: #c92724;
+
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+}
+
+
+/* =========================
+   잠금 아이콘
+========================= */
+
+.lock-icon{
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+
+.lock-icon img{
+    display: block;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+
+/* =========================
+   상품 정보
+========================= */
+
+.home-meal-info{
+    padding-top: 14px;
+}
+
+
+/* =========================
+   상품 뱃지 영역
+========================= */
+
+.home-badge-row,
+.home-badge-space{
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+/* 상품 뱃지 */
+
+.home-badge{
+    display: inline-block;
+
+    padding: 3px 5px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    border-radius: 2px;
+}
+
+
+/* 신제품 */
+
+.home-badge.new{
+    color: #e54e48;
+    background-color: #fbe3e1;
+}
+
+
+/* 매끼알뜰 */
+
+.home-badge.meal{
+    color: #c9923c;
+    background-color: #f6e4bd;
+}
+
+
+/* =========================
+   카드 제목
+========================= */
+
+.home-meal-info h3{
+    margin-top: 5px;
+    margin-bottom: 6px;
+
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================
+   카드 중제목
+========================= */
+
+.home-description{
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    color: #888;
+}
+
+
+/* =========================
+   카드 금액
+========================= */
+
+.home-price{
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.home-price strong{
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* 할인 금액 */
+
+.discount-price{
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #d62b27;
+}
+
+
+/* =========================
+   기존 가격
+========================= */
+
+.home-meal-info del{
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 11px;
+
+    color: #aaa;
+}
+
+
+/* =========================
+   집밥 한 끼 섹션 끝
+========================= */
+
+
+
+/* =========================
+   고객 추천 섹션
+========================= */
+
+.recommended{
+    width: 100%;
+    height: 741px;
+    background-color: #fff;
+}
+
+.recommended-inner{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   고객 추천 타이틀
+========================= */
+
+.recommended-title{
+    padding-top: 55px;
+    text-align: center;
+}
+
+.recommended-title h2{
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #111;
+}
+
+
+/* =========================
+   고객 추천 탭 메뉴
+========================= */
+
+.recommended-tab{
+    margin-top: 42px;
+    margin-bottom: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+
+    list-style: none;
+}
+
+.recommended-tab li{
+    min-width: 135px;
+    height: 52px;
+
+    border-radius: 30px;
+    background-color: #f5f5f5;
+
+    cursor: pointer;
+}
+
+.recommended-tab li a{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* 선택된 탭 */
+
+.recommended-tab li.active{
+    background-color: #146b24;
+}
+
+.recommended-tab li.active a{
+    color: #fff;
+}
+
+
+/* =========================
+   고객 추천 콘텐츠
+========================= */
+
+.recommended-content{
+    display: flex;
+    gap: 20px;
+}
+
+
+/* =========================
+   왼쪽 대표 이미지
+========================= */
+
+.recommended-main-image{
+    width: 470px;
+    height: 490px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.recommended-main-image img{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   오른쪽 추천 영역
+========================= */
+
+.recommended-right{
+    width: 710px;
+}
+
+
+/* =========================
+   고객 추천 소개
+========================= */
+
+.recommended-info{
+    width: 100%;
+    height: 145px;
+
+    padding: 25px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #f7f7f7;
+}
+
+
+/* 고객 추천 설명 */
+
+.recommended-info-text h3{
+    margin-bottom: 14px;
+
+    font-size: 20px;
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    color: #222;
+}
+
+.recommended-info-text p{
+    font-size: 16px;
+    line-height: 1.45;
+
+    color: #555;
+}
+
+
+/* =========================
+   고객 일러스트
+========================= */
+
+.recommended-character{
+    height: 130px;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.recommended-character img{
+    display: block;
+
+    width: auto;
+    height: 130px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   추천 상품 카드 목록
+========================= */
+
+.recommended-card-list{
+    margin-top: 16px;
+
+    display: flex;
+    gap: 14px;
+}
+
+
+/* =========================
+   추천 상품 카드
+========================= */
+
+.recommended-card{
+    width: 130px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   추천 상품 이미지
+========================= */
+
+.recommended-card-image{
+    width: 130px;
+    height: 130px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.recommended-product-img{
+    display: block;
+
+    width: 130px;
+    height: 130px;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   잠금 아이콘
+========================= */
+
+.recommended-lock{
+    width: 24px;
+    height: 24px;
+
+    position: absolute;
+
+    right: 5px;
+    bottom: 5px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   추천 상품 카드 텍스트
+========================= */
+
+.recommended-card-text{
+    padding-top: 12px;
+}
+
+
+/* 카드 뱃지 */
+
+.recommended-badge{
+    display: inline-block;
+
+    margin-bottom: 8px;
+    padding: 4px 5px;
+
+    background-color: #fff1da;
+
+    font-size: 12px;
+    line-height: 1;
+
+    color: #e79a25;
+}
+
+
+/* 카드 제목 */
+
+.recommended-card-text h4{
+    margin-bottom: 8px;
+
+    overflow: hidden;
+
+    font-size: 16px;
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    color: #111;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* 카드 중제목 */
+
+.recommended-card-text p{
+    margin-bottom: 9px;
+
+    overflow: hidden;
+
+    font-size: 13px;
+    line-height: 1.3;
+
+    color: #999;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* 카드 가격 */
+
+.recommended-card-text strong{
+    font-size: 16px;
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================
+   장바구니 한번에 담기 버튼
+========================= */
+
+.recommended-cart-btn{
+    width: 320px;
+    height: 48px;
+
+    margin: 32px auto 0;
+
+    display: block;
+
+    border: 1px solid #146b24;
+    border-radius: 7px;
+
+    background-color: #fff;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #146b24;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   고객 추천 섹션 끝
+========================= */
+
+/* =========================
+   배너 섹션
+========================= */
+
+.banner-section{
+    width: 100%;
+    height: 210px;
+    padding-top: 60px;
+    background-color: #fff;
+}
+
+
+/* =========================
+   배너 INNER
+========================= */
+
+.banner-inner{
+    width: 1200px;
+    height: 150px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+/* =========================
+   배너 카드
+========================= */
+
+.banner-card{
+    width: 389px;
+    height: 150px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   배너 이미지
+========================= */
+
+.banner-card img{
+    display: block;
+
+    width: 389px;
+    height: 150px;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   배너 섹션 끝
+========================= */
+
+
+/* =========================
+   MD추천반찬 섹션
+========================= */
+
+.md-recommended{
+    width: 100%;
+    height: 1308px;
+    background-color: #fff;
+}
+
+.md-recommended-inner{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   MD추천반찬 타이틀
+========================= */
+
+.md-recommended-title{
+    padding-top: 45px;
+    text-align: center;
+}
+
+.md-recommended-title h2{
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #111;
+}
+
+.md-recommended-title p{
+    margin-top: 14px;
+
+    font-size: 24px;
+    line-height: 1.4;
+
+    color: #555;
+}
+
+
+/* =========================
+   MD추천 카테고리
+========================= */
+
+.md-category{
+    margin-top: 35px;
+    margin-bottom: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    list-style: none;
+}
+
+.md-category li{
+    height: 48px;
+
+    border-radius: 26px;
+    background-color: #f5f5f5;
+
+    cursor: pointer;
+}
+
+.md-category li a{
+    height: 100%;
+
+    padding: 0 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* 선택된 카테고리 */
+
+.md-category li.active{
+    background-color: #146b24;
+}
+
+.md-category li.active a{
+    color: #fff;
+}
+
+
+/* =========================
+   MD추천 상품 목록
+========================= */
+
+.md-card-list{
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 45px 20px;
+}
+
+
+/* =========================
+   MD추천 상품 카드
+========================= */
+
+.md-card{
+    width: 285px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   MD추천 상품 이미지
+========================= */
+
+.md-card > img{
+    display: block;
+
+    width: 285px;
+    height: 364px;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   MD추천 카드 텍스트
+========================= */
+
+.md-card-text{
+    padding-top: 12px;
+}
+
+
+/* =========================
+   카드 뱃지
+========================= */
+
+.md-card-badge{
+    display: inline-block;
+
+    margin-bottom: 7px;
+    padding: 3px 5px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    border-radius: 2px;
+}
+
+
+/* 신제품 */
+
+.md-card-badge.new{
+    color: #e34b45;
+    background-color: #fbe3e1;
+}
+
+
+/* 인기 */
+
+.md-card-badge.popular{
+    color: #43825a;
+    background-color: #e2efe5;
+}
+
+
+/* 뱃지 없는 상품 자리 맞춤 */
+
+.md-card-badge.empty{
+    visibility: hidden;
+}
+
+
+/* =========================
+   카드 제목
+========================= */
+
+.md-card-text h3{
+    margin-bottom: 7px;
+
+    font-size: 18px;
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================
+   카드 중제목
+========================= */
+
+.md-card-text p{
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    color: #999;
+}
+
+
+/* =========================
+   카드 가격
+========================= */
+
+.md-card-text > strong{
+    display: block;
+
+    font-size: 20px;
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================
+   할인 가격
+========================= */
+
+.md-price{
+    display: flex;
+    align-items: center;
+
+    gap: 2px;
+}
+
+.md-price span{
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #d9342f;
+}
+
+.md-price strong{
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================
+   MD추천반찬 섹션 끝
+========================= */
+
+
+/* =========================
+   FOOTER 섹션
+========================= */
+
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+}
+
+.footer-inner{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-start;
+
+    padding-top: 45px;
+}
+
+
+/* =========================
+   고객센터 영역
+========================= */
+
+.footer-customer{
+    width: 410px;
+}
+
+
+/* 고객센터 */
+
+.footer-customer h2{
+    font-size: 14px;
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* 전화번호 */
+
+.footer-tel{
+    margin-top: 2px;
+
+    font-size: 14px;
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* 이메일 */
+
+.footer-email{
+    margin-top: 2px;
+
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #222;
+}
+
+
+/* 운영시간 */
+
+.footer-time{
+    margin-top: 14px;
+}
+
+.footer-time p{
+    font-size: 12px;
+    line-height: 1.35;
+
+    color: #777;
+}
+
+
+/* =========================
+   회사 정보 영역
+========================= */
+
+.footer-company{
+    flex: 1;
+}
+
+
+/* 회사명 */
+
+.footer-company h2{
+    margin-bottom: 16px;
+
+    font-size: 12px;
+    line-height: 1.3;
+
+    font-weight: 500;
+
+    color: #777;
+}
+
+
+/* 회사 정보 */
+
+.footer-company-info p{
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 700;
+
+    color: #333;
+}
+
+
+/* =========================
+   FOOTER 링크
+========================= */
+
+.footer-link{
+    margin-top: 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    list-style: none;
+}
+
+.footer-link li{
+    cursor: pointer;
+}
+
+.footer-link li + li::before{
+    content: "|";
+
+    margin-right: 6px;
+
+    color: #ccc;
+}
+
+.footer-link a{
+    font-size: 12px;
+
+    text-decoration: none;
+
+    color: #bbb;
+}
+
+
+/* =========================
+   저작권
+========================= */
+
+.copyright{
+    margin-top: 2px;
+
+    font-size: 12px;
+    line-height: 1.3;
+
+    color: #c5c5c5;
+}
+
+
+/* =========================
+   FOOTER 섹션 끝
+========================= */
+
+
+
+
+
+
+/* =========================================================
+   모바일 반응형
+========================================================= */
+
+@media (min-width:320px) and (max-width:767px){
+
+    /* =====================================================
+       공통
+    ===================================================== */
+
+    body{
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .header-inner,
+    .frugal-inner,
+    .home-meal-inner,
+    .recommended-inner,
+    .banner-inner,
+    .md-recommended-inner,
+    .footer-inner{
+        width: 100%;
+        height: auto;
+    }
+
+
+   /* =========================
+   모바일 메뉴 - PC에서는 숨김
+========================= */
+
+
+
+
+/* =========================
+   모바일 HEADER
+========================= */
+
+@media (min-width:320px) and (max-width:767px){
+
+    .header{
+        width: 100%;
+        padding: 10px 15px;
+    }
+
+    .header-inner{
+        width: 100%;
+        height: 70px;
+        position: relative;
+    }
+
+
+    /* =========================
+       PC 오른쪽 메뉴 숨김
+    ========================= */
+
+    .header-right{
+        display: none;
+    }
+
+
+    /* =========================
+       모바일 로고
+    ========================= */
+
+    .logo{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .logo img{
+        display: block;
+        width: 145px;
+        height: auto;
+    }
+
+
+    /* =========================
+       모바일 오른쪽 상단 메뉴
+    ========================= */
+
+    .mobile-menu{
+        display: flex;
+
+        position: absolute;
+        right: 0;
+        top: 10px;
+
+        align-items: center;
+        gap: 12px;
+
+        font-size: 10px;
+        color: #555;
+    }
+
+    .mobile-menu a,
+    .mobile-menu button{
+        cursor: pointer;
+    }
+
+
+    /* =========================
+       모바일 장바구니
+    ========================= */
+
+    .mobile-cart{
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .mobile-cart img{
+        width: 13px;
+        height: 13px;
+        object-fit: contain;
+    }
+
+
+    /* =========================
+       햄버거 메뉴
+    ========================= */
+
+    .mobile-hamburger{
+        padding: 0 0 0 8px;
+
+        border: none;
+        background: none;
+    }
+
+    .mobile-hamburger img{
+        display: block;
+        width: 17px;
+        height: 17px;
+        object-fit: contain;
+    }
+
+
+    /* =========================
+       모바일 검색창
+    ========================= */
+
+    .search-box{
+        width: calc(100% - 160px);
+        height: 32px;
+
+        position: absolute;
+        left: 160px;
+        top: 34px;
+
+        transform: none;
+
+        padding: 3px 3px 3px 10px;
+
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .search-box input{
+        min-width: 0;
+        font-size: 10px;
+    }
+
+    .search-btn{
+        width: 26px;
+        height: 26px;
+
+        border-radius: 4px;
+    }
+
+    .search-btn img{
+        width: 13px;
+        height: 13px;
+    }
+
+}
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero{
+    height: 250px;
+}
+
+.hero img{
+    height: 100%;
+    object-fit: cover;
+}
+
+
+    /* =====================================================
+       알뜰반찬 섹션
+    ===================================================== */
+
+    .frugal{
+        height: auto;
+        padding-bottom: 45px;
+    }
+
+    .frugal-inner{
+        padding: 0 16px;
+    }
+
+    .frugal-title{
+        padding-top: 30px;
+        margin-bottom: 22px;
+    }
+
+    .frugal-title h2{
+        font-size: 22px;
+    }
+
+    .frugal-title p{
+        margin-top: 7px;
+
+        font-size: 12px;
+    }
+
+
+    /* 상품 2열 */
+
+    .frugal-list{
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 28px 10px;
+    }
+
+    .frugal-card{
+        width: calc((100% - 10px) / 2);
+
+        cursor: pointer;
+    }
+
+    .frugal-card > img{
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 285 / 364;
+
+        object-fit: cover;
+    }
+
+
+    /* 카드 텍스트 */
+
+    .card-text{
+        padding-top: 7px;
+    }
+
+    .badge{
+        min-height: 12px;
+
+        margin-bottom: 4px;
+        padding: 2px 3px;
+
+        font-size: 8px;
+    }
+
+    .card-text h3{
+        margin-bottom: 4px;
+
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    .card-description{
+        margin-bottom: 5px;
+
+        font-size: 9px;
+    }
+
+    .card-price,
+    .card-price strong,
+    .card-price .discount{
+        font-size: 12px;
+    }
+
+    .card-text del{
+        margin-top: 3px;
+
+        font-size: 8px;
+    }
+
+
+    /* =====================================================
+       집밥 한 끼 섹션
+    ===================================================== */
+
+    .home-meal{
+        height: auto;
+
+        padding-bottom: 45px;
+    }
+
+    .home-meal-inner{
+        padding: 0 16px;
+    }
+
+    .home-meal-title{
+        padding-top: 30px;
+        margin-bottom: 22px;
+    }
+
+    .home-meal-title h2{
+        font-size: 22px;
+    }
+
+    .home-meal-title p{
+        margin-top: 7px;
+
+        font-size: 12px;
+    }
+
+
+    /* 상품 2열 */
+
+    .home-meal-list{
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 28px 10px;
+    }
+
+    .home-meal-card{
+        width: calc((100% - 10px) / 2);
+    }
+
+    .home-meal-image{
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 285 / 364;
+    }
+
+    .product-image{
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+
+    /* 할인 원 */
+
+    .image-discount{
+        width: 30px;
+        height: 30px;
+
+        left: 7px;
+        top: 7px;
+
+        font-size: 9px;
+    }
+
+
+    /* 장바구니 아이콘 */
+
+    .lock-icon{
+        right: 7px;
+        bottom: 7px;
+    }
+
+    .lock-icon img{
+        width: 25px;
+        height: 25px;
+    }
+
+
+    /* 카드 정보 */
+
+    .home-meal-info{
+        padding-top: 7px;
+    }
+
+    .home-badge-row,
+    .home-badge-space{
+        height: 16px;
+        gap: 2px;
+    }
+
+    .home-badge{
+        padding: 2px 3px;
+
+        font-size: 8px;
+    }
+
+    .home-meal-info h3{
+        margin-top: 3px;
+        margin-bottom: 4px;
+
+        font-size: 11px;
+    }
+
+    .home-description{
+        margin-bottom: 5px;
+
+        font-size: 9px;
+    }
+
+    .home-price{
+        gap: 4px;
+
+        font-size: 12px;
+    }
+
+    .home-price strong,
+    .discount-price{
+        font-size: 12px;
+    }
+
+    .home-meal-info del{
+        margin-top: 3px;
+
+        font-size: 8px;
+    }
+
+
+    /* =====================================================
+       고객 추천 섹션
+    ===================================================== */
+
+    .recommended{
+        height: auto;
+
+        padding-bottom: 40px;
+    }
+
+    .recommended-inner{
+        padding: 0 16px;
+    }
+
+    .recommended-title{
+        padding-top: 30px;
+    }
+
+    .recommended-title h2{
+        font-size: 22px;
+    }
+
+
+    /* 추천 탭 */
+
+    .recommended-tab{
+        margin-top: 20px;
+        margin-bottom: 22px;
+
+        gap: 6px;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    .recommended-tab li{
+        min-width: 90px;
+        height: 34px;
+
+        flex-shrink: 0;
+    }
+
+    .recommended-tab li a{
+        font-size: 10px;
+    }
+
+
+    /* 대표 이미지와 오른쪽 영역을 세로로 */
+
+    .recommended-content{
+        display: block;
+    }
+
+    .recommended-main-image{
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+    }
+
+    .recommended-right{
+        width: 100%;
+    }
+
+
+    /* 고객 소개 */
+
+    .recommended-info{
+        width: 100%;
+        height: 105px;
+
+        padding: 12px;
+
+        margin-top: 10px;
+    }
+
+    .recommended-info-text h3{
+        margin-bottom: 7px;
+
+        font-size: 14px;
+    }
+
+    .recommended-info-text p{
+        font-size: 10px;
+    }
+
+    .recommended-character{
+        height: 90px;
+    }
+
+    .recommended-character img{
+        height: 90px;
+    }
+
+
+    /* 추천 상품 2열 */
+
+    .recommended-card-list{
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 24px 10px;
+
+        margin-top: 12px;
+    }
+
+    .recommended-card{
+        width: calc((100% - 10px) / 2);
+    }
+
+    .recommended-card-image{
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+    }
+
+    .recommended-product-img{
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+    .recommended-lock{
+        width: 25px;
+        height: 25px;
+
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .recommended-card-text{
+        padding-top: 7px;
+    }
+
+    .recommended-badge{
+        margin-bottom: 5px;
+        padding: 3px;
+
+        font-size: 8px;
+    }
+
+    .recommended-card-text h4{
+        margin-bottom: 4px;
+
+        font-size: 11px;
+    }
+
+    .recommended-card-text p{
+        margin-bottom: 5px;
+
+        font-size: 9px;
+    }
+
+    .recommended-card-text strong{
+        font-size: 12px;
+    }
+
+
+    /* 장바구니 한번에 담기 */
+
+    .recommended-cart-btn{
+        width: 70%;
+        height: 38px;
+
+        margin-top: 25px;
+
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       배너 섹션
+    ===================================================== */
+
+    .banner-section{
+        height: auto;
+
+        padding: 30px 16px 0;
+    }
+
+    .banner-inner{
+        width: 100%;
+        height: auto;
+
+        display: flex;
+
+        gap: 4px;
+    }
+
+    .banner-card{
+        width: calc((100% - 8px) / 3);
+        height: auto;
+    }
+
+    .banner-card img{
+        width: 100%;
+        height: auto;
+
+        display: block;
+    }
+
+
+    /* =====================================================
+       MD추천반찬 섹션
+    ===================================================== */
+
+    .md-recommended{
+        height: auto;
+
+        padding-bottom: 45px;
+    }
+
+    .md-recommended-inner{
+        padding: 0 16px;
+    }
+
+    .md-recommended-title{
+        padding-top: 35px;
+    }
+
+    .md-recommended-title h2{
+        font-size: 22px;
+    }
+
+    .md-recommended-title p{
+        margin-top: 7px;
+
+        font-size: 12px;
+    }
+
+
+    /* 카테고리 */
+
+    .md-category{
+        margin-top: 20px;
+        margin-bottom: 22px;
+
+        display: flex;
+        justify-content: flex-start;
+
+        gap: 6px;
+
+        overflow-x: auto;
+    }
+
+    .md-category li{
+        height: 32px;
+
+        flex-shrink: 0;
+    }
+
+    .md-category li a{
+        padding: 0 13px;
+
+        font-size: 9px;
+    }
+
+
+    /* MD 상품 2열 */
+
+    .md-card-list{
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 28px 10px;
+    }
+
+    .md-card{
+        width: calc((100% - 10px) / 2);
+    }
+
+    .md-card > img{
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 285 / 364;
+
+        object-fit: cover;
+    }
+
+    .md-card-text{
+        padding-top: 7px;
+    }
+
+    .md-card-badge{
+        margin-bottom: 4px;
+
+        padding: 2px 3px;
+
+        font-size: 8px;
+    }
+
+    .md-card-text h3{
+        margin-bottom: 4px;
+
+        font-size: 11px;
+    }
+
+    .md-card-text p{
+        margin-bottom: 5px;
+
+        font-size: 9px;
+    }
+
+    .md-card-text > strong,
+    .md-price span,
+    .md-price strong{
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .footer{
+        height: auto;
+
+        padding: 30px 16px;
+    }
+
+    .footer-inner{
+        display: block;
+
+        padding-top: 0;
+    }
+
+    .footer-customer{
+        width: 100%;
+
+        margin-bottom: 25px;
+    }
+
+    .footer-customer h2,
+    .footer-tel{
+        font-size: 12px;
+    }
+
+    .footer-email,
+    .footer-time p,
+    .footer-company h2,
+    .footer-company-info p,
+    .footer-link a,
+    .copyright{
+        font-size: 9px;
+    }
+
+    .footer-company{
+        width: 100%;
+    }
+
+    .footer-company h2{
+        margin-bottom: 8px;
+    }
+
+    .footer-link{
+        margin-top: 10px;
+
+        flex-wrap: wrap;
+    }
+
+}
+/* FOOTER 끝 */
+
+
+/* 더보기 버튼 - PC에서는 숨김 */
+.more-btn{
+    display: none;
+}
+
+
+/* 모바일 반응형 */
+@media (min-width:320px) and (max-width:767px){
+
+    /* 다른 모바일 코드들 */
+
+
+    /* 더보기 버튼 */
+    .more-btn{
+        display: block;
+        width: 225px;
+        height: 32px;
+        margin: 24px auto 0;
+
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        background-color: #fff;
+
+        font-size: 10px;
+        color: #555;
+
+        cursor: pointer;
+    }
+
+}
