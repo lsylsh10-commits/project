@@ -1692,17 +1692,17 @@ a{
     ========================= */
 
     .mobile-menu{
-        display: flex;
+        display: flex; 
 
-        position: absolute;
-        right: 0;
-        top: 10px;
+    position: absolute; 
+    right: 16px; 
+    top: 10px; 
 
-        align-items: center;
-        gap: 12px;
+    align-items: center; 
+    gap: 12px; 
 
-        font-size: 10px;
-        color: #555;
+    font-size: 10px; 
+    color: #555; 
     }
 
     .mobile-menu a,
@@ -1741,11 +1741,44 @@ a{
 
     .mobile-hamburger img{
         display: block;
-        width: 17px;
-        height: 17px;
+        width: 24px;
+        height: 24px;
         object-fit: contain;
     }
+    /* =========================
+   모바일 햄버거 메뉴 화면
+========================= */
 
+.mobile-menu-panel{
+    display: none;
+
+    position: absolute;
+    top: 70px;
+    left: 0;
+
+    width: 100%;
+    padding: 20px;
+
+    background-color: #fff;
+
+    z-index: 100;
+}
+
+.mobile-menu-panel.active{
+    display: block;
+}
+
+.mobile-menu-panel a{
+    display: block;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
 
     /* =========================
        모바일 검색창
@@ -2425,4 +2458,29 @@ a{
         cursor: pointer;
     }
 
+}
+
+
+
+/* =========================
+   상품 이미지 hover
+========================= */
+
+.frugal-card > img,
+.product-image,
+.recommended-product-img,
+.md-card > img{
+    transition: none;
+}
+
+.frugal-card:hover > img,
+.home-meal-card:hover .product-image,
+.recommended-card:hover .recommended-product-img,
+.md-card:hover > img{
+    transform: scale(1.1);
+    clip-path: inset(4.6%);
+}
+
+.frugal-card{
+    cursor: pointer;
 }
