@@ -1,0 +1,46 @@
+@charset "utf-8";
+body{font-family: "맑은 고딕", "malgun gothic", sans-serif;}
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+h1{margin-bottom: 26px;}
+
+ol{
+    margin-left: 30px; 
+    margin-bottom: 30px;
+}
+
+button{
+    width: 50px;
+    height: 20px;
+    /* 마우스포인트 모양을 손모양으로 변경하는 명령 */
+    cursor: pointer;
+
+}
+
+hr{
+    margin: 15px 0;
+}
+
+.parent {
+    display: flex;
+    gap: 20px;
+}
+
+.parent div{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+   
+}
+
+.box1{
+    background: #ffcc00;
+}
+
+.box2{
+    background: #47c2fb;
+}
+
+.box3{
+    background: #fd6f7d;
+}
