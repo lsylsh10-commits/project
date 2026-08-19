@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, "맑은 고딕", sans-serif;
+    padding: 8px;
+}
+
+h1{
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+ol{
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+li{
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.btn-wrap{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+button{
+    width: 80px;
+    height: 20px;
+    font-size: 13px;
+}
+
+hr{
+    margin-bottom: 10px;
+}
+
+.box-group{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.box-row{
+    display: flex;
+    gap: 20px;
+    border: 4px solid #ccc;
+    width: fit-content;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    font-size: 16px;
+}
+
+.red-box{
+    background-color: red;
+}
+
+.green-box{
+    background-color: green;
+}
+
+.white-box{
+    background-color: white;
+}
+
+.yellow-box{
+    background-color: #ffc800;
+}
+
+.lime-box{
+    background-color: #c6ff00;
+}
+
+.blue-box{
+    background-color: #16bde8;
+    position: relative;
+}
+

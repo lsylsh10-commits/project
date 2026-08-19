@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 애니메이션 관련 메서드</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <h1>[ jQuery 애니메이션 관련 메서드 ]</h1>
+
+    <ol>
+        <li>$("대상").fadeIn();</li>
+        <li>$("대상").fadeOut();</li>
+        <li>$("대상").fadeToggle();</li>
+        <li>$("대상").slideUp();</li>
+        <li>$("대상").slideDown();</li>
+        <li>$("대상").slideToggle();</li>
+        <li>$("대상").animate();</li>
+    </ol>
+
+    <div class="btn-wrap">
+        <button id="fadeInBtn">fadeIn</button>
+        <button id="fadeOutBtn">fadeOut</button>
+        <button id="fadeToggleBtn">fadeToggle</button>
+        <button id="slideUpBtn">slideUp</button>
+        <button id="slideDownBtn">slideDown</button>
+        <button id="slideToggleBtn">slideToggle</button>
+        <button id="ani1Btn">ani1</button>
+        <button id="ani2Btn">ani2</button>
+    </div>
+
+    <hr>
+
+    <div class="box-group">
+        <div class="box-row">
+            <div class="box red-box">fadeIn / fadeOut</div>
+            <div class="box green-box">fadeToggle</div>
+            <div class="box white-box"></div>
+        </div>
+
+        <div class="box-row">
+            <div class="box yellow-box">slideUp / slideDown</div>
+            <div class="box lime-box">slideToggle</div>
+            <div class="box blue-box">Animation</div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
