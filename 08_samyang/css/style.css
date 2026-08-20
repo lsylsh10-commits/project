@@ -1,0 +1,372 @@
+@charset "utf-8";
+
+/* =========================
+   Noto Sans KR 웹폰트
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+
+/* =========================
+   초기화
+========================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Noto Sans KR", sans-serif;
+    color: #111;
+}
+
+ul,
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+img{
+    display: block;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+#header{
+    width: 100%;
+    height: 111px;
+
+    background: #fff;
+    border-bottom: 1px solid #f15a24;
+    position: relative;
+
+    z-index: 1000;
+}
+
+
+/* 주메뉴 hover시 헤더 하단선 회색 */
+#header:hover{
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* 안쪽 사이즈 */
+
+.header-inner{
+    width: 1140px;
+    height: 111px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    z-index: 20;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo{
+    width: 180px;
+    flex-shrink: 0;
+}
+
+.logo a{
+    display: block;
+}
+
+.logo img{
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   GNB
+========================= */
+
+.gnb{
+    width: 100%;
+    height: 111px;
+
+    margin-left: 105px;
+}
+
+
+/* 1단 메뉴 */
+
+.depth1{
+    width: 100%;
+    height: 111px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.depth1 > li{
+    height: 111px;
+
+    position: relative;
+
+    text-align: center;
+}
+
+
+/* 주메뉴 */
+
+.depth1 > li > a{
+    height: 111px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 10px;
+
+    position: relative;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   주메뉴 hover 밑줄
+========================= */
+
+.depth1 > li > a::after{
+    content: "";
+
+    width: 62px;
+    height: 4px;
+
+    background: transparent;
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 20px;
+
+    transform: translateX(-50%);
+}
+
+.depth1 > li:hover > a::after{
+    background: #f15a24;
+}
+
+
+/* =========================
+   2단 메뉴
+========================= */
+
+.depth2{
+    width: 160px;
+    height: 306px;
+
+    display: none;
+
+    position: absolute;
+
+    top: 111px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding-top: 25px;
+
+    z-index: 30;
+
+    overflow: hidden;
+}
+
+
+/* 2단 메뉴 항목 */
+
+.depth2 li{
+    width: 100%;
+
+    margin-bottom: 17px;
+
+    text-align: center;
+}
+
+.depth2 li a{
+    display: block;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    color: #777;
+
+    white-space: nowrap;
+}
+
+
+/* 2단 메뉴 hover */
+
+.depth2 li a:hover{
+    color: #111;
+}
+
+
+/* =========================
+   전체 2단 메뉴 배경
+========================= */
+
+.gnb-bg{
+    width: 100%;
+    height: 306px;
+
+    display: none;
+
+    position: absolute;
+
+    left: 0;
+    top: 111px;
+
+    background: #fff;
+
+    z-index: 10;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   메인 슬라이드
+========================= */
+
+.main-slide{
+    width: 100%;
+    height: 600px;
+}
+
+
+/* swiper 전체 영역 */
+
+.mainSwiper{
+    width: 100%;
+    height: 600px;
+
+    position: relative;
+}
+
+
+/* =========================
+   슬라이드 공통
+========================= */
+
+.mainSwiper .swiper-slide{
+    width: 100%;
+    height: 600px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+/* =========================
+   슬라이드 이미지
+========================= */
+
+.mainSwiper .slide1{
+    background-image: url("../images/slide1.jpg");
+}
+
+.mainSwiper .slide2{
+    background-image: url("../images/slide2.jpg");
+}
+
+.mainSwiper .slide3{
+    background-image: url("../images/slide3.jpg");
+}
+
+.mainSwiper .slide4{
+    background-image: url("../images/slide4.jpg");
+}
+
+
+/* =========================
+   좌우 버튼 공통
+========================= */
+
+.mainSwiper .swiper-button-prev,
+.mainSwiper .swiper-button-next{
+    width: 40px;
+    height: 60px;
+
+    color: #fff;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* 왼쪽 버튼 */
+
+.mainSwiper .swiper-button-prev{
+    left: 15%;
+}
+
+
+/* 오른쪽 버튼 */
+
+.mainSwiper .swiper-button-next{
+    right: 15%;
+}
+
+
+/* Swiper 기본 화살표 크기 */
+
+.mainSwiper .swiper-button-prev::after,
+.mainSwiper .swiper-button-next::after{
+    font-size: 36px;
+    font-weight: 300;
+}
+
+
+/* =========================
+   페이지 번호
+========================= */
+
+.slide-count{
+    position: absolute;
+
+    left: 50%;
+    bottom: 30px;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #fff;
+}
+
+.slide-count .current{
+    font-weight: 700;
+}
+
+.slide-count .slash{
+    margin: 0 5px;
+}
