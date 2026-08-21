@@ -1208,3 +1208,57 @@ footer{
 
     color: #222;
 }
+
+/* =========================
+   TOP 버튼
+========================= */
+
+.top-btn{
+    width: 62px;
+    height: 62px;
+
+    display: none;
+
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: linear-gradient(
+        145deg,
+        #ff9635 0%,
+        #ff6400 65%,
+        #f05a00 100%
+    );
+
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    transition: 0.3s;
+}
+
+
+/* TOP 버튼 이미지 */
+
+.top-btn img{
+    width: 28px;
+    height: 28px;
+
+    object-fit: contain;
+
+    margin: 0 auto;
+}
+
+
+/* hover */
+
+.top-btn:hover{
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 22px rgba(0,0,0,0.22);
+}

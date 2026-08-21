@@ -115,3 +115,35 @@ $(".family-btn").click(function(){
     $(".family-list").slideToggle();
 
 });
+
+/* =========================
+   TOP 버튼
+========================= */
+
+$(window).scroll(function(){
+
+    /* 스크롤을 300px 이상 내리면 버튼 보이기 */
+    if($(this).scrollTop() > 300){
+
+        $(".top-btn").fadeIn();
+
+    }else{
+
+        $(".top-btn").fadeOut();
+
+    }
+
+});
+
+
+/* TOP 버튼 클릭 */
+
+$(".top-btn").click(function(){
+
+    $("html, body").animate({
+
+        scrollTop: 0
+
+    }, 500);
+
+});
