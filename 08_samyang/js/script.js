@@ -69,3 +69,49 @@ const mainSwiper = new Swiper(".mainSwiper", {
     }
 
 });
+
+/* =========================
+   BRAND 탭 기능
+========================= */
+
+$(function(){
+
+    $(".brand-tab li").click(function(e){
+
+        /* a 태그 기본 이동 방지 */
+        e.preventDefault();
+
+
+        /* 클릭한 탭의 순서 저장 */
+        let num = $(this).index();
+
+
+        /* 모든 탭의 on 클래스 제거 */
+        $(".brand-tab li").removeClass("on");
+
+
+        /* 클릭한 탭에 on 클래스 추가 */
+        $(this).addClass("on");
+
+
+        /* 모든 제품 영역 숨기기 */
+        $(".brand-listwrap").hide();
+
+
+        /* 클릭한 탭과 같은 순서의 제품 영역 보이기 */
+        $(".brand-listwrap").eq(num).show();
+
+    });
+
+});
+
+
+/* =========================
+   패밀리 사이트
+========================= */
+
+$(".family-btn").click(function(){
+
+    $(".family-list").slideToggle();
+
+});
