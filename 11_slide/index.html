@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Swiper CSS 연결 -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    >
+
+    <!-- 사용자 CSS 연결 -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>집반찬연구소 이미지 슬라이드</title>
+</head>
+
+<body>
+
+    <!-- =========================================
+        집반찬연구소 이미지 슬라이드 영역
+        전체 가로 100% / 높이 475px
+    ========================================== -->
+    <section class="kids-slide-section">
+
+        <!-- Swiper 시작 -->
+        <div class="swiper kids-slide">
+
+            <!-- 슬라이드 묶음 -->
+            <div class="swiper-wrapper">
+
+                <!-- 슬라이드 01 -->
+                <div class="swiper-slide kids-slide-item kids-slide01"></div>
+
+                <!-- 슬라이드 02 -->
+                <div class="swiper-slide kids-slide-item kids-slide02"></div>
+
+                <!-- 슬라이드 03 -->
+                <div class="swiper-slide kids-slide-item kids-slide03"></div>
+
+                <!-- 슬라이드 04 -->
+                <div class="swiper-slide kids-slide-item kids-slide04"></div>
+
+                <!-- 슬라이드 05 -->
+                <div class="swiper-slide kids-slide-item kids-slide05"></div>
+
+                <!-- 슬라이드 06 -->
+                <div class="swiper-slide kids-slide-item kids-slide06"></div>
+
+            </div>
+
+
+            <!-- =================================
+                버튼 / 페이지번호 inner 영역
+                가로 1180px
+            ================================== -->
+            <div class="kids-slide-inner">
+
+                <!-- 이전 버튼 -->
+                <button
+                    type="button"
+                    class="kids-slide-prev"
+                    aria-label="이전 슬라이드"
+                >
+                    &#10094;
+                </button>
+
+                <!-- 다음 버튼 -->
+                <button
+                    type="button"
+                    class="kids-slide-next"
+                    aria-label="다음 슬라이드"
+                >
+                    &#10095;
+                </button>
+
+
+                <!-- 현재 페이지 / 전체 페이지 -->
+                <div class="kids-slide-page">
+                    <span class="kids-current">1</span>
+                    <span class="kids-page-line">|</span>
+                    <span class="kids-total">6</span>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Swiper 끝 -->
+
+    </section>
+
+<!-- =========================================
+    집반찬연구소 상품 배너 슬라이드
+========================================= -->
+<section class="product-slide-section">
+
+    <!-- 가로 1180px inner -->
+    <div class="product-inner">
+
+        <!-- 상단 타이틀 영역 -->
+        <div class="product-title-area">
+
+            <h2>여름휴가도, 집반찬</h2>
+
+            <p>막바지 휴가준비도 간편하게!</p>
+
+            <!-- 전체보기 -->
+            <a href="#" class="product-more">
+                전체보기
+                <span>›</span>
+            </a>
+
+        </div>
+
+
+        <!-- 상품 Swiper -->
+        <div class="product-slide-wrap">
+
+            <div class="swiper product-swiper">
+
+                <div class="swiper-wrapper">
+
+
+                    <!-- 상품 01 : 깻잎무생채 -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image01"
+                            role="img"
+                            aria-label="깻잎무생채 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="깻잎무생채 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges">
+                                <span class="badge badge-mild">맵지않음</span>
+                            </div>
+
+                            <strong class="product-name">깻잎무생채</strong>
+
+                            <p class="product-desc">
+                                깻잎 향 솔솔, 아삭한 무채가 입맛을 깨워요!
+                            </p>
+
+                            <p class="product-price">2,800원</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 상품 02 : 마늘쫑채 장아찌 -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image02"
+                            role="img"
+                            aria-label="마늘쫑채 장아찌 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="마늘쫑채 장아찌 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges"></div>
+
+                            <strong class="product-name">
+                                마늘쫑채 장아찌
+                            </strong>
+
+                            <p class="product-desc">
+                                간장에 촉촉이 절여진 마늘쫑, 밥 한 공기 뚝딱!
+                            </p>
+
+                            <p class="product-price">3,300원</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 상품 03 : 맑은 한우 배추국_냉동 -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image03"
+                            role="img"
+                            aria-label="맑은 한우 배추국 냉동 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="맑은 한우 배추국 냉동 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges">
+                                <span class="badge badge-new">신제품</span>
+                                <span class="badge badge-frozen">냉동</span>
+                            </div>
+
+                            <strong class="product-name">
+                                맑은 한우 배추국_냉동
+                            </strong>
+
+                            <p class="product-desc">
+                                담백하고 개운한, 배추와 한우의 깊은 맛
+                            </p>
+
+                            <p class="product-price">9,900원</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 상품 04 : 콩나물 황태국(냉동) -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image04"
+                            role="img"
+                            aria-label="콩나물 황태국 냉동 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="콩나물 황태국 냉동 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges">
+                                <span class="badge badge-frozen">냉동</span>
+                                <span class="badge badge-mild">맵지않음</span>
+                            </div>
+
+                            <strong class="product-name">
+                                콩나물 황태국(냉동)
+                            </strong>
+
+                            <p class="product-desc">
+                                시원하고 담백한
+                            </p>
+
+                            <p class="product-price">9,900원</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 상품 05 : 한돈 사태김치찜 -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image05"
+                            role="img"
+                            aria-label="한돈 사태김치찜 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="한돈 사태김치찜 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges">
+                                <span class="badge badge-new">신제품</span>
+                            </div>
+
+                            <strong class="product-name">
+                                한돈 사태김치찜
+                            </strong>
+
+                            <p class="product-desc">
+                                깊은 맛이 사태에 푹 배어, 진짜 집밥 느낌!
+                            </p>
+
+                            <p class="product-price">10,800원</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 상품 06 : 매콤 한돈 사태찜 -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image06"
+                            role="img"
+                            aria-label="매콤 한돈 사태찜 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="매콤 한돈 사태찜 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges">
+                                <span class="badge badge-new">신제품</span>
+                            </div>
+
+                            <strong class="product-name">
+                                매콤 한돈 사태찜
+                            </strong>
+
+                            <p class="product-desc">
+                                맛있게 매운맛에 부드러운 채소까지, 밥도둑 등극!
+                            </p>
+
+                            <p class="product-price">10,800원</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 상품 07 : 양파고추 장아찌 -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image07"
+                            role="img"
+                            aria-label="양파고추 장아찌 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="양파고추 장아찌 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges"></div>
+
+                            <strong class="product-name">
+                                양파고추 장아찌
+                            </strong>
+
+                            <p class="product-desc">
+                                고기와 먹으면 찰떡궁합
+                            </p>
+
+                            <p class="product-price">3,900원</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 상품 08 : 참치마요 주먹밥 -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image08"
+                            role="img"
+                            aria-label="참치마요 주먹밥 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="참치마요 주먹밥 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges">
+                                <span class="badge badge-mild">맵지않음</span>
+                            </div>
+
+                            <strong class="product-name">
+                                참치마요 주먹밥
+                            </strong>
+
+                            <p class="product-desc">
+                                주먹밥재료로 안성맞춤
+                            </p>
+
+                            <p class="product-price">7,500원</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 상품 09 : 미역오이냉국 -->
+                    <div class="swiper-slide product-card">
+
+                        <div
+                            class="product-image product-image09"
+                            role="img"
+                            aria-label="미역오이냉국 상품 이미지"
+                        >
+                            <button
+                                type="button"
+                                class="product-cart"
+                                aria-label="미역오이냉국 장바구니 담기"
+                            >
+                                <img
+                                    src="./images/cart.png"
+                                    alt="장바구니 아이콘"
+                                >
+                            </button>
+                        </div>
+
+                        <div class="product-info">
+
+                            <div class="product-badges"></div>
+
+                            <strong class="product-name">
+                                미역오이냉국
+                            </strong>
+
+                            <p class="product-desc">
+                                스마트한 후레쉬존에는 시원한 냉국이 최고!
+                            </p>
+
+                            <p class="product-price">7,300원</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- 이전 버튼 -->
+            <button
+                type="button"
+                class="product-slide-prev"
+                aria-label="이전 상품 보기"
+            >
+                <img
+                    src="./images/icon-arrow-left-a3a3a3-24.svg"
+                    alt="이전 상품 보기"
+                >
+            </button>
+
+
+            <!-- 다음 버튼 -->
+            <button
+                type="button"
+                class="product-slide-next"
+                aria-label="다음 상품 보기"
+            >
+                <img
+                    src="./images/icon-arrow-right-a3a3a3-24.svg"
+                    alt="다음 상품 보기"
+                >
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    
+
+
+    <!-- Swiper JavaScript 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 사용자 JavaScript 연결 -->
+    <script src="./js/script.js"></script>
+
+</body>
+</html>
