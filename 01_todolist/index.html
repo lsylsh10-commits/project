@@ -20,6 +20,7 @@
 
 <div class="app">
 
+
     <!-- =========================================
         HEADER
     ========================================== -->
@@ -44,9 +45,7 @@
             </h1>
 
 
-            <!-- =================================
-                PC NAVIGATION
-            ================================== -->
+            <!-- PC NAVIGATION -->
             <nav
                 class="desktop-nav"
                 aria-label="주요 메뉴"
@@ -60,7 +59,6 @@
                     홈
                 </button>
 
-
                 <button
                     type="button"
                     class="desktop-nav-button"
@@ -69,7 +67,6 @@
                     캘린더
                 </button>
 
-
                 <button
                     type="button"
                     class="desktop-nav-button"
@@ -77,7 +74,6 @@
                 >
                     기록
                 </button>
-
 
                 <button
                     type="button"
@@ -90,7 +86,7 @@
             </nav>
 
 
-            <!-- 모바일 알림 아이콘 -->
+            <!-- 모바일 알림 -->
             <button
                 type="button"
                 class="icon-button mobile-header-button"
@@ -123,9 +119,7 @@
             <div class="screen-inner home-inner">
 
 
-                <!-- =================================
-                    HERO
-                ================================== -->
+                <!-- HERO -->
                 <section class="hero">
 
                     <p
@@ -150,7 +144,7 @@
 
 
                 <!-- =================================
-                    TODAY PROGRESS
+                    오늘 진행률
                 ================================== -->
                 <section class="progress-section">
 
@@ -167,7 +161,6 @@
 
                         <div class="progress-card__body">
 
-                            <!-- 진행률 원 -->
                             <div class="progress-ring-wrap">
 
                                 <div
@@ -185,39 +178,21 @@
                             </div>
 
 
-                            <!-- 진행률 숫자 -->
                             <div class="progress-stats">
 
                                 <dl>
-                                    <dt>
-                                        전체 할 일
-                                    </dt>
-
-                                    <dd id="stat-total">
-                                        0
-                                    </dd>
+                                    <dt>전체 할 일</dt>
+                                    <dd id="stat-total">0</dd>
                                 </dl>
 
-
                                 <dl>
-                                    <dt>
-                                        완료한 할 일
-                                    </dt>
-
-                                    <dd id="stat-done">
-                                        0
-                                    </dd>
+                                    <dt>완료한 할 일</dt>
+                                    <dd id="stat-done">0</dd>
                                 </dl>
 
-
                                 <dl>
-                                    <dt>
-                                        남은 할 일
-                                    </dt>
-
-                                    <dd id="stat-left">
-                                        0
-                                    </dd>
+                                    <dt>남은 할 일</dt>
+                                    <dd id="stat-left">0</dd>
                                 </dl>
 
                             </div>
@@ -230,7 +205,7 @@
 
 
                 <!-- =================================
-                    IMPORTANT TODO
+                    중요한 할 일
                 ================================== -->
                 <section class="focus-section">
 
@@ -251,7 +226,6 @@
                     </div>
 
 
-                    <!-- 슬라이드 -->
                     <div class="important-slider-wrap">
 
                         <!-- 이전 -->
@@ -265,10 +239,9 @@
                         </button>
 
 
-                        <!-- 화면 -->
+                        <!-- 슬라이드 화면 -->
                         <div class="important-slider">
 
-                            <!-- JS 생성 -->
                             <div
                                 class="important-track"
                                 id="important-track"
@@ -290,7 +263,7 @@
                     </div>
 
 
-                    <!-- 페이지 표시 -->
+                    <!-- 도트 -->
                     <div
                         class="important-pagination"
                         id="important-pagination"
@@ -300,7 +273,7 @@
 
 
                 <!-- =================================
-                    SEARCH / FILTER
+                    검색 / 필터
                 ================================== -->
                 <section class="task-control">
 
@@ -331,7 +304,6 @@
                             전체
                         </button>
 
-
                         <button
                             type="button"
                             class="filter-button"
@@ -339,7 +311,6 @@
                         >
                             오늘
                         </button>
-
 
                         <button
                             type="button"
@@ -349,7 +320,6 @@
                             예정
                         </button>
 
-
                         <button
                             type="button"
                             class="filter-button"
@@ -357,7 +327,6 @@
                         >
                             중요
                         </button>
-
 
                         <button
                             type="button"
@@ -373,7 +342,7 @@
 
 
                 <!-- =================================
-                    TODO LIST
+                    할 일 목록
                 ================================== -->
                 <section class="tasks-section">
 
@@ -431,7 +400,6 @@
                 </div>
 
 
-                <!-- 달력 -->
                 <section class="calendar-card">
 
                     <div class="calendar-head">
@@ -482,7 +450,6 @@
                 </section>
 
 
-                <!-- 선택 날짜 일정 -->
                 <section class="calendar-todos">
 
                     <div class="section-top">
@@ -544,7 +511,6 @@
                     id="todo-form"
                 >
 
-                    <!-- 제목 -->
                     <div class="form-field">
 
                         <label for="todo-title">
@@ -563,7 +529,6 @@
                     </div>
 
 
-                    <!-- 날짜 / 시간 -->
                     <div class="form-row">
 
                         <div class="form-field">
@@ -600,7 +565,6 @@
                     </div>
 
 
-                    <!-- 카테고리 -->
                     <div class="form-field">
 
                         <label for="todo-category">
@@ -627,7 +591,6 @@
                     </div>
 
 
-                    <!-- 알림 -->
                     <div class="form-field">
 
                         <label for="todo-reminder">
@@ -666,14 +629,12 @@
                     </div>
 
 
-                    <!-- 중요 -->
                     <label class="toggle-row">
 
                         <input
                             type="checkbox"
                             id="todo-important"
                         >
-
 
                         <span>
                             중요한 일정으로 표시
@@ -682,7 +643,6 @@
                     </label>
 
 
-                    <!-- 메모 -->
                     <div class="form-field">
 
                         <label for="todo-memo">
@@ -758,7 +718,6 @@
                     id="edit-form"
                 >
 
-                    <!-- 제목 -->
                     <div class="form-field">
 
                         <label for="edit-title">
@@ -776,7 +735,6 @@
                     </div>
 
 
-                    <!-- 날짜 / 시간 -->
                     <div class="form-row">
 
                         <div class="form-field">
@@ -813,7 +771,6 @@
                     </div>
 
 
-                    <!-- 카테고리 -->
                     <div class="form-field">
 
                         <label for="edit-category">
@@ -840,7 +797,6 @@
                     </div>
 
 
-                    <!-- 알림 -->
                     <div class="form-field">
 
                         <label for="edit-reminder">
@@ -879,14 +835,12 @@
                     </div>
 
 
-                    <!-- 중요 -->
                     <label class="toggle-row">
 
                         <input
                             type="checkbox"
                             id="edit-important"
                         >
-
 
                         <span>
                             중요한 일정으로 표시
@@ -895,14 +849,12 @@
                     </label>
 
 
-                    <!-- 완료 -->
                     <label class="toggle-row">
 
                         <input
                             type="checkbox"
                             id="edit-completed"
                         >
-
 
                         <span>
                             완료한 일정
@@ -911,7 +863,6 @@
                     </label>
 
 
-                    <!-- 메모 -->
                     <div class="form-field">
 
                         <label for="edit-memo">
@@ -965,6 +916,7 @@
 
             <div class="screen-inner history-inner">
 
+
                 <div class="page-head">
 
                     <p class="page-label">
@@ -979,7 +931,9 @@
                 </div>
 
 
-                <!-- 이번주 완료 -->
+                <!-- =================================
+                    이번 주 완료
+                ================================== -->
                 <section class="history-highlight">
 
                     <p>
@@ -999,7 +953,9 @@
                 </section>
 
 
-                <!-- 카테고리 -->
+                <!-- =================================
+                    카테고리 기록
+                ================================== -->
                 <div class="history-grid">
 
                     <button
@@ -1073,7 +1029,9 @@
                 </div>
 
 
-                <!-- 클릭 시 펼쳐지는 기록 -->
+                <!-- =================================
+                    펼쳐지는 기록
+                ================================== -->
                 <section
                     class="history-detail"
                     id="history-detail"
@@ -1101,6 +1059,141 @@
                         class="history-completed-list"
                         id="history-completed-list"
                     ></ul>
+
+                </section>
+
+
+                <!-- =================================
+                    STATISTICS
+                ================================== -->
+                <section class="statistics-section">
+
+                    <div class="section-top statistics-title">
+
+                        <div>
+
+                            <p class="page-label">
+                                STATISTICS
+                            </p>
+
+
+                            <h3>
+                                통계
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- 요약 통계 -->
+                    <div class="statistics-summary">
+
+                        <article class="stat-summary-card">
+
+                            <span>
+                                이번 주 완료율
+                            </span>
+
+
+                            <strong id="stat-week-rate">
+                                0%
+                            </strong>
+
+                        </article>
+
+
+                        <article class="stat-summary-card">
+
+                            <span>
+                                오늘 완료
+                            </span>
+
+
+                            <strong id="stat-today-completed">
+                                0
+                            </strong>
+
+                            <small>
+                                개
+                            </small>
+
+                        </article>
+
+
+                        <article class="stat-summary-card">
+
+                            <span>
+                                최다 완료 카테고리
+                            </span>
+
+
+                            <strong
+                                class="stat-category-name"
+                                id="stat-top-category"
+                            >
+                                없음
+                            </strong>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- 그래프 -->
+                    <div class="statistics-chart-grid">
+
+
+                        <!-- 요일별 -->
+                        <section class="statistics-card">
+
+                            <div class="statistics-card-head">
+
+                                <h4>
+                                    이번 주 완료 현황
+                                </h4>
+
+
+                                <span>
+                                    요일별
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="weekday-chart"
+                                id="weekday-chart"
+                            ></div>
+
+                        </section>
+
+
+                        <!-- 카테고리별 -->
+                        <section class="statistics-card">
+
+                            <div class="statistics-card-head">
+
+                                <h4>
+                                    카테고리별 완료
+                                </h4>
+
+
+                                <span>
+                                    이번 주
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="category-chart"
+                                id="category-chart"
+                            ></div>
+
+                        </section>
+
+                    </div>
 
                 </section>
 
@@ -1205,7 +1298,7 @@
 
 
     <!-- =========================================
-        ADD BUTTON
+        FLOATING ADD
     ========================================== -->
     <button
         type="button"
@@ -1219,7 +1312,7 @@
 
 
     <!-- =========================================
-        MOBILE / TABLET NAVIGATION
+        MOBILE / TABLET NAV
     ========================================== -->
     <nav
         class="bottom-nav"

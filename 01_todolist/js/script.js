@@ -46,11 +46,14 @@ let importantSlideIndex =
 
 const categoryNames = {
 
-    work: "업무",
+    work:
+        "업무",
 
-    study: "공부",
+    study:
+        "공부",
 
-    personal: "개인"
+    personal:
+        "개인"
 
 };
 
@@ -61,17 +64,23 @@ const categoryNames = {
 
 const reminderNames = {
 
-    none: "알림 없음",
+    none:
+        "알림 없음",
 
-    10: "10분 전",
+    10:
+        "10분 전",
 
-    30: "30분 전",
+    30:
+        "30분 전",
 
-    60: "1시간 전",
+    60:
+        "1시간 전",
 
-    180: "3시간 전",
+    180:
+        "3시간 전",
 
-    1440: "하루 전"
+    1440:
+        "하루 전"
 
 };
 
@@ -104,7 +113,9 @@ function getDateString(date){
         );
 
 
-    return `${year}-${month}-${day}`;
+    return (
+        `${year}-${month}-${day}`
+    );
 
 }
 
@@ -117,6 +128,10 @@ function getTodayString(){
 
 }
 
+
+/* =========================================
+    DATE FORMAT
+========================================= */
 
 function formatKoreanDate(dateString){
 
@@ -170,7 +185,7 @@ function formatShortDate(dateString){
 
 
 /* =========================================
-    TIME
+    TIME FORMAT
 ========================================= */
 
 function formatTime(time){
@@ -190,7 +205,9 @@ function formatTime(time){
 
 
     const hour =
-        Number(hourString);
+        Number(
+            hourString
+        );
 
 
     let displayHour =
@@ -201,12 +218,17 @@ function formatTime(time){
         "오전";
 
 
-    if(hour === 0){
+    if(
+        hour === 0
+    ){
 
         displayHour =
             12;
 
-    }else if(hour === 12){
+    }
+    else if(
+        hour === 12
+    ){
 
         period =
             "오후";
@@ -214,7 +236,10 @@ function formatTime(time){
         displayHour =
             12;
 
-    }else if(hour > 12){
+    }
+    else if(
+        hour > 12
+    ){
 
         period =
             "오후";
@@ -292,12 +317,17 @@ function formatCompletedAt(completedAt){
         hour;
 
 
-    if(hour === 0){
+    if(
+        hour === 0
+    ){
 
         displayHour =
             12;
 
-    }else if(hour === 12){
+    }
+    else if(
+        hour === 12
+    ){
 
         period =
             "오후";
@@ -305,7 +335,10 @@ function formatCompletedAt(completedAt){
         displayHour =
             12;
 
-    }else if(hour > 12){
+    }
+    else if(
+        hour > 12
+    ){
 
         period =
             "오후";
@@ -330,8 +363,9 @@ function formatCompletedAt(completedAt){
 
     1. 미완료 먼저
     2. 완료 일정 아래
-    3. 각각 일정 시간순
-    4. 시간 없는 일정은 아래
+    3. 날짜순
+    4. 시간순
+    5. 시간 없는 일정은 아래
 ========================================= */
 
 function sortTodos(todoArray){
@@ -339,10 +373,6 @@ function sortTodos(todoArray){
     return [...todoArray]
         .sort(
             function(a,b){
-
-                /* =========================
-                    완료 여부
-                ========================== */
 
                 if(
                     a.completed !==
@@ -358,35 +388,28 @@ function sortTodos(todoArray){
                 }
 
 
-                /* =========================
-                    날짜
-                ========================== */
-
                 if(
                     a.date !==
                     b.date
                 ){
 
                     return (
-                        a.date
-                            .localeCompare(
-                                b.date
-                            )
+                        a.date.localeCompare(
+                            b.date
+                        )
                     );
 
                 }
 
 
-                /* =========================
-                    시간
-                ========================== */
-
                 const aTime =
-                    a.time || "99:99";
+                    a.time ||
+                    "99:99";
 
 
                 const bTime =
-                    b.time || "99:99";
+                    b.time ||
+                    "99:99";
 
 
                 if(
@@ -403,17 +426,14 @@ function sortTodos(todoArray){
                 }
 
 
-                /* =========================
-                    같은 시간이면 생성순
-                ========================== */
-
                 return (
                     String(
-                        a.createdAt || ""
-                    )
-                    .localeCompare(
+                        a.createdAt ||
+                        ""
+                    ).localeCompare(
                         String(
-                            b.createdAt || ""
+                            b.createdAt ||
+                            ""
                         )
                     )
                 );
@@ -425,7 +445,7 @@ function sortTodos(todoArray){
 
 
 /* =========================================
-    SAMPLE
+    SAMPLE DATA
 ========================================= */
 
 function createSampleTodos(){
@@ -442,7 +462,8 @@ function createSampleTodos(){
     return [
 
         {
-            id: "todo-001",
+            id:
+                "todo-001",
 
             title:
                 "아침 명상 10분",
@@ -480,7 +501,8 @@ function createSampleTodos(){
 
 
         {
-            id: "todo-002",
+            id:
+                "todo-002",
 
             title:
                 "팀 스탠드업 미팅",
@@ -518,7 +540,8 @@ function createSampleTodos(){
 
 
         {
-            id: "todo-003",
+            id:
+                "todo-003",
 
             title:
                 "디자인 검토",
@@ -556,7 +579,8 @@ function createSampleTodos(){
 
 
         {
-            id: "todo-004",
+            id:
+                "todo-004",
 
             title:
                 "완료시간 확인하기",
@@ -594,7 +618,8 @@ function createSampleTodos(){
 
 
         {
-            id: "todo-005",
+            id:
+                "todo-005",
 
             title:
                 "UX 리서치 보고서 제출",
@@ -632,7 +657,8 @@ function createSampleTodos(){
 
 
         {
-            id: "todo-006",
+            id:
+                "todo-006",
 
             title:
                 "저녁 산책",
@@ -713,17 +739,15 @@ function loadTodos(){
             )
         ){
 
-            todos = [];
+            todos =
+                [];
 
             return;
 
         }
 
 
-        /* =================================
-            기존 데이터 호환
-        ================================== */
-
+        /* 기존 데이터 호환 */
         todos =
             parsed.map(
                 function(todo){
@@ -796,7 +820,8 @@ function loadTodos(){
         );
 
 
-        todos = [];
+        todos =
+            [];
 
     }
 
@@ -820,7 +845,7 @@ function saveTodos(){
 
 
 /* =========================================
-    TODAY HERO
+    HERO DATE
 ========================================= */
 
 function renderTodayDate(){
@@ -904,8 +929,6 @@ function changeScreen(screenName){
     );
 
 
-    /* 추가/수정 화면에서는 + 버튼 숨김 */
-
     const addButton =
         document.querySelector(
             "#floating-add"
@@ -913,15 +936,21 @@ function changeScreen(screenName){
 
 
     addButton.classList.toggle(
+
         "is-hidden",
 
-        screenName === "add" ||
-        screenName === "detail"
+        screenName ===
+        "add" ||
+
+        screenName ===
+        "detail"
+
     );
 
 
     if(
-        screenName === "home"
+        screenName ===
+        "home"
     ){
 
         renderHome();
@@ -948,11 +977,14 @@ function changeScreen(screenName){
 
         renderHistory();
 
+        renderStatistics();
+
     }
 
 
     window.scrollTo({
-        top: 0
+        top:
+            0
     });
 
 }
@@ -1218,7 +1250,8 @@ function bindFilters(){
 
                                         "is-active",
 
-                                        item === button
+                                        item ===
+                                        button
 
                                     );
 
@@ -1259,7 +1292,8 @@ function getFilteredTodos(){
         result =
             result.filter(
                 todo =>
-                    todo.date === today
+                    todo.date ===
+                    today
             );
 
     }
@@ -1273,7 +1307,9 @@ function getFilteredTodos(){
         result =
             result.filter(
                 todo =>
-                    todo.date > today &&
+                    todo.date >
+                    today
+                    &&
                     !todo.completed
             );
 
@@ -1309,7 +1345,8 @@ function getFilteredTodos(){
 
 
     if(
-        searchKeyword !== ""
+        searchKeyword !==
+        ""
     ){
 
         result =
@@ -1331,6 +1368,7 @@ function getFilteredTodos(){
 
 
                     return (
+
                         title.includes(
                             searchKeyword
                         )
@@ -1338,6 +1376,7 @@ function getFilteredTodos(){
                         memo.includes(
                             searchKeyword
                         )
+
                     );
 
                 }
@@ -1345,9 +1384,6 @@ function getFilteredTodos(){
 
     }
 
-
-    /* 중요 */
-    /* 정렬된 데이터 반환 */
 
     return sortTodos(
         result
@@ -1368,7 +1404,8 @@ function getTodayTodos(){
 
     return todos.filter(
         todo =>
-            todo.date === today
+            todo.date ===
+            today
     );
 
 }
@@ -1396,14 +1433,13 @@ function renderProgress(){
 
 
     const left =
-        total - completed;
+        total -
+        completed;
 
 
     const percent =
         total === 0
-
             ? 0
-
             : Math.round(
                 completed /
                 total *
@@ -1472,10 +1508,7 @@ function createTaskElement(todo){
     }
 
 
-    /* =====================================
-        COMPLETE BUTTON
-    ====================================== */
-
+    /* 완료 버튼 */
     const check =
         document.createElement(
             "button"
@@ -1491,10 +1524,13 @@ function createTaskElement(todo){
 
 
     check.setAttribute(
+
         "aria-label",
+
         todo.completed
             ? "완료 취소"
             : "완료"
+
     );
 
 
@@ -1524,10 +1560,6 @@ function createTaskElement(todo){
         }
     );
 
-
-    /* =====================================
-        CONTENT
-    ====================================== */
 
     const content =
         document.createElement(
@@ -1616,10 +1648,7 @@ function createTaskElement(todo){
     );
 
 
-    /* =====================================
-        REMINDER
-    ====================================== */
-
+    /* 알림 */
     if(
         todo.reminder &&
         todo.reminder !==
@@ -1638,8 +1667,7 @@ function createTaskElement(todo){
 
         reminder.textContent =
 
-            `알림 · ` +
-            `${
+            `알림 · ${
                 reminderNames[
                     todo.reminder
                 ]
@@ -1653,10 +1681,7 @@ function createTaskElement(todo){
     }
 
 
-    /* =====================================
-        COMPLETED INFO
-    ====================================== */
-
+    /* 완료 시간 */
     if(
         todo.completed
     ){
@@ -1686,10 +1711,7 @@ function createTaskElement(todo){
     }
 
 
-    /* =====================================
-        ACTION BUTTON
-    ====================================== */
-
+    /* 수정 / 삭제 */
     const actions =
         document.createElement(
             "div"
@@ -1819,7 +1841,8 @@ function renderTodoList(){
 
 
     if(
-        result.length === 0
+        result.length ===
+        0
     ){
 
         const empty =
@@ -1920,10 +1943,6 @@ function renderImportantTodo(){
         "";
 
 
-    /* =====================================
-        EMPTY
-    ====================================== */
-
     if(
         importantTodos.length ===
         0
@@ -1969,8 +1988,6 @@ function renderImportantTodo(){
     }
 
 
-    /* 카드가 하나면 화살표 숨김 */
-
     if(
         importantTodos.length ===
         1
@@ -2007,10 +2024,6 @@ function renderImportantTodo(){
     }
 
 
-    /* =====================================
-        CARDS
-    ====================================== */
-
     importantTodos.forEach(
         function(todo){
 
@@ -2038,11 +2051,9 @@ function renderImportantTodo(){
 
                 </div>
 
-
                 <strong class="focus-title">
                     ${escapeHTML(todo.title)}
                 </strong>
-
 
                 <div class="focus-time">
                     ${formatTime(todo.time)}
@@ -2070,10 +2081,6 @@ function renderImportantTodo(){
         }
     );
 
-
-    /* =====================================
-        DOT
-    ====================================== */
 
     importantTodos.forEach(
         function(todo,index){
@@ -2129,7 +2136,7 @@ function renderImportantTodo(){
 
 
 /* =========================================
-    IMPORTANT SLIDE POSITION
+    IMPORTANT POSITION
 ========================================= */
 
 function updateImportantSlider(){
@@ -2149,7 +2156,8 @@ function updateImportantSlider(){
     track.style.transform =
 
         `translateX(-${
-            importantSlideIndex * 100
+            importantSlideIndex *
+            100
         }%)`;
 
 
@@ -2172,13 +2180,8 @@ function updateImportantSlider(){
 
 
 /* =========================================
-    IMPORTANT SLIDER EVENT
-
-    자동 넘김 없음
-    버튼 클릭만 작동
-
-    마지막 → 다음 → 첫번째
-    첫번째 → 이전 → 마지막
+    IMPORTANT EVENT
+    수동 무한 반복
 ========================================= */
 
 function bindImportantSlider(){
@@ -2195,7 +2198,6 @@ function bindImportantSlider(){
         );
 
 
-    /* 이전 */
     prevButton.addEventListener(
         "click",
         function(){
@@ -2207,7 +2209,8 @@ function bindImportantSlider(){
 
 
             if(
-                total <= 1
+                total <=
+                1
             ){
 
                 return;
@@ -2219,7 +2222,8 @@ function bindImportantSlider(){
 
 
             if(
-                importantSlideIndex < 0
+                importantSlideIndex <
+                0
             ){
 
                 importantSlideIndex =
@@ -2234,7 +2238,6 @@ function bindImportantSlider(){
     );
 
 
-    /* 다음 */
     nextButton.addEventListener(
         "click",
         function(){
@@ -2246,7 +2249,8 @@ function bindImportantSlider(){
 
 
             if(
-                total <= 1
+                total <=
+                1
             ){
 
                 return;
@@ -2277,7 +2281,7 @@ function bindImportantSlider(){
 
 
 /* =========================================
-    COMPLETE TODO
+    TOGGLE COMPLETE
 ========================================= */
 
 function toggleTodo(todoId){
@@ -2494,8 +2498,6 @@ function bindEditForm(){
                                 todo.completedAt;
 
 
-                            /* 미완료 → 완료 */
-
                             if(
                                 !todo.completed &&
                                 newCompleted
@@ -2506,8 +2508,6 @@ function bindEditForm(){
 
                             }
 
-
-                            /* 완료 취소 */
 
                             if(
                                 !newCompleted
@@ -2716,7 +2716,7 @@ function bindDelete(){
 
 
 /* =========================================
-    CALENDAR INITIALIZE
+    CALENDAR INIT
 ========================================= */
 
 function initializeCalendar(){
@@ -2779,8 +2779,6 @@ function renderCalendar(){
         ).getDate();
 
 
-    /* 빈칸 */
-
     for(
         let i = 0;
         i < firstDay;
@@ -2803,8 +2801,6 @@ function renderCalendar(){
 
     }
 
-
-    /* 날짜 */
 
     for(
         let day = 1;
@@ -2851,7 +2847,8 @@ function renderCalendar(){
         if(
             todos.some(
                 todo =>
-                    todo.date === date
+                    todo.date ===
+                    date
             )
         ){
 
@@ -3012,7 +3009,8 @@ function moveMonth(direction){
 
 
     if(
-        calendarMonth < 0
+        calendarMonth <
+        0
     ){
 
         calendarMonth =
@@ -3025,7 +3023,8 @@ function moveMonth(direction){
 
 
     if(
-        calendarMonth > 11
+        calendarMonth >
+        11
     ){
 
         calendarMonth =
@@ -3056,14 +3055,10 @@ function moveMonth(direction){
 
 
 /* =========================================
-    HISTORY
-
-    이번주 완료 판단은
-    일정 날짜가 아니라
-    실제 completedAt 기준
+    WEEK RANGE
 ========================================= */
 
-function getWeekCompletedTodos(){
+function getWeekRange(){
 
     const now =
         new Date();
@@ -3080,10 +3075,9 @@ function getWeekCompletedTodos(){
 
 
     const diff =
-        currentDay === 0
-
+        currentDay ===
+        0
             ? -6
-
             : 1 - currentDay;
 
 
@@ -3121,6 +3115,27 @@ function getWeekCompletedTodos(){
     );
 
 
+    return {
+        start,
+        end
+    };
+
+}
+
+
+/* =========================================
+    WEEK COMPLETED
+========================================= */
+
+function getWeekCompletedTodos(){
+
+    const {
+        start,
+        end
+    } =
+        getWeekRange();
+
+
     return todos.filter(
         function(todo){
 
@@ -3153,8 +3168,13 @@ function getWeekCompletedTodos(){
 
             return (
 
-                completedDate >= start &&
-                completedDate <= end
+                completedDate >=
+                start
+
+                &&
+
+                completedDate <=
+                end
 
             );
 
@@ -3165,7 +3185,56 @@ function getWeekCompletedTodos(){
 
 
 /* =========================================
-    HISTORY COUNT
+    WEEK SCHEDULED TODOS
+========================================= */
+
+function getWeekScheduledTodos(){
+
+    const {
+        start,
+        end
+    } =
+        getWeekRange();
+
+
+    return todos.filter(
+        function(todo){
+
+            if(
+                !todo.date
+            ){
+
+                return false;
+
+            }
+
+
+            const target =
+                new Date(
+                    `${todo.date}T12:00:00`
+                );
+
+
+            return (
+
+                target >=
+                start
+
+                &&
+
+                target <=
+                end
+
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+    HISTORY
 ========================================= */
 
 function renderHistory(){
@@ -3320,7 +3389,6 @@ function renderHistoryDetail(category){
 
 
         li.innerHTML =
-
             "<span class='history-task-meta'>" +
             "완료한 일정이 없어요." +
             "</span>";
@@ -3351,14 +3419,12 @@ function renderHistoryDetail(category){
                     ✓ ${escapeHTML(todo.title)}
                 </strong>
 
-
                 <p class="history-task-meta">
                     예정 ·
                     ${formatShortDate(todo.date)}
                     ·
                     ${formatTime(todo.time)}
                 </p>
-
 
                 <p class="history-completed-time">
                     완료 ·
@@ -3400,15 +3466,12 @@ function bindHistory(){
                                 .historyCategory;
 
 
-                        /* 같은 카드 다시 누르면 닫기 */
-
                         if(
                             openedHistoryCategory ===
                             category
                         ){
 
                             closeHistoryDetail();
-
 
                             return;
 
@@ -3473,7 +3536,446 @@ function closeHistoryDetail(){
 
 
 /* =========================================
-    RESET DATA
+    STATISTICS
+========================================= */
+
+function renderStatistics(){
+
+    const weekCompleted =
+        getWeekCompletedTodos();
+
+
+    const weekScheduled =
+        getWeekScheduledTodos();
+
+
+    /* =====================================
+        이번 주 완료율
+    ====================================== */
+
+    const weekRate =
+        weekScheduled.length ===
+        0
+
+            ? 0
+
+            : Math.round(
+                weekCompleted.length /
+                weekScheduled.length *
+                100
+            );
+
+
+    document.querySelector(
+        "#stat-week-rate"
+    ).textContent =
+        `${weekRate}%`;
+
+
+    /* =====================================
+        오늘 완료
+    ====================================== */
+
+    const today =
+        getTodayString();
+
+
+    const todayCompleted =
+        weekCompleted.filter(
+            function(todo){
+
+                if(
+                    !todo.completedAt
+                ){
+
+                    return false;
+
+                }
+
+
+                const completedDate =
+                    getDateString(
+                        new Date(
+                            todo.completedAt
+                        )
+                    );
+
+
+                return (
+                    completedDate ===
+                    today
+                );
+
+            }
+        );
+
+
+    document.querySelector(
+        "#stat-today-completed"
+    ).textContent =
+        todayCompleted.length;
+
+
+    /* =====================================
+        카테고리 완료 개수
+    ====================================== */
+
+    const categoryCounts = {
+
+        work:
+            weekCompleted.filter(
+                todo =>
+                    todo.category ===
+                    "work"
+            ).length,
+
+        study:
+            weekCompleted.filter(
+                todo =>
+                    todo.category ===
+                    "study"
+            ).length,
+
+        personal:
+            weekCompleted.filter(
+                todo =>
+                    todo.category ===
+                    "personal"
+            ).length
+
+    };
+
+
+    /* =====================================
+        최다 완료 카테고리
+    ====================================== */
+
+    const categoryEntries =
+        Object.entries(
+            categoryCounts
+        );
+
+
+    categoryEntries.sort(
+        function(a,b){
+
+            return (
+                b[1] -
+                a[1]
+            );
+
+        }
+    );
+
+
+    let topCategory =
+        "없음";
+
+
+    if(
+        categoryEntries.length >
+        0
+
+        &&
+
+        categoryEntries[0][1] >
+        0
+    ){
+
+        topCategory =
+            categoryNames[
+                categoryEntries[0][0]
+            ];
+
+    }
+
+
+    document.querySelector(
+        "#stat-top-category"
+    ).textContent =
+        topCategory;
+
+
+    /* =====================================
+        그래프
+    ====================================== */
+
+    renderWeekdayChart(
+        weekCompleted
+    );
+
+
+    renderCategoryChart(
+        categoryCounts
+    );
+
+}
+
+
+/* =========================================
+    WEEKDAY CHART
+========================================= */
+
+function renderWeekdayChart(completedTodos){
+
+    const chart =
+        document.querySelector(
+            "#weekday-chart"
+        );
+
+
+    chart.innerHTML =
+        "";
+
+
+    const weekNames = [
+
+        "월",
+        "화",
+        "수",
+        "목",
+        "금",
+        "토",
+        "일"
+
+    ];
+
+
+    const counts =
+        [0,0,0,0,0,0,0];
+
+
+    completedTodos.forEach(
+        function(todo){
+
+            if(
+                !todo.completedAt
+            ){
+
+                return;
+
+            }
+
+
+            const date =
+                new Date(
+                    todo.completedAt
+                );
+
+
+            let day =
+                date.getDay();
+
+
+            /*
+                JS
+                일 = 0
+                월 = 1
+
+                배열
+                월 = 0
+                ...
+                일 = 6
+            */
+
+            const index =
+                day === 0
+                    ? 6
+                    : day - 1;
+
+
+            counts[index]++;
+
+        }
+    );
+
+
+    const max =
+        Math.max(
+            ...counts,
+            1
+        );
+
+
+    counts.forEach(
+        function(count,index){
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "weekday-bar-item";
+
+
+            const percent =
+                count === 0
+                    ? 0
+                    : (
+                        count /
+                        max *
+                        100
+                    );
+
+
+            item.innerHTML = `
+
+                <span class="weekday-value">
+                    ${count}
+                </span>
+
+                <div class="weekday-bar-track">
+
+                    <span
+                        class="weekday-bar-fill"
+                        style="height:${percent}%"
+                    ></span>
+
+                </div>
+
+                <span class="weekday-label">
+                    ${weekNames[index]}
+                </span>
+
+            `;
+
+
+            chart.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+    CATEGORY CHART
+========================================= */
+
+function renderCategoryChart(categoryCounts){
+
+    const chart =
+        document.querySelector(
+            "#category-chart"
+        );
+
+
+    chart.innerHTML =
+        "";
+
+
+    const categories = [
+
+        {
+            key:
+                "work",
+
+            name:
+                "업무"
+        },
+
+        {
+            key:
+                "study",
+
+            name:
+                "공부"
+        },
+
+        {
+            key:
+                "personal",
+
+            name:
+                "개인"
+        }
+
+    ];
+
+
+    const values =
+        categories.map(
+            item =>
+                categoryCounts[
+                    item.key
+                ]
+        );
+
+
+    const max =
+        Math.max(
+            ...values,
+            1
+        );
+
+
+    categories.forEach(
+        function(category){
+
+            const count =
+                categoryCounts[
+                    category.key
+                ];
+
+
+            const percent =
+                count === 0
+                    ? 0
+                    : (
+                        count /
+                        max *
+                        100
+                    );
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "category-bar-item";
+
+
+            item.innerHTML = `
+
+                <span class="category-bar-label">
+                    ${category.name}
+                </span>
+
+                <div class="category-bar-track">
+
+                    <span
+                        class="category-bar-fill"
+                        style="width:${percent}%"
+                    ></span>
+
+                </div>
+
+                <span class="category-bar-value">
+                    ${count}
+                </span>
+
+            `;
+
+
+            chart.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+    RESET
 ========================================= */
 
 function bindReset(){
@@ -3550,7 +4052,8 @@ function escapeHTML(text){
 
 
     div.textContent =
-        text || "";
+        text ||
+        "";
 
 
     return div.innerHTML;
@@ -3576,7 +4079,7 @@ function renderHome(){
 
 
 /* =========================================
-    ALL
+    RENDER ALL
 ========================================= */
 
 function renderAll(){
@@ -3591,6 +4094,9 @@ function renderAll(){
 
 
     renderHistory();
+
+
+    renderStatistics();
 
 }
 
@@ -3628,8 +4134,6 @@ function bindEvents(){
     bindReset();
 
 
-    /* 수정 화면 돌아가기 */
-
     document
         .querySelector(
             "#detail-back"
@@ -3650,8 +4154,6 @@ function bindEvents(){
         );
 
 
-    /* 이전 달 */
-
     document
         .querySelector(
             "#calendar-prev"
@@ -3668,8 +4170,6 @@ function bindEvents(){
         );
 
 
-    /* 다음 달 */
-
     document
         .querySelector(
             "#calendar-next"
@@ -3685,8 +4185,6 @@ function bindEvents(){
             }
         );
 
-
-    /* ESC로 삭제 팝업 닫기 */
 
     document.addEventListener(
         "keydown",
