@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f3eb">
+  <title>김민혁 ♥ 이서영 모바일 청첩장</title>
+  <meta name="description" content="2026년 9월 5일, 김민혁 ♥ 이서영 결혼식에 초대합니다.">
+  <meta property="og:title" content="김민혁 ♥ 이서영 결혼합니다">
+  <meta property="og:description" content="2026.09.05 SAT 12:00 | 서울 신라호텔 영빈관">
+  <meta property="og:image" content="./images/main-wedding.jpg">
+  
+  
+
+
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- 카카오맵 JavaScript SDK : 아래 YOUR_KAKAO_JAVASCRIPT_KEY 부분에 키를 입력하세요 -->
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=96a7a58d2bdc24d0dc8c4cb3a1420557&autoload=false"></script>
+</head>
+<body>
+  <main class="app-shell">
+
+    <!-- =========================
+         01. Main Cover
+    ========================== -->
+    <section class="hero" id="top">
+      <img class="hero__image" src="./images/main-wedding.png" alt="신랑 김민혁과 신부 이서영의 웨딩 메인 사진">
+      <div class="hero__shade"></div>
+
+      <div class="hero__top">
+        <span>2026.09.05</span>
+        <span>MINHYUK · SEOYOUNG</span>
+      </div>
+
+      <div class="hero__center">
+        <p class="hero__eyebrow">WE ARE GETTING</p>
+        <h1>Just<br>Married</h1>
+      </div>
+
+      <div class="hero__bottom">
+        <p>김민혁 · 이서영</p>
+        <a class="scroll-cue" href="#invitation" aria-label="초대글로 이동">
+          <span>SCROLL</span>
+          <i></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================
+         02. Invitation
+    ========================== -->
+    <section class="section invitation" id="invitation">
+      <div class="reveal">
+        <p class="section-kicker">INVITATION</p>
+        <h2>초대합니다</h2>
+        <div class="ornament">✦</div>
+      </div>
+
+      <div class="invitation__copy reveal delay-1">
+        <p>
+          저희의 영원한 사랑을<br>
+          깨지지 않는 약속으로 하늘에 아로 새기어<br>
+          서로의 동반자 되어 인생의 여정을 출발하고자 합니다.
+        </p>
+        <p>
+          저희 두 사람의 약속이<br>
+          더욱 빛날수 있도록<br>
+          부디 방문하시어 따듯한 격려와 축복을 부탁드립니다.
+        </p>
+      </div>
+
+      <div class="couple-line reveal delay-2">
+        <p><span>김대성의 아들</span><strong>김민혁</strong></p>
+        <em>♥</em>
+        <p><span>이완성의 딸</span><strong>이서영</strong></p>
+      </div>
+    </section>
+
+    <!-- =========================
+         03. Wedding Date
+    ========================== -->
+    <section class="section date-section">
+      <div class="date-card reveal">
+        <p class="section-kicker">WEDDING DAY</p>
+        <div class="date-card__big">09 <span>/</span> 05</div>
+        <h2>2026년 9월 5일 토요일</h2>
+        <p>낮 12시 · 서울 신라호텔 영빈관</p>
+
+        <div class="calendar">
+          <div class="calendar__head">
+            <span>SEPTEMBER</span>
+            <span>2026</span>
+          </div>
+          <div class="calendar__grid calendar__week">
+            <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+          </div>
+          <div class="calendar__grid" aria-label="2026년 9월 달력">
+            <span></span><span></span>
+            <span>1</span><span>2</span><span>3</span><span>4</span><span class="wedding-day">5</span>
+            <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+            <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+            <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
+            <span>27</span><span>28</span><span>29</span><span>30</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         04. Countdown
+    ========================== -->
+    <section class="section countdown-section">
+      <div class="reveal">
+        <p class="section-kicker">COUNTDOWN</p>
+        <h2>우리의 결혼식까지</h2>
+      </div>
+
+      <div class="countdown reveal delay-1" id="countdown">
+        <div><strong id="days">00</strong><span>DAYS</span></div>
+        <div><strong id="hours">00</strong><span>HOURS</span></div>
+        <div><strong id="minutes">00</strong><span>MIN</span></div>
+        <div><strong id="seconds">00</strong><span>SEC</span></div>
+      </div>
+
+      <p class="countdown-message reveal delay-2" id="countdownMessage">
+        설레는 마음으로 기다리고 있습니다.
+      </p>
+    </section>
+
+    <!-- =========================
+         05. Bride & Groom
+    ========================== -->
+    <section class="section profiles">
+      <div class="reveal">
+        <p class="section-kicker">BRIDE & GROOM</p>
+        <h2>서로의 동반자가 되어</h2>
+      </div>
+
+      <div class="profile-grid">
+        <article class="profile-card reveal delay-1">
+          <img src="./images/groom.png" alt="신랑 김민혁 프로필 사진">
+          <p class="profile-card__role">GROOM</p>
+          <h3>김민혁</h3>
+          <span>김대성의 아들</span>
+        </article>
+
+        <article class="profile-card reveal delay-2">
+          <img src="./images/bride.png" alt="신부 이서영 프로필 사진">
+          <p class="profile-card__role">BRIDE</p>
+          <h3>이서영</h3>
+          <span>이완성의 딸</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         06. Story
+    ========================== -->
+    <section class="section story">
+      <div class="reveal">
+        <p class="section-kicker">OUR STORY</p>
+        <h2>함께 걸어온 시간</h2>
+      </div>
+
+      <div class="story-collage">
+        <figure class="story-photo story-photo--a reveal delay-1">
+          <img src="./images/story01.jpg" alt="신랑 신부의 추억 사진 1">
+        </figure>
+        <figure class="story-photo story-photo--b reveal delay-2">
+          <img src="./images/story02.jpg" alt="신랑 신부의 추억 사진 2">
+        </figure>
+        <figure class="story-photo story-photo--c reveal delay-3">
+          <img src="./images/story03.jpg" alt="신랑 신부의 추억 사진 3">
+        </figure>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline__item">
+          <span>01</span>
+          <div><strong>첫 만남</strong><p>서로의 하루에 자연스럽게 스며들기 시작했습니다.</p></div>
+        </div>
+        <div class="timeline__item">
+          <span>02</span>
+          <div><strong>함께한 시간</strong><p>수많은 계절을 지나며 서로의 가장 가까운 사람이 되었습니다.</p></div>
+        </div>
+        <div class="timeline__item">
+          <span>03</span>
+          <div><strong>Wedding Day</strong><p>2026.09.05, 이제 같은 방향을 바라보며 걸어갑니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         07. Gallery
+    ========================== -->
+    <section class="section gallery-section">
+      <div class="reveal">
+        <p class="section-kicker">GALLERY</p>
+        <h2>우리의 순간들</h2>
+      </div>
+
+      <div class="gallery">
+        <button class="gallery__item reveal" type="button" data-full="./images/gallery01.jpg">
+          <img src="./images/gallery01.png" alt="웨딩 갤러리 사진 1" loading="lazy">
+        </button>
+        <button class="gallery__item reveal delay-1" type="button" data-full="./images/gallery02.jpg">
+          <img src="./images/gallery02.png" alt="웨딩 갤러리 사진 2" loading="lazy">
+        </button>
+        <button class="gallery__item reveal delay-2" type="button" data-full="./images/gallery03.jpg">
+          <img src="./images/gallery03.png" alt="웨딩 갤러리 사진 3" loading="lazy">
+        </button>
+        <button class="gallery__item reveal" type="button" data-full="./images/gallery04.jpg">
+          <img src="./images/gallery04.png" alt="웨딩 갤러리 사진 4" loading="lazy">
+        </button>
+        <button class="gallery__item reveal delay-1" type="button" data-full="./images/gallery05.jpg">
+          <img src="./images/gallery05.png" alt="웨딩 갤러리 사진 5" loading="lazy">
+        </button>
+        <button class="gallery__item reveal delay-2" type="button" data-full="./images/gallery06.jpg">
+          <img src="./images/gallery06.png" alt="웨딩 갤러리 사진 6" loading="lazy">
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================
+         08. Wedding Information
+    ========================== -->
+    <section class="section info-section">
+      <div class="info-panel reveal">
+        <p class="section-kicker">CEREMONY</p>
+        <h2>2026. 09. 05</h2>
+        <p class="info-panel__time">SATURDAY · 12:00 PM</p>
+        <div class="info-panel__line"></div>
+        <h3>서울 신라호텔 영빈관</h3>
+        <p>소중한 걸음으로 함께해 주세요.</p>
+      </div>
+    </section>
+
+    <!-- =========================
+         09. Location
+    ========================== -->
+    <section class="section location">
+      <div class="reveal">
+        <p class="section-kicker">LOCATION</p>
+        <h2>오시는 길</h2>
+      </div>
+
+      <!-- 카카오맵이 표시되는 영역 -->
+      <div id="map" class="kakao-map reveal delay-1" aria-label="서울 신라호텔 영빈관 카카오맵">
+        <p class="map-fallback">카카오맵 API 키를 입력하면 지도가 표시됩니다.</p>
+      </div>
+
+      <div class="location__text reveal delay-2">
+        <h3>서울 신라호텔 영빈관</h3>
+        <p>서울특별시 중구 동호로 249</p>
+      </div>
+
+      <div class="button-stack reveal delay-3">
+        <button type="button" class="btn btn--outline" id="copyAddress">주소 복사하기</button>
+        <a class="btn btn--dark" href="https://map.kakao.com/link/search/서울%20신라호텔%20영빈관" target="_blank" rel="noopener">카카오맵에서 확인하기</a>
+      </div>
+    </section>
+
+    <!-- =========================
+         10. Contact
+    ========================== -->
+    <section class="section contact">
+      <div class="reveal">
+        <p class="section-kicker">CONTACT</p>
+        <h2>연락하기</h2>
+      </div>
+
+      <div class="contact-card reveal delay-1">
+        <span>GROOM</span>
+        <strong>김민혁</strong>
+        <a href="tel:01012344567">지금 신랑에게 연락하세요</a>
+      </div>
+
+      <div class="contact-card reveal delay-2">
+        <span>BRIDE</span>
+        <strong>이서영</strong>
+        <a href="tel:01087654321">지금 신부에게 연락하세요</a>
+      </div>
+    </section>
+
+    <!-- =========================
+         11. Gift Account
+    ========================== -->
+    <section class="section gift">
+      <div class="reveal">
+        <p class="section-kicker">WITH HEART</p>
+        <h2>마음 전하실 곳</h2>
+        <p class="section-desc">축하해 주시는 마음만으로도 충분히 감사드립니다.</p>
+      </div>
+
+      <div class="accordion reveal delay-1">
+        <button class="accordion__button" type="button" aria-expanded="false">
+          <span>신랑측 계좌 보기</span><b>＋</b>
+        </button>
+        <div class="accordion__panel">
+          <p>농협은행</p>
+          <strong>392-0897-5992-89</strong>
+          <button class="copy-account" data-account="392-0897-5992-89" type="button">계좌번호 복사</button>
+        </div>
+      </div>
+
+      <div class="accordion reveal delay-2">
+        <button class="accordion__button" type="button" aria-expanded="false">
+          <span>신부측 계좌 보기</span><b>＋</b>
+        </button>
+        <div class="accordion__panel">
+          <p>농협은행</p>
+          <strong>392-0897-5992-89</strong>
+          <button class="copy-account" data-account="392-0897-5992-89" type="button">계좌번호 복사</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         12. Guestbook
+    ========================== -->
+    <section class="section guestbook">
+      <div class="reveal">
+        <p class="section-kicker">GUEST BOOK</p>
+        <h2>축하의 마음을 남겨주세요</h2>
+      </div>
+
+      <form id="guestbookForm" class="guestbook-form reveal delay-1">
+        <label>
+          <span>이름</span>
+          <input type="text" name="name" maxlength="20" placeholder="이름을 입력해 주세요" required>
+        </label>
+
+        <label>
+          <span>축하 메시지</span>
+          <textarea name="message" maxlength="300" rows="5" placeholder="따뜻한 축하 메시지를 남겨주세요" required></textarea>
+        </label>
+
+        <button class="btn btn--dark" type="submit">축하 메시지 남기기</button>
+        <p class="form-status" id="formStatus" aria-live="polite"></p>
+      </form>
+
+      <div class="guestbook-list reveal delay-2" id="guestbookList">
+        <article class="guest-message guest-message--empty">
+          <p>아직 등록된 방명록이 없습니다.<br>첫 번째 축하 메시지를 남겨주세요.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         13. Ending
+    ========================== -->
+    <section class="ending">
+      <img src="./images/ending.png" alt="신랑 김민혁과 신부 이서영의 웨딩 엔딩 사진" loading="lazy">
+      <div class="ending__shade"></div>
+      <div class="ending__content reveal">
+        <p class="section-kicker section-kicker--light">THANK YOU</p>
+        <h2>함께 축복해 주셔서<br>감사합니다.</h2>
+        <p>김민혁 · 이서영</p>
+        <span>2026.09.05</span>
+
+        <div class="ending__buttons">
+          <button id="shareButton" class="ending__button" type="button">청첩장 공유</button>
+          <a class="ending__button" href="#top">맨 위로</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Gallery Modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" type="button" aria-label="사진 닫기">×</button>
+    <img id="lightboxImage" src="" alt="확대된 웨딩 사진">
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
