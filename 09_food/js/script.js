@@ -1,27 +1,17 @@
 /* =========================================
-   부산 맛집 정보 서비스
-   HTML / CSS / Vanilla JavaScript
+   API KEY
 ========================================= */
 
-/* =========================================
-   1. API KEY 설정
-========================================= */
+const SERVICE_KEY =
+  "%2Fjk9Y7KN4jKnVImNXwk9H9PX03jqBFVeGoUtz8AZvCG5P5hBSByWVULOaT4UtWIvqL0V%2BCiPImNBbK6tdvX%2FSA%3D%3D";
 
-// 공공데이터포털 인증키
-const SERVICE_KEY = "%2Fjk9Y7KN4jKnVImNXwk9H9PX03jqBFVeGoUtz8AZvCG5P5hBSByWVULOaT4UtWIvqL0V%2BCiPImNBbK6tdvX%2FSA%3D%3D";
 
-// 카카오 Developers JavaScript 키
-const KAKAO_JAVASCRIPT_KEY = "96a7a58d2bdc24d0dc8c4cb3a1420557";
+const KAKAO_JAVASCRIPT_KEY =
+  "96a7a58d2bdc24d0dc8c4cb3a1420557";
 
 
 /* =========================================
-   부산 맛집 서비스
-   다국어 API + 검색 + 즐겨찾기 + 지도
-========================================= */
-
-
-/* =========================================
-   1. 부산맛집 다국어 API
+   부산 맛집 API
 ========================================= */
 
 const FOOD_API_BASE_URL =
@@ -30,31 +20,30 @@ const FOOD_API_BASE_URL =
 
 const LANGUAGE_ENDPOINTS = {
 
-  kr: "getFoodKr",
+  kr:"getFoodKr",
 
-  en: "getFoodEn",
+  en:"getFoodEn",
 
-  ja: "getFoodJa",
+  ja:"getFoodJa",
 
-  zhs: "getFoodZhs",
+  zhs:"getFoodZhs",
 
-  zht: "getFoodZht"
+  zht:"getFoodZht"
 
 };
 
 
 /* =========================================
-   2. UI 다국어
+   UI 언어
 ========================================= */
 
 const I18N = {
 
-  kr: {
+  kr:{
 
-    appTitle: "부산 맛집",
+    appTitle:"부산 맛집",
 
-    heroKicker:
-      "부산에서 오늘 뭐 먹지?",
+    heroKicker:"부산에서 오늘 뭐 먹지?",
 
     heroTitle:
       "지역, 메뉴, 내 위치까지<br>한 번에 찾아보세요.",
@@ -62,11 +51,9 @@ const I18N = {
     searchPlaceholder:
       "맛집 또는 메뉴를 검색하세요",
 
-    nearbyTitle:
-      "내 주변 맛집",
+    nearbyTitle:"내 주변 맛집",
 
-    useLocation:
-      "내 위치 사용",
+    useLocation:"내 위치 사용",
 
     locationGuideTitle:
       "현재 위치를 기준으로 찾아드려요.",
@@ -74,59 +61,36 @@ const I18N = {
     locationGuideText:
       "위치 권한을 허용하면 가까운 맛집부터 확인할 수 있습니다.",
 
-    areaTitle:
-      "지역별 맛집",
+    areaTitle:"지역별 맛집",
 
-    menuTitle:
-      "메뉴별 맛집",
+    menuTitle:"메뉴별 맛집",
 
-    randomTitle:
-      "오늘 뭐 먹지?",
+    randomTitle:"오늘 뭐 먹지?",
 
-    randomButton:
-      "랜덤 추천",
+    randomButton:"랜덤 추천",
 
     randomGuide:
       "버튼을 누르면 부산 맛집 하나를 골라드려요.",
 
-    recommendTitle:
-      "부산 추천 맛집",
+    recommendTitle:"부산 추천 맛집",
 
-    recentTitle:
-      "최근 본 맛집",
+    recentTitle:"최근 본 맛집",
 
-    searchTitle:
-      "부산 맛집 찾기",
+    searchTitle:"부산 맛집 찾기",
 
-    areaFilter:
-      "지역별",
+    areaFilter:"지역별",
 
-    menuFilter:
-      "메뉴별",
+    menuFilter:"메뉴별",
 
-    reset:
-      "초기화",
+    reset:"초기화",
 
-    sortDefault:
-      "기본순",
+    listView:"목록",
 
-    sortDistance:
-      "가까운순",
+    mapView:"지도",
 
-    sortName:
-      "이름순",
+    loadMore:"더보기",
 
-    listView:
-      "목록",
-
-    mapView:
-      "지도",
-
-    loadMore:
-      "더보기",
-
-    favoriteTitle:
-      "즐겨찾기",
+    favoriteTitle:"즐겨찾기",
 
     favoriteEmptyTitle:
       "아직 저장한 맛집이 없습니다.",
@@ -134,107 +98,36 @@ const I18N = {
     favoriteEmptyText:
       "마음에 드는 맛집의 하트 버튼을 눌러보세요.",
 
-    settingsTitle:
-      "설정",
+    settingsTitle:"설정",
 
-    themeTitle:
-      "테마",
+    themeTitle:"테마",
 
-    themeText:
-      "화면 모드를 선택하세요.",
+    themeText:"화면 모드를 선택하세요.",
 
-    light:
-      "라이트",
+    languageTitle:"언어",
 
-    dark:
-      "다크",
+    languageText:"앱 화면 언어를 변경합니다.",
 
-    system:
-      "시스템",
-
-    languageTitle:
-      "언어",
-
-    languageText:
-      "앱 화면 언어를 변경합니다.",
-
-    locationTitle:
-      "현재 위치",
+    locationTitle:"현재 위치",
 
     locationText:
       "내 주변 맛집과 가까운 순 정렬에 사용됩니다.",
 
-    checkLocation:
-      "위치 확인",
+    checkLocation:"위치 확인",
 
-    clearFavoriteTitle:
-      "즐겨찾기 초기화",
+    navHome:"홈",
 
-    clearFavoriteText:
-      "저장한 맛집을 모두 삭제합니다.",
+    navSearch:"검색",
 
-    clearRecentTitle:
-      "최근 본 맛집 초기화",
+    navFavorite:"즐겨찾기",
 
-    clearRecentText:
-      "최근 조회 기록을 모두 삭제합니다.",
+    navSettings:"설정",
 
-    dataGuideTitle:
-      "데이터 안내",
+    all:"전체",
 
-    dataGuideText:
-      "운영시간 등은 부산광역시 제공 공공데이터 기준이며 실제 정보와 차이가 있을 수 있습니다.",
+    result:"검색 결과",
 
-    navHome:
-      "홈",
-
-    navSearch:
-      "검색",
-
-    navFavorite:
-      "즐겨찾기",
-
-    navSettings:
-      "설정",
-
-    all:
-      "전체",
-
-    detail:
-      "상세보기",
-
-    menuUnknown:
-      "대표메뉴 정보 없음",
-
-    timeUnknown:
-      "운영시간 정보 없음",
-
-    imagePreparing:
-      "맛집 이미지 준비중",
-
-    result:
-      "검색 결과",
-
-    countUnit:
-      "개",
-
-    apiKeyRequired:
-      "공공데이터 API 인증키가 필요합니다.",
-
-    apiKeyGuide:
-      "js/script.js 파일의 SERVICE_KEY 값을 발급받은 인증키로 교체해주세요.",
-
-    apiFailTitle:
-      "맛집 정보를 불러오지 못했습니다.",
-
-    apiRetry:
-      "다시 시도",
-
-    api403:
-      "API 접근이 거부되었습니다. 인증키와 활용신청 상태를 확인해주세요.",
-
-    noResult:
-      "검색 결과가 없습니다.",
+    noResult:"검색 결과가 없습니다.",
 
     noResultText:
       "다른 지역이나 메뉴를 검색해보세요.",
@@ -245,38 +138,38 @@ const I18N = {
     favoriteRemoved:
       "즐겨찾기에서 삭제했습니다.",
 
+    menuUnknown:
+      "대표메뉴 정보 없음",
+
+    imagePreparing:
+      "맛집 이미지 준비중",
+
     currentDistance:
       "현재 위치에서",
 
-    phone:
-      "전화하기",
-
-    homepage:
-      "홈페이지",
-
-    route:
-      "현재 위치에서 길찾기",
-
-    share:
-      "공유하기",
-
-    representativeMenu:
-      "대표메뉴",
-
-    operatingHours:
-      "운영시간",
+    restaurantName:
+      "상호명",
 
     address:
       "주소",
 
-    phoneNumber:
-      "전화번호",
-
-    location:
-      "위치",
-
     restaurantIntro:
-      "맛집 소개",
+      "소개",
+
+    representativeMenu:
+      "대표메뉴",
+
+    phoneNumber:
+      "문의",
+
+    operatingHours:
+      "운영시간",
+
+    homepage:
+      "공식 홈페이지",
+
+    noHomepage:
+      "공식 홈페이지 없음",
 
     noInfo:
       "정보 없음"
@@ -284,10 +177,9 @@ const I18N = {
   },
 
 
-  en: {
+  en:{
 
-    appTitle:
-      "Busan Food",
+    appTitle:"Busan Food",
 
     heroKicker:
       "What should I eat in Busan today?",
@@ -323,7 +215,7 @@ const I18N = {
       "Random Pick",
 
     randomGuide:
-      "Tap the button for a random Busan restaurant.",
+      "Tap the button for a random restaurant.",
 
     recommendTitle:
       "Recommended in Busan",
@@ -334,140 +226,58 @@ const I18N = {
     searchTitle:
       "Find Busan Restaurants",
 
-    areaFilter:
-      "Area",
+    areaFilter:"Area",
 
-    menuFilter:
-      "Menu",
+    menuFilter:"Menu",
 
-    reset:
-      "Reset",
+    reset:"Reset",
 
-    sortDefault:
-      "Default",
+    listView:"List",
 
-    sortDistance:
-      "Nearest",
+    mapView:"Map",
 
-    sortName:
-      "Name",
+    loadMore:"Load More",
 
-    listView:
-      "List",
-
-    mapView:
-      "Map",
-
-    loadMore:
-      "Load More",
-
-    favoriteTitle:
-      "Favorites",
+    favoriteTitle:"Favorites",
 
     favoriteEmptyTitle:
       "No saved restaurants yet.",
 
     favoriteEmptyText:
-      "Tap the heart button to save a restaurant.",
+      "Tap the heart icon to save a restaurant.",
 
-    settingsTitle:
-      "Settings",
+    settingsTitle:"Settings",
 
-    themeTitle:
-      "Theme",
+    themeTitle:"Theme",
 
     themeText:
-      "Choose a display theme.",
+      "Choose display mode.",
 
-    light:
-      "Light",
-
-    dark:
-      "Dark",
-
-    system:
-      "System",
-
-    languageTitle:
-      "Language",
+    languageTitle:"Language",
 
     languageText:
-      "Change the app interface language.",
+      "Change the app language.",
 
     locationTitle:
       "Current Location",
 
     locationText:
-      "Used for nearby restaurants and distance sorting.",
+      "Used to sort nearby restaurants.",
 
     checkLocation:
       "Check Location",
 
-    clearFavoriteTitle:
-      "Clear Favorites",
+    navHome:"Home",
 
-    clearFavoriteText:
-      "Delete all saved restaurants.",
+    navSearch:"Search",
 
-    clearRecentTitle:
-      "Clear Recent",
+    navFavorite:"Favorites",
 
-    clearRecentText:
-      "Delete recently viewed history.",
+    navSettings:"Settings",
 
-    dataGuideTitle:
-      "Data Notice",
+    all:"All",
 
-    dataGuideText:
-      "Operating hours are based on Busan public data and may differ from actual information.",
-
-    navHome:
-      "Home",
-
-    navSearch:
-      "Search",
-
-    navFavorite:
-      "Favorites",
-
-    navSettings:
-      "Settings",
-
-    all:
-      "All",
-
-    detail:
-      "View Details",
-
-    menuUnknown:
-      "No menu information",
-
-    timeUnknown:
-      "No hours information",
-
-    imagePreparing:
-      "Image unavailable",
-
-    result:
-      "Results",
-
-    countUnit:
-      "",
-
-    apiKeyRequired:
-      "Public Data API key is required.",
-
-    apiKeyGuide:
-      "Replace SERVICE_KEY with your issued API key.",
-
-    apiFailTitle:
-      "Could not load restaurant information.",
-
-    apiRetry:
-      "Retry",
-
-    api403:
-      "API access was denied.",
+    result:"Results",
 
     noResult:
       "No results found.",
@@ -481,38 +291,38 @@ const I18N = {
     favoriteRemoved:
       "Removed from favorites.",
 
+    menuUnknown:
+      "No menu information",
+
+    imagePreparing:
+      "Image unavailable",
+
     currentDistance:
       "From your location",
 
-    phone:
-      "Call",
-
-    homepage:
-      "Website",
-
-    route:
-      "Directions",
-
-    share:
-      "Share",
-
-    representativeMenu:
-      "Menu",
-
-    operatingHours:
-      "Hours",
+    restaurantName:
+      "Restaurant",
 
     address:
       "Address",
 
-    phoneNumber:
-      "Phone",
-
-    location:
-      "Location",
-
     restaurantIntro:
       "About",
+
+    representativeMenu:
+      "Menu",
+
+    phoneNumber:
+      "Contact",
+
+    operatingHours:
+      "Hours",
+
+    homepage:
+      "Official Website",
+
+    noHomepage:
+      "No official website",
 
     noInfo:
       "No information"
@@ -520,710 +330,182 @@ const I18N = {
   },
 
 
-  ja: {
+  ja:{
 
-    appTitle:
-      "釜山グルメ",
-
-    heroKicker:
-      "釜山で今日は何を食べる？",
-
-    heroTitle:
-      "地域・メニュー・現在地から<br>一度に探せます。",
+    appTitle:"釜山グルメ",
 
     searchPlaceholder:
       "店名またはメニューを検索",
 
-    nearbyTitle:
-      "近くのグルメ",
+    areaFilter:"地域",
 
-    useLocation:
-      "現在地を使用",
+    menuFilter:"メニュー",
 
-    locationGuideTitle:
-      "現在地を基準に探します。",
+    reset:"リセット",
 
-    locationGuideText:
-      "位置情報を許可すると近い順に確認できます。",
+    listView:"リスト",
 
-    areaTitle:
-      "地域別",
+    mapView:"地図",
 
-    menuTitle:
-      "メニュー別",
+    loadMore:"もっと見る",
 
-    randomTitle:
-      "今日は何を食べる？",
+    navHome:"ホーム",
 
-    randomButton:
-      "ランダム",
+    navSearch:"検索",
 
-    randomGuide:
-      "釜山のお店をランダムにおすすめします。",
+    navFavorite:"お気に入り",
 
-    recommendTitle:
-      "釜山おすすめグルメ",
+    navSettings:"設定",
 
-    recentTitle:
-      "最近見たお店",
+    all:"全体",
 
-    searchTitle:
-      "釜山グルメ検索",
+    result:"検索結果",
 
-    areaFilter:
-      "地域",
+    restaurantName:"店名",
 
-    menuFilter:
-      "メニュー",
+    address:"住所",
 
-    reset:
-      "リセット",
+    restaurantIntro:"紹介",
 
-    sortDefault:
-      "基本順",
+    representativeMenu:"代表メニュー",
 
-    sortDistance:
-      "近い順",
+    phoneNumber:"問い合わせ",
 
-    sortName:
-      "名前順",
+    operatingHours:"営業時間",
 
-    listView:
-      "リスト",
+    homepage:"公式ホームページ",
 
-    mapView:
-      "地図",
+    noHomepage:"公式ホームページなし",
 
-    loadMore:
-      "もっと見る",
+    noInfo:"情報なし",
 
-    favoriteTitle:
-      "お気に入り",
+    favoriteAdded:"お気に入りに保存しました。",
 
-    favoriteEmptyTitle:
-      "保存したお店はまだありません。",
+    favoriteRemoved:"お気に入りから削除しました。",
 
-    favoriteEmptyText:
-      "ハートボタンでお気に入りに追加できます。",
+    menuUnknown:"メニュー情報なし",
 
-    settingsTitle:
-      "設定",
-
-    themeTitle:
-      "テーマ",
-
-    themeText:
-      "画面モードを選択してください。",
-
-    light:
-      "ライト",
-
-    dark:
-      "ダーク",
-
-    system:
-      "システム",
-
-    languageTitle:
-      "言語",
-
-    languageText:
-      "アプリの表示言語を変更します。",
-
-    locationTitle:
-      "現在地",
-
-    locationText:
-      "近くのお店と距離順の表示に使用します。",
-
-    checkLocation:
-      "位置確認",
-
-    clearFavoriteTitle:
-      "お気に入り初期化",
-
-    clearFavoriteText:
-      "保存したお店を削除します。",
-
-    clearRecentTitle:
-      "履歴初期化",
-
-    clearRecentText:
-      "最近見た履歴を削除します。",
-
-    dataGuideTitle:
-      "データ案内",
-
-    dataGuideText:
-      "営業時間などは釜山市の公開データを基準にしています。",
-
-    navHome:
-      "ホーム",
-
-    navSearch:
-      "検索",
-
-    navFavorite:
-      "お気に入り",
-
-    navSettings:
-      "設定",
-
-    all:
-      "全体",
-
-    detail:
-      "詳細を見る",
-
-    menuUnknown:
-      "代表メニュー情報なし",
-
-    timeUnknown:
-      "営業時間情報なし",
-
-    imagePreparing:
-      "画像準備中",
-
-    result:
-      "検索結果",
-
-    countUnit:
-      "件",
-
-    apiKeyRequired:
-      "公共データAPIキーが必要です。",
-
-    apiKeyGuide:
-      "SERVICE_KEYを確認してください。",
-
-    apiFailTitle:
-      "グルメ情報を読み込めませんでした。",
-
-    apiRetry:
-      "再試行",
-
-    api403:
-      "APIアクセスが拒否されました。",
-
-    noResult:
-      "検索結果がありません。",
-
-    noResultText:
-      "別の地域やメニューで検索してください。",
-
-    favoriteAdded:
-      "お気に入りに保存しました。",
-
-    favoriteRemoved:
-      "お気に入りから削除しました。",
-
-    currentDistance:
-      "現在地から",
-
-    phone:
-      "電話",
-
-    homepage:
-      "ホームページ",
-
-    route:
-      "ルート",
-
-    share:
-      "共有",
-
-    representativeMenu:
-      "代表メニュー",
-
-    operatingHours:
-      "営業時間",
-
-    address:
-      "住所",
-
-    phoneNumber:
-      "電話番号",
-
-    location:
-      "位置",
-
-    restaurantIntro:
-      "お店紹介",
-
-    noInfo:
-      "情報なし"
+    imagePreparing:"画像なし"
 
   },
 
 
-  zhs: {
+  zhs:{
 
-    appTitle:
-      "釜山美食",
-
-    heroKicker:
-      "今天在釜山吃什么？",
-
-    heroTitle:
-      "按地区、菜单和当前位置<br>一次查找。",
+    appTitle:"釜山美食",
 
     searchPlaceholder:
       "搜索餐厅或菜单",
 
-    nearbyTitle:
-      "附近美食",
+    areaFilter:"地区",
 
-    useLocation:
-      "使用当前位置",
+    menuFilter:"菜单",
 
-    locationGuideTitle:
-      "根据当前位置查找。",
+    reset:"重置",
 
-    locationGuideText:
-      "允许定位后可查看附近餐厅。",
+    listView:"列表",
 
-    areaTitle:
-      "按地区",
+    mapView:"地图",
 
-    menuTitle:
-      "按菜单",
+    loadMore:"查看更多",
 
-    randomTitle:
-      "今天吃什么？",
+    navHome:"首页",
 
-    randomButton:
-      "随机推荐",
+    navSearch:"搜索",
 
-    randomGuide:
-      "随机推荐一家釜山餐厅。",
+    navFavorite:"收藏",
 
-    recommendTitle:
-      "釜山推荐美食",
+    navSettings:"设置",
 
-    recentTitle:
-      "最近浏览",
+    all:"全部",
 
-    searchTitle:
-      "查找釜山美食",
+    result:"搜索结果",
 
-    areaFilter:
-      "地区",
+    restaurantName:"店名",
 
-    menuFilter:
-      "菜单",
+    address:"地址",
 
-    reset:
-      "重置",
+    restaurantIntro:"介绍",
 
-    sortDefault:
-      "默认",
+    representativeMenu:"菜单",
 
-    sortDistance:
-      "距离最近",
+    phoneNumber:"咨询",
 
-    sortName:
-      "名称",
+    operatingHours:"营业时间",
 
-    listView:
-      "列表",
+    homepage:"官方网站",
 
-    mapView:
-      "地图",
+    noHomepage:"无官方网站",
 
-    loadMore:
-      "查看更多",
+    noInfo:"暂无信息",
 
-    favoriteTitle:
-      "收藏",
+    favoriteAdded:"已收藏。",
 
-    favoriteEmptyTitle:
-      "还没有收藏的餐厅。",
+    favoriteRemoved:"已取消收藏。",
 
-    favoriteEmptyText:
-      "点击心形按钮即可收藏。",
+    menuUnknown:"暂无菜单信息",
 
-    settingsTitle:
-      "设置",
-
-    themeTitle:
-      "主题",
-
-    themeText:
-      "选择显示模式。",
-
-    light:
-      "浅色",
-
-    dark:
-      "深色",
-
-    system:
-      "系统",
-
-    languageTitle:
-      "语言",
-
-    languageText:
-      "更改应用界面语言。",
-
-    locationTitle:
-      "当前位置",
-
-    locationText:
-      "用于附近美食和距离排序。",
-
-    checkLocation:
-      "确认位置",
-
-    clearFavoriteTitle:
-      "清空收藏",
-
-    clearFavoriteText:
-      "删除所有收藏。",
-
-    clearRecentTitle:
-      "清空浏览记录",
-
-    clearRecentText:
-      "删除浏览记录。",
-
-    dataGuideTitle:
-      "数据说明",
-
-    dataGuideText:
-      "营业时间等信息基于釜山市公共数据。",
-
-    navHome:
-      "首页",
-
-    navSearch:
-      "搜索",
-
-    navFavorite:
-      "收藏",
-
-    navSettings:
-      "设置",
-
-    all:
-      "全部",
-
-    detail:
-      "查看详情",
-
-    menuUnknown:
-      "暂无菜单信息",
-
-    timeUnknown:
-      "暂无营业时间",
-
-    imagePreparing:
-      "暂无图片",
-
-    result:
-      "搜索结果",
-
-    countUnit:
-      "个",
-
-    apiKeyRequired:
-      "需要公共数据API密钥。",
-
-    apiKeyGuide:
-      "请确认SERVICE_KEY。",
-
-    apiFailTitle:
-      "无法加载美食信息。",
-
-    apiRetry:
-      "重试",
-
-    api403:
-      "API访问被拒绝。",
-
-    noResult:
-      "没有搜索结果。",
-
-    noResultText:
-      "请尝试其他地区或菜单。",
-
-    favoriteAdded:
-      "已添加到收藏。",
-
-    favoriteRemoved:
-      "已从收藏中删除。",
-
-    currentDistance:
-      "距当前位置",
-
-    phone:
-      "电话",
-
-    homepage:
-      "官网",
-
-    route:
-      "路线",
-
-    share:
-      "分享",
-
-    representativeMenu:
-      "代表菜单",
-
-    operatingHours:
-      "营业时间",
-
-    address:
-      "地址",
-
-    phoneNumber:
-      "电话",
-
-    location:
-      "位置",
-
-    restaurantIntro:
-      "餐厅介绍",
-
-    noInfo:
-      "暂无信息"
+    imagePreparing:"暂无图片"
 
   },
 
 
-  zht: {
+  zht:{
 
-    appTitle:
-      "釜山美食",
-
-    heroKicker:
-      "今天在釜山吃什麼？",
-
-    heroTitle:
-      "按地區、菜單和目前位置<br>一次查找。",
+    appTitle:"釜山美食",
 
     searchPlaceholder:
       "搜尋餐廳或菜單",
 
-    nearbyTitle:
-      "附近美食",
+    areaFilter:"地區",
 
-    useLocation:
-      "使用目前位置",
+    menuFilter:"菜單",
 
-    locationGuideTitle:
-      "依目前位置查找。",
+    reset:"重設",
 
-    locationGuideText:
-      "允許定位後可查看附近餐廳。",
+    listView:"列表",
 
-    areaTitle:
-      "按地區",
+    mapView:"地圖",
 
-    menuTitle:
-      "按菜單",
+    loadMore:"查看更多",
 
-    randomTitle:
-      "今天吃什麼？",
+    navHome:"首頁",
 
-    randomButton:
-      "隨機推薦",
+    navSearch:"搜尋",
 
-    randomGuide:
-      "隨機推薦一家釜山餐廳。",
+    navFavorite:"收藏",
 
-    recommendTitle:
-      "釜山推薦美食",
+    navSettings:"設定",
 
-    recentTitle:
-      "最近瀏覽",
+    all:"全部",
 
-    searchTitle:
-      "搜尋釜山美食",
+    result:"搜尋結果",
 
-    areaFilter:
-      "地區",
+    restaurantName:"店名",
 
-    menuFilter:
-      "菜單",
+    address:"地址",
 
-    reset:
-      "重設",
+    restaurantIntro:"介紹",
 
-    sortDefault:
-      "預設",
+    representativeMenu:"菜單",
 
-    sortDistance:
-      "最近",
+    phoneNumber:"諮詢",
 
-    sortName:
-      "名稱",
+    operatingHours:"營業時間",
 
-    listView:
-      "列表",
+    homepage:"官方網站",
 
-    mapView:
-      "地圖",
+    noHomepage:"無官方網站",
 
-    loadMore:
-      "查看更多",
+    noInfo:"暫無資訊",
 
-    favoriteTitle:
-      "收藏",
+    favoriteAdded:"已收藏。",
 
-    favoriteEmptyTitle:
-      "目前沒有收藏的餐廳。",
+    favoriteRemoved:"已取消收藏。",
 
-    favoriteEmptyText:
-      "點擊愛心即可收藏。",
+    menuUnknown:"暫無菜單資訊",
 
-    settingsTitle:
-      "設定",
-
-    themeTitle:
-      "主題",
-
-    themeText:
-      "選擇顯示模式。",
-
-    light:
-      "淺色",
-
-    dark:
-      "深色",
-
-    system:
-      "系統",
-
-    languageTitle:
-      "語言",
-
-    languageText:
-      "變更應用程式介面語言。",
-
-    locationTitle:
-      "目前位置",
-
-    locationText:
-      "用於附近美食和距離排序。",
-
-    checkLocation:
-      "確認位置",
-
-    clearFavoriteTitle:
-      "清空收藏",
-
-    clearFavoriteText:
-      "刪除所有收藏。",
-
-    clearRecentTitle:
-      "清空瀏覽紀錄",
-
-    clearRecentText:
-      "刪除瀏覽紀錄。",
-
-    dataGuideTitle:
-      "資料說明",
-
-    dataGuideText:
-      "營業時間等資訊依釜山市公共資料提供。",
-
-    navHome:
-      "首頁",
-
-    navSearch:
-      "搜尋",
-
-    navFavorite:
-      "收藏",
-
-    navSettings:
-      "設定",
-
-    all:
-      "全部",
-
-    detail:
-      "查看詳情",
-
-    menuUnknown:
-      "暫無菜單資訊",
-
-    timeUnknown:
-      "暫無營業時間",
-
-    imagePreparing:
-      "暫無圖片",
-
-    result:
-      "搜尋結果",
-
-    countUnit:
-      "個",
-
-    apiKeyRequired:
-      "需要公共資料API金鑰。",
-
-    apiKeyGuide:
-      "請確認SERVICE_KEY。",
-
-    apiFailTitle:
-      "無法載入美食資訊。",
-
-    apiRetry:
-      "重試",
-
-    api403:
-      "API存取被拒絕。",
-
-    noResult:
-      "沒有搜尋結果。",
-
-    noResultText:
-      "請嘗試其他地區或菜單。",
-
-    favoriteAdded:
-      "已加入收藏。",
-
-    favoriteRemoved:
-      "已從收藏移除。",
-
-    currentDistance:
-      "距目前位置",
-
-    phone:
-      "電話",
-
-    homepage:
-      "官網",
-
-    route:
-      "路線",
-
-    share:
-      "分享",
-
-    representativeMenu:
-      "代表菜單",
-
-    operatingHours:
-      "營業時間",
-
-    address:
-      "地址",
-
-    phoneNumber:
-      "電話",
-
-    location:
-      "位置",
-
-    restaurantIntro:
-      "餐廳介紹",
-
-    noInfo:
-      "暫無資訊"
+    imagePreparing:"暫無圖片"
 
   }
 
@@ -1231,363 +513,127 @@ const I18N = {
 
 
 /* =========================================
-   3. 메뉴 카테고리 표시명
-========================================= */
-
-const MENU_LABELS = {
-
-  kr: {
-
-    "전체": "전체",
-    "한식": "한식",
-    "일식": "일식",
-    "중식": "중식",
-    "양식": "양식",
-    "고기": "고기",
-    "해산물": "해산물",
-    "국·탕": "국·탕",
-    "카페·디저트": "카페·디저트"
-
-  },
-
-
-  en: {
-
-    "전체": "All",
-    "한식": "Korean",
-    "일식": "Japanese",
-    "중식": "Chinese",
-    "양식": "Western",
-    "고기": "Meat",
-    "해산물": "Seafood",
-    "국·탕": "Soup",
-    "카페·디저트": "Cafe & Dessert"
-
-  },
-
-
-  ja: {
-
-    "전체": "全体",
-    "한식": "韓国料理",
-    "일식": "日本料理",
-    "중식": "中華料理",
-    "양식": "洋食",
-    "고기": "肉料理",
-    "해산물": "海鮮",
-    "국·탕": "スープ・鍋",
-    "카페·디저트": "カフェ・デザート"
-
-  },
-
-
-  zhs: {
-
-    "전체": "全部",
-    "한식": "韩餐",
-    "일식": "日餐",
-    "중식": "中餐",
-    "양식": "西餐",
-    "고기": "肉类",
-    "해산물": "海鲜",
-    "국·탕": "汤类",
-    "카페·디저트": "咖啡·甜点"
-
-  },
-
-
-  zht: {
-
-    "전체": "全部",
-    "한식": "韓餐",
-    "일식": "日餐",
-    "중식": "中餐",
-    "양식": "西餐",
-    "고기": "肉類",
-    "해산물": "海鮮",
-    "국·탕": "湯類",
-    "카페·디저트": "咖啡·甜點"
-
-  }
-
-};
-
-
-/* =========================================
-   4. 메뉴 검색용 키워드
+   메뉴 카테고리
 ========================================= */
 
 const MENU_CATEGORIES = {
 
-  "전체": [],
+  "전체":[],
 
-
-  "한식": [
-
+  "한식":[
     "한식",
-    "정식",
-    "비빔",
     "국밥",
     "갈비",
     "불고기",
-    "보쌈",
-    "족발",
-    "냉면",
     "밀면",
-    "돼지국밥",
-
+    "냉면",
     "korean",
-    "bibimbap",
-    "bulgogi",
-    "galbi",
     "gukbap",
-
-    "韓国料理",
-    "韓食",
-    "ビビンバ",
-    "プルコギ",
-
-    "韩餐",
-    "韩国料理",
-
-    "韓餐",
-    "韓國料理"
-
+    "galbi"
   ],
 
-
-  "일식": [
-
+  "일식":[
+    "일식",
     "초밥",
     "스시",
-    "사시미",
-    "우동",
-    "소바",
-    "돈카츠",
-    "돈까스",
     "라멘",
-    "일식",
-
+    "우동",
     "japanese",
     "sushi",
-    "sashimi",
-    "udon",
-    "soba",
-    "ramen",
-
-    "日本料理",
-    "寿司",
-    "刺身",
-    "ラーメン",
-
-    "日餐",
-    "寿司",
-
-    "日餐",
-    "壽司"
-
+    "ramen"
   ],
 
-
-  "중식": [
-
-    "짬뽕",
-    "짜장",
-    "탕수육",
+  "중식":[
     "중식",
-    "중국",
-    "딤섬",
-    "마라",
-
-    "chinese",
-    "jajang",
-    "jjamppong",
-    "dim sum",
-    "mala",
-
-    "中華",
-    "中華料理",
-    "麻辣",
-
-    "中餐",
-    "中国菜",
-
-    "中餐",
-    "中國菜"
-
+    "짜장",
+    "짬뽕",
+    "탕수육",
+    "chinese"
   ],
 
-
-  "양식": [
-
-    "파스타",
-    "스테이크",
-    "피자",
-    "리조또",
-    "이탈리아",
+  "양식":[
     "양식",
-    "브런치",
-
+    "파스타",
+    "피자",
+    "스테이크",
     "western",
     "pasta",
-    "steak",
-    "pizza",
-    "risotto",
-    "brunch",
-
-    "洋食",
-    "パスタ",
-    "ステーキ",
-    "ピザ",
-
-    "西餐",
-    "牛排",
-    "披萨",
-
-    "西餐",
-    "牛排",
-    "披薩"
-
+    "pizza"
   ],
 
-
-  "고기": [
-
+  "고기":[
+    "고기",
     "갈비",
     "삼겹",
     "한우",
-    "고기",
-    "오리",
-    "불고기",
-    "수육",
-    "구이",
-
-    "meat",
     "beef",
     "pork",
-    "bbq",
-    "barbecue",
-
-    "肉",
-    "牛肉",
-    "豚肉",
-    "焼肉",
-
-    "肉类",
-    "牛肉",
-    "猪肉",
-
-    "肉類",
-    "牛肉",
-    "豬肉"
-
+    "meat"
   ],
 
-
-  "해산물": [
-
+  "해산물":[
+    "해산물",
     "회",
     "조개",
-    "생선",
     "장어",
-    "해물",
-    "문어",
-    "낙지",
-    "전복",
-    "게",
-    "랍스터",
-
+    "생선",
     "seafood",
-    "fish",
-    "shellfish",
-    "eel",
-    "octopus",
-    "abalone",
-    "crab",
-    "lobster",
-
-    "海鮮",
-    "魚",
-    "貝",
-    "うなぎ",
-
-    "海鲜",
-    "鱼",
-    "贝类",
-
-    "海鮮",
-    "魚",
-    "貝類"
-
+    "fish"
   ],
 
-
-  "국·탕": [
-
+  "국·탕":[
     "국",
     "탕",
-    "전골",
     "찌개",
-    "샤브",
-
+    "전골",
     "soup",
-    "stew",
-    "hot pot",
-
-    "スープ",
-    "鍋",
-    "チゲ",
-
-    "汤",
-    "锅",
-    "火锅",
-
-    "湯",
-    "鍋",
-    "火鍋"
-
+    "stew"
   ],
 
-
-  "카페·디저트": [
-
+  "카페·디저트":[
     "카페",
     "커피",
-    "라떼",
-    "케이크",
     "디저트",
-    "베이커리",
     "빵",
-    "차",
-
     "cafe",
     "coffee",
-    "latte",
-    "cake",
-    "dessert",
-    "bakery",
-    "bread",
-
-    "カフェ",
-    "コーヒー",
-    "ケーキ",
-    "デザート",
-
-    "咖啡",
-    "蛋糕",
-    "甜点",
-
-    "咖啡",
-    "蛋糕",
-    "甜點"
-
+    "dessert"
   ]
 
 };
 
 
+const MENU_LABELS = {
+
+  kr:{
+    "전체":"전체",
+    "한식":"한식",
+    "일식":"일식",
+    "중식":"중식",
+    "양식":"양식",
+    "고기":"고기",
+    "해산물":"해산물",
+    "국·탕":"국·탕",
+    "카페·디저트":"카페·디저트"
+  },
+
+  en:{
+    "전체":"All",
+    "한식":"Korean",
+    "일식":"Japanese",
+    "중식":"Chinese",
+    "양식":"Western",
+    "고기":"Meat",
+    "해산물":"Seafood",
+    "국·탕":"Soup",
+    "카페·디저트":"Cafe & Dessert"
+  }
+
+};
+
+
 /* =========================================
-   5. 부산 지역
+   지역
 ========================================= */
 
 const AREA_FALLBACK = [
@@ -1615,7 +661,7 @@ const AREA_FALLBACK = [
 
 
 /* =========================================
-   6. 앱 상태
+   상태
 ========================================= */
 
 const state = {
@@ -1630,21 +676,11 @@ const state = {
       "busan-food-theme"
     ) || "system",
 
-  restaurants: [],
+  restaurants:[],
 
-  filteredRestaurants: [],
+  filteredRestaurants:[],
 
-  visibleCount: 12,
-
-  selectedArea: "전체",
-
-  selectedMenu: "전체",
-
-  searchKeyword: "",
-
-  sort: "default",
-
-  viewMode: "list",
+  apiTotalCount:null,
 
   favorites:
     loadLocalArray(
@@ -1656,21 +692,35 @@ const state = {
       "busan-food-recent"
     ),
 
-  userLocation: null,
+  visibleCount:10,
 
-  currentDetailId: null,
+  homeVisibleCount:10,
 
-  kakaoReady: false,
+  selectedArea:"전체",
 
-  searchMap: null,
+  selectedMenu:"전체",
 
-  detailMap: null
+  searchKeyword:"",
+
+  sort:"default",
+
+  viewMode:"list",
+
+  userLocation:null,
+
+  currentDetailId:null,
+
+  kakaoReady:false,
+
+  searchMap:null,
+
+  detailMap:null
 
 };
 
 
 /* =========================================
-   7. DOM 선택
+   DOM
 ========================================= */
 
 const $ =
@@ -1794,13 +844,19 @@ const els = {
     $("#detailContent"),
 
   toast:
-    $("#toast")
+    $("#toast"),
+
+  homeTotalCount:
+    $("#homeTotalCount"),
+
+  homeLoadMoreBtn:
+    $("#homeLoadMoreBtn")
 
 };
 
 
 /* =========================================
-   8. 시작
+   시작
 ========================================= */
 
 init();
@@ -1814,8 +870,6 @@ async function init(){
     state.theme
   );
 
-  updateThemeButtons();
-
   syncLanguageSelects();
 
   applyLanguage();
@@ -1826,19 +880,15 @@ async function init(){
     AREA_FALLBACK
   );
 
-  await loadRestaurants();
-
-  renderFavorites();
-
-  renderRecent();
-
   loadKakaoMapSdk();
+
+  await loadRestaurants();
 
 }
 
 
 /* =========================================
-   9. 이벤트
+   이벤트
 ========================================= */
 
 function bindEvents(){
@@ -1847,16 +897,16 @@ function bindEvents(){
   /* 하단 메뉴 */
   $$(".nav-btn").forEach(
 
-    btn => {
+    button => {
 
-      btn.addEventListener(
+      button.addEventListener(
 
         "click",
 
         () => {
 
           switchView(
-            btn.dataset.target
+            button.dataset.target
           );
 
         }
@@ -1868,10 +918,9 @@ function bindEvents(){
   );
 
 
-  /* 홈 검색 버튼 */
-  if(els.homeSearchBtn){
-
-    els.homeSearchBtn.addEventListener(
+  /* 홈 검색 */
+  els.homeSearchBtn
+    ?.addEventListener(
 
       "click",
 
@@ -1882,28 +931,19 @@ function bindEvents(){
         );
 
         setTimeout(
-
-          () => {
-
-            els.searchInput.focus();
-
-          },
-
-          80
-
+          () =>
+            els.searchInput.focus(),
+          100
         );
 
       }
 
     );
 
-  }
-
 
   /* 검색 */
-  if(els.searchForm){
-
-    els.searchForm.addEventListener(
+  els.searchForm
+    ?.addEventListener(
 
       "submit",
 
@@ -1914,7 +954,8 @@ function bindEvents(){
         state.searchKeyword =
           els.searchInput.value.trim();
 
-        state.visibleCount = 12;
+        state.visibleCount =
+          10;
 
         applyFilters();
 
@@ -1922,13 +963,10 @@ function bindEvents(){
 
     );
 
-  }
-
 
   /* 정렬 */
-  if(els.sortSelect){
-
-    els.sortSelect.addEventListener(
+  els.sortSelect
+    ?.addEventListener(
 
       "change",
 
@@ -1943,29 +981,32 @@ function bindEvents(){
 
     );
 
-  }
 
-
-  /* 필터 초기화 */
-  if(els.resetFiltersBtn){
-
-    els.resetFiltersBtn.addEventListener(
+  /* 초기화 */
+  els.resetFiltersBtn
+    ?.addEventListener(
 
       "click",
 
       () => {
 
-        state.searchKeyword = "";
+        state.searchKeyword =
+          "";
 
-        state.selectedArea = "전체";
+        state.selectedArea =
+          "전체";
 
-        state.selectedMenu = "전체";
+        state.selectedMenu =
+          "전체";
 
-        state.sort = "default";
+        state.sort =
+          "default";
 
-        state.visibleCount = 12;
+        state.visibleCount =
+          10;
 
-        els.searchInput.value = "";
+        els.searchInput.value =
+          "";
 
         els.sortSelect.value =
           "default";
@@ -1982,19 +1023,17 @@ function bindEvents(){
 
     );
 
-  }
-
 
   /* 더보기 */
-  if(els.loadMoreBtn){
-
-    els.loadMoreBtn.addEventListener(
+  els.loadMoreBtn
+    ?.addEventListener(
 
       "click",
 
       () => {
 
-        state.visibleCount += 12;
+        state.visibleCount +=
+          10;
 
         renderSearchResults();
 
@@ -2002,66 +1041,56 @@ function bindEvents(){
 
     );
 
-  }
+
+  /* 홈 추천 맛집 더보기 */
+  els.homeLoadMoreBtn
+    ?.addEventListener(
+
+      "click",
+
+      () => {
+
+        state.homeVisibleCount +=
+          10;
+
+        renderHome();
+
+      }
+
+    );
 
 
   /* 목록 */
-  if(els.listModeBtn){
-
-    els.listModeBtn.addEventListener(
+  els.listModeBtn
+    ?.addEventListener(
 
       "click",
 
-      () => {
-
+      () =>
         setSearchViewMode(
           "list"
-        );
-
-      }
+        )
 
     );
-
-  }
 
 
   /* 지도 */
-  if(els.mapModeBtn){
-
-    els.mapModeBtn.addEventListener(
+  els.mapModeBtn
+    ?.addEventListener(
 
       "click",
 
-      () => {
-
+      () =>
         setSearchViewMode(
           "map"
-        );
-
-      }
+        )
 
     );
-
-  }
 
 
   /* 위치 */
-  if(els.requestLocationBtn){
-
-    els.requestLocationBtn.addEventListener(
-
-      "click",
-
-      requestUserLocation
-
-    );
-
-  }
-
-
-  if(els.settingsLocationBtn){
-
-    els.settingsLocationBtn.addEventListener(
+  els.requestLocationBtn
+    ?.addEventListener(
 
       "click",
 
@@ -2069,13 +1098,20 @@ function bindEvents(){
 
     );
 
-  }
+
+  els.settingsLocationBtn
+    ?.addEventListener(
+
+      "click",
+
+      requestUserLocation
+
+    );
 
 
   /* 랜덤 */
-  if(els.randomBtn){
-
-    els.randomBtn.addEventListener(
+  els.randomBtn
+    ?.addEventListener(
 
       "click",
 
@@ -2083,53 +1119,37 @@ function bindEvents(){
 
     );
 
-  }
 
-
-  /* 상단 언어 */
-  if(els.quickLanguageSelect){
-
-    els.quickLanguageSelect.addEventListener(
+  /* 언어 */
+  els.quickLanguageSelect
+    ?.addEventListener(
 
       "change",
 
-      () => {
-
+      () =>
         setLanguage(
           els.quickLanguageSelect.value
-        );
-
-      }
+        )
 
     );
 
-  }
 
-
-  /* 설정 언어 */
-  if(els.languageSelect){
-
-    els.languageSelect.addEventListener(
+  els.languageSelect
+    ?.addEventListener(
 
       "change",
 
-      () => {
-
+      () =>
         setLanguage(
           els.languageSelect.value
-        );
-
-      }
+        )
 
     );
-
-  }
 
 
   /* 테마 */
-  if(els.themeOptions){
-
-    els.themeOptions.addEventListener(
+  els.themeOptions
+    ?.addEventListener(
 
       "click",
 
@@ -2156,35 +1176,21 @@ function bindEvents(){
           state.theme
         );
 
-        updateThemeButtons();
-
       }
 
     );
 
-  }
-
 
   /* 즐겨찾기 초기화 */
-  if(els.clearFavoritesBtn){
-
-    els.clearFavoritesBtn.addEventListener(
+  els.clearFavoritesBtn
+    ?.addEventListener(
 
       "click",
 
       () => {
 
-        if(
-          !confirm(
-            state.language === "kr"
-              ? "즐겨찾기를 모두 삭제할까요?"
-              : "Clear favorites?"
-          )
-        ){
-          return;
-        }
-
-        state.favorites = [];
+        state.favorites =
+          [];
 
         saveLocalArray(
           "busan-food-favorites",
@@ -2197,29 +1203,17 @@ function bindEvents(){
 
     );
 
-  }
-
 
   /* 최근 본 초기화 */
-  if(els.clearRecentBtn){
-
-    els.clearRecentBtn.addEventListener(
+  els.clearRecentBtn
+    ?.addEventListener(
 
       "click",
 
       () => {
 
-        if(
-          !confirm(
-            state.language === "kr"
-              ? "최근 본 맛집 기록을 삭제할까요?"
-              : "Clear recent history?"
-          )
-        ){
-          return;
-        }
-
-        state.recent = [];
+        state.recent =
+          [];
 
         saveLocalArray(
           "busan-food-recent",
@@ -2232,13 +1226,10 @@ function bindEvents(){
 
     );
 
-  }
 
-
-  /* 모달 */
-  if(els.detailModal){
-
-    els.detailModal.addEventListener(
+  /* 상세 닫기 */
+  els.detailModal
+    ?.addEventListener(
 
       "click",
 
@@ -2258,13 +1249,11 @@ function bindEvents(){
 
     );
 
-  }
-
 }
 
 
 /* =========================================
-   10. 번역
+   번역
 ========================================= */
 
 function t(key){
@@ -2280,8 +1269,63 @@ function t(key){
 }
 
 
+function applyLanguage(){
+
+  document.documentElement.lang =
+    state.language === "kr"
+      ? "ko"
+      : state.language;
+
+
+  $$("[data-i18n]")
+    .forEach(
+
+      element => {
+
+        element.textContent =
+          t(
+            element.dataset.i18n
+          );
+
+      }
+
+    );
+
+
+  $$("[data-i18n-html]")
+    .forEach(
+
+      element => {
+
+        element.innerHTML =
+          t(
+            element.dataset.i18nHtml
+          );
+
+      }
+
+    );
+
+
+  $$("[data-i18n-placeholder]")
+    .forEach(
+
+      element => {
+
+        element.placeholder =
+          t(
+            element.dataset.i18nPlaceholder
+          );
+
+      }
+
+    );
+
+}
+
+
 /* =========================================
-   11. 언어 변경
+   언어 변경
 ========================================= */
 
 async function setLanguage(
@@ -2300,21 +1344,20 @@ async function setLanguage(
   );
 
 
-  /* 이전 언어 검색조건 초기화 */
-  state.searchKeyword = "";
+  state.searchKeyword =
+    "";
 
-  state.selectedArea = "전체";
+  state.selectedArea =
+    "전체";
 
-  state.selectedMenu = "전체";
+  state.selectedMenu =
+    "전체";
 
-  state.visibleCount = 12;
+  state.visibleCount =
+    10;
 
-
-  if(els.searchInput){
-
-    els.searchInput.value = "";
-
-  }
+  state.homeVisibleCount =
+    10;
 
 
   syncLanguageSelects();
@@ -2328,25 +1371,16 @@ async function setLanguage(
   );
 
 
-  /* =========================================
-     중요
-
-     언어가 바뀌면
-     음식점 데이터 API도 다시 호출
-  ========================================= */
-
   await loadRestaurants();
 
 }
 
 
-/* =========================================
-   12. 언어 셀렉트 동기화
-========================================= */
-
 function syncLanguageSelects(){
 
-  if(els.quickLanguageSelect){
+  if(
+    els.quickLanguageSelect
+  ){
 
     els.quickLanguageSelect.value =
       state.language;
@@ -2354,7 +1388,9 @@ function syncLanguageSelects(){
   }
 
 
-  if(els.languageSelect){
+  if(
+    els.languageSelect
+  ){
 
     els.languageSelect.value =
       state.language;
@@ -2365,73 +1401,7 @@ function syncLanguageSelects(){
 
 
 /* =========================================
-   13. UI 문구 변경
-========================================= */
-
-function applyLanguage(){
-
-  document.documentElement.lang =
-    state.language === "kr"
-      ? "ko"
-      : state.language;
-
-
-  $$("[data-i18n]").forEach(
-
-    element => {
-
-      element.textContent =
-        t(
-          element.dataset.i18n
-        );
-
-    }
-
-  );
-
-
-  $$("[data-i18n-html]").forEach(
-
-    element => {
-
-      element.innerHTML =
-        t(
-          element.dataset.i18nHtml
-        );
-
-    }
-
-  );
-
-
-  $$("[data-i18n-placeholder]")
-    .forEach(
-
-      element => {
-
-        element.placeholder =
-          t(
-            element.dataset
-              .i18nPlaceholder
-          );
-
-      }
-
-    );
-
-
-  if(els.randomResult){
-
-    els.randomResult.textContent =
-      t("randomGuide");
-
-  }
-
-}
-
-
-/* =========================================
-   14. 맛집 API 호출
+   맛집 API
 ========================================= */
 
 async function loadRestaurants(){
@@ -2439,172 +1409,274 @@ async function loadRestaurants(){
   showLoading();
 
 
-  if(
-    !SERVICE_KEY
-    ||
-    SERVICE_KEY ===
-      "YOUR_SERVICE_KEY"
-  ){
-
-    state.restaurants = [];
-
-    state.filteredRestaurants = [];
-
-    renderApiKeyRequired();
-
-    return;
-
-  }
-
-
-  const normalizedKey =
+  const key =
     normalizeServiceKey(
       SERVICE_KEY
     );
 
-
-  const params =
-    new URLSearchParams({
-
-      serviceKey:
-        normalizedKey,
-
-      pageNo:
-        "1",
-
-      numOfRows:
-        "100",
-
-      resultType:
-        "json"
-
-    });
-
-
-  /* =========================================
-     언어별 API 선택
-  ========================================= */
 
   const endpoint =
     LANGUAGE_ENDPOINTS[
       state.language
     ]
     ||
-    LANGUAGE_ENDPOINTS.kr;
+    "getFoodKr";
 
 
-  const url =
-    `${FOOD_API_BASE_URL}/${endpoint}?${params.toString()}`;
-
-
-  console.log(
-    "현재 언어:",
-    state.language
-  );
-
-
-  console.log(
-    "현재 API:",
-    endpoint
-  );
-
-
-  console.log(
-    "부산 맛집 API 요청 URL:",
-    url.replace(
-      encodeURIComponent(
-        normalizedKey
-      ),
-      "SERVICE_KEY_HIDDEN"
-    )
-  );
+  /*
+     API 서버에 한 번에 너무 많은 값을 요청하지 않고
+     100개씩 페이지 단위로 전체 데이터를 가져옵니다.
+  */
+  const rowsPerPage =
+    100;
 
 
   try{
 
+    /* =========================================
+       1페이지 호출
+    ========================================= */
+    const firstParams =
+      new URLSearchParams({
 
-    const response =
-      await fetch(url);
+        serviceKey:key,
+
+        pageNo:"1",
+
+        numOfRows:
+          String(
+            rowsPerPage
+          ),
+
+        resultType:"json"
+
+      });
 
 
-    const rawText =
-      await response.text();
+    const firstUrl =
+      `${FOOD_API_BASE_URL}/${endpoint}?${firstParams.toString()}`;
 
 
     console.log(
-      "부산맛집 OpenAPI 원본 응답:",
-      rawText
+      "부산 맛집 API:",
+      endpoint
     );
+
+
+    const firstResponse =
+      await fetch(
+        firstUrl
+      );
+
+
+    const firstText =
+      await firstResponse.text();
 
 
     if(
-      !response.ok
+      !firstResponse.ok
     ){
 
-      const error =
-        new Error(
-          response.status === 403
-            ? t("api403")
-            : `HTTP ${response.status}`
-        );
-
-      error.status =
-        response.status;
-
-      throw error;
-
-    }
-
-
-    let data;
-
-
-    try{
-
-      data =
-        JSON.parse(
-          rawText
-        );
-
-    }catch(error){
-
       throw new Error(
-        "API 응답이 JSON 형식이 아닙니다."
+        `HTTP ${firstResponse.status}`
       );
 
     }
 
 
+    const firstData =
+      JSON.parse(
+        firstText
+      );
+
+
     console.log(
-      "부산맛집 OpenAPI JSON 응답:",
-      data
+      "부산 맛집 API 1페이지 응답:",
+      firstData
     );
 
 
-    const apiError =
-      getPublicDataApiError(
-        data
+    const firstItems =
+      normalizeApiResponse(
+        firstData
       );
 
 
-    if(apiError){
+    /* =========================================
+       실제 전체 데이터 개수
+       API 응답의 totalCount만 사용
+       특정 숫자 하드코딩 없음
+    ========================================= */
+    const totalCount =
+      findTotalCount(
+        firstData
+      );
+
+
+    if(
+      totalCount === null
+    ){
 
       throw new Error(
-        apiError
+        "API 응답에서 totalCount를 찾지 못했습니다."
       );
 
     }
 
 
-    const parsed =
-      normalizeApiResponse(
-        data
+    state.apiTotalCount =
+      totalCount;
+
+
+    console.log(
+      "API 실제 totalCount:",
+      state.apiTotalCount
+    );
+
+
+    const totalPages =
+      Math.max(
+        1,
+        Math.ceil(
+          state.apiTotalCount
+          /
+          rowsPerPage
+        )
       );
 
 
     console.log(
-      "최종 맛집 데이터:",
-      parsed
+      "호출할 전체 페이지 수:",
+      totalPages
+    );
+
+
+    let allItems =
+      [
+        ...firstItems
+      ];
+
+
+    /* =========================================
+       2페이지부터 마지막 페이지까지 호출
+    ========================================= */
+    for(
+      let page = 2;
+      page <= totalPages;
+      page++
+    ){
+
+      const params =
+        new URLSearchParams({
+
+          serviceKey:key,
+
+          pageNo:
+            String(page),
+
+          numOfRows:
+            String(
+              rowsPerPage
+            ),
+
+          resultType:"json"
+
+        });
+
+
+      const url =
+        `${FOOD_API_BASE_URL}/${endpoint}?${params.toString()}`;
+
+
+      const response =
+        await fetch(
+          url
+        );
+
+
+      const text =
+        await response.text();
+
+
+      if(
+        !response.ok
+      ){
+
+        throw new Error(
+          `HTTP ${response.status} / ${page}페이지`
+        );
+
+      }
+
+
+      const data =
+        JSON.parse(
+          text
+        );
+
+
+      const pageItems =
+        normalizeApiResponse(
+          data
+        );
+
+
+      console.log(
+        `${page}페이지 불러온 데이터:`,
+        pageItems.length
+      );
+
+
+      allItems.push(
+        ...pageItems
+      );
+
+    }
+
+
+    /*
+       API에서 같은 UC_SEQ가 중복으로 내려오는 경우만 제거.
+       화면의 총 개수 표시는 API의 실제 totalCount를 그대로 사용합니다.
+    */
+    const uniqueMap =
+      new Map();
+
+
+    allItems.forEach(
+      (item,index) => {
+
+        const id =
+          String(
+            item?.UC_SEQ
+            ??
+            `${item?.MAIN_TITLE || ""}_${item?.ADDR1 || ""}_${index}`
+          );
+
+
+        if(
+          !uniqueMap.has(id)
+        ){
+
+          uniqueMap.set(
+            id,
+            item
+          );
+
+        }
+
+      }
+    );
+
+
+    const parsed =
+      [
+        ...uniqueMap.values()
+      ];
+
+
+    console.log(
+      "실제로 화면에 사용할 맛집 데이터:",
+      parsed.length
     );
 
 
@@ -2631,6 +1703,14 @@ async function loadRestaurants(){
       ];
 
 
+    /* 새 데이터 불러오면 처음 10개부터 */
+    state.homeVisibleCount =
+      10;
+
+    state.visibleCount =
+      10;
+
+
     renderAreaChips(
       getAreaList()
     );
@@ -2653,9 +1733,12 @@ async function loadRestaurants(){
 
   }catch(error){
 
+    state.apiTotalCount =
+      null;
+
 
     console.error(
-      "부산맛집 API 호출 오류:",
+      "부산 맛집 API 호출 오류:",
       error
     );
 
@@ -2668,9 +1751,8 @@ async function loadRestaurants(){
 
 }
 
-
 /* =========================================
-   15. 서비스키 처리
+   서비스 키
 ========================================= */
 
 function normalizeServiceKey(
@@ -2687,7 +1769,7 @@ function normalizeServiceKey(
       value
     );
 
-  }catch(error){
+  }catch{
 
     return value;
 
@@ -2697,60 +1779,12 @@ function normalizeServiceKey(
 
 
 /* =========================================
-   16. API 오류코드 확인
-========================================= */
-
-function getPublicDataApiError(
-  data
-){
-
-  const code =
-    data?.response?.header?.resultCode
-    ??
-    data?.header?.resultCode
-    ??
-    data?.resultCode;
-
-
-  const message =
-    data?.response?.header?.resultMsg
-    ??
-    data?.header?.resultMsg
-    ??
-    data?.resultMsg;
-
-
-  if(
-    code
-    &&
-    String(code) !== "00"
-  ){
-
-    return (
-      `${message || "OpenAPI 오류"} (${code})`
-    );
-
-  }
-
-
-  return null;
-
-}
-
-
-/* =========================================
-   17. API 배열 찾기
+   API 배열 찾기
 ========================================= */
 
 function normalizeApiResponse(
   data
 ){
-
-  console.log(
-    "API 전체 구조 확인:",
-    data
-  );
-
 
   const candidates = [
 
@@ -2777,7 +1811,9 @@ function normalizeApiResponse(
   ){
 
     if(
-      Array.isArray(value)
+      Array.isArray(
+        value
+      )
     ){
 
       return value;
@@ -2788,21 +1824,17 @@ function normalizeApiResponse(
     if(
       value
       &&
-      typeof value ===
-        "object"
+      typeof value === "object"
     ){
 
-      return [value];
+      return [
+        value
+      ];
 
     }
 
   }
 
-
-  /* =========================================
-     응답 구조가 달라도
-     내부에서 item을 찾아냄
-  ========================================= */
 
   function findItems(
     object
@@ -2811,8 +1843,7 @@ function normalizeApiResponse(
     if(
       !object
       ||
-      typeof object !==
-        "object"
+      typeof object !== "object"
     ){
 
       return null;
@@ -2834,8 +1865,7 @@ function normalizeApiResponse(
     if(
       object.item
       &&
-      typeof object.item ===
-        "object"
+      typeof object.item === "object"
     ){
 
       return [
@@ -2853,7 +1883,9 @@ function normalizeApiResponse(
       object.UC_SEQ
     ){
 
-      return [object];
+      return [
+        object
+      ];
 
     }
 
@@ -2867,7 +1899,6 @@ function normalizeApiResponse(
         findItems(
           object[key]
         );
-
 
       if(result){
 
@@ -2883,27 +1914,80 @@ function normalizeApiResponse(
   }
 
 
-  const result =
-    findItems(
-      data
-    );
-
-
-  console.log(
-    "찾아낸 맛집 배열:",
-    result
-  );
-
-
   return (
-    result || []
+    findItems(data)
+    ||
+    []
   );
 
 }
 
 
+
 /* =========================================
-   18. 맛집 데이터 정리
+   API 응답에서 실제 totalCount 찾기
+   하드코딩 숫자 사용하지 않음
+========================================= */
+function findTotalCount(data){
+
+  if(
+    !data
+    ||
+    typeof data !== "object"
+  ){
+    return null;
+  }
+
+
+  if(
+    Object.prototype.hasOwnProperty.call(
+      data,
+      "totalCount"
+    )
+  ){
+
+    const count =
+      Number(
+        data.totalCount
+      );
+
+
+    if(
+      Number.isFinite(count)
+      &&
+      count >= 0
+    ){
+      return count;
+    }
+
+  }
+
+
+  for(
+    const key in data
+  ){
+
+    const result =
+      findTotalCount(
+        data[key]
+      );
+
+
+    if(
+      result !== null
+    ){
+      return result;
+    }
+
+  }
+
+
+  return null;
+}
+
+
+/* =========================================
+   데이터 정리
 ========================================= */
 
 function normalizeRestaurant(
@@ -2932,8 +2016,6 @@ function normalizeRestaurant(
       String(
         item.UC_SEQ
         ??
-        item.ucSeq
-        ??
         index
       ),
 
@@ -2942,33 +2024,9 @@ function normalizeRestaurant(
       cleanText(
         item.MAIN_TITLE
         ??
-        item.mainTitle
-        ??
         item.PLACE
-        ??
-        item.place
         ??
         "이름 없음"
-      ),
-
-
-    place:
-      cleanText(
-        item.PLACE
-        ??
-        item.place
-        ??
-        ""
-      ),
-
-
-    introTitle:
-      cleanText(
-        item.TITLE
-        ??
-        item.title
-        ??
-        ""
       ),
 
 
@@ -2976,23 +2034,17 @@ function normalizeRestaurant(
       cleanText(
         item.GUGUN_NM
         ??
-        item.gugunNm
-        ??
         inferAreaFromText(
           text
         )
         ??
         ""
-      )
-      ||
-      "부산",
+      ),
 
 
     address1:
       cleanText(
         item.ADDR1
-        ??
-        item.addr1
         ??
         ""
       ),
@@ -3002,7 +2054,13 @@ function normalizeRestaurant(
       cleanText(
         item.ADDR2
         ??
-        item.addr2
+        ""
+      ),
+
+
+    menu:
+      cleanText(
+        item.RPRSNTV_MENU
         ??
         ""
       ),
@@ -3012,7 +2070,13 @@ function normalizeRestaurant(
       cleanText(
         item.CNTCT_TEL
         ??
-        item.cntctTel
+        ""
+      ),
+
+
+    hours:
+      cleanText(
+        item.USAGE_DAY_WEEK_AND_TIME
         ??
         ""
       ),
@@ -3022,31 +2086,15 @@ function normalizeRestaurant(
       cleanText(
         item.HOMEPAGE_URL
         ??
-        item.homepageUrl
-        ??
         ""
       ),
 
 
-    hours:
+    description:
       cleanText(
-        item.USAGE_DAY_WEEK_AND_TIME
+        item.ITEMCNTNTS
         ??
-        item.usageDayWeekAndTime
-        ??
-        ""
-      ),
-
-
-    menu:
-      cleanText(
-        item.RPRSNTV_MENU
-        ??
-        item.rprsntvMenu
-        ??
-        inferMenuText(
-          text
-        )
+        item.SUBTITLE
         ??
         ""
       ),
@@ -3056,8 +2104,6 @@ function normalizeRestaurant(
       normalizeImageUrl(
         item.MAIN_IMG_NORMAL
         ??
-        item.mainImgNormal
-        ??
         ""
       ),
 
@@ -3066,18 +2112,6 @@ function normalizeRestaurant(
       normalizeImageUrl(
         item.MAIN_IMG_THUMB
         ??
-        item.mainImgThumb
-        ??
-        ""
-      ),
-
-
-    description:
-      cleanText(
-        item.ITEMCNTNTS
-        ??
-        item.itemcntnts
-        ??
         ""
       ),
 
@@ -3085,21 +2119,16 @@ function normalizeRestaurant(
     lat:
       toNumber(
         item.LAT
-        ??
-        item.lat
       ),
 
 
     lng:
       toNumber(
         item.LNG
-        ??
-        item.lng
       ),
 
 
-    distance:
-      null
+    distance:null
 
   };
 
@@ -3107,138 +2136,43 @@ function normalizeRestaurant(
 
 
 /* =========================================
-   19. 지역 추출
-========================================= */
-
-function inferAreaFromText(
-  text
-){
-
-  return (
-    AREA_FALLBACK
-      .filter(
-        area =>
-          area !== "전체"
-      )
-      .find(
-        area =>
-          String(text)
-            .includes(area)
-      )
-    ||
-    ""
-  );
-
-}
-
-
-/* =========================================
-   20. 대표메뉴 보조 추출
-========================================= */
-
-function inferMenuText(
-  text
-){
-
-  const keywords = [
-
-    "돼지국밥",
-    "밀면",
-    "갈비",
-    "불고기",
-    "회",
-    "해산물",
-    "카페",
-    "커피",
-    "초밥",
-    "스시",
-    "파스타",
-    "짜장",
-    "짬뽕",
-
-    "gukbap",
-    "milmyeon",
-    "galbi",
-    "bulgogi",
-    "sushi",
-    "seafood",
-    "coffee",
-    "pasta"
-
-  ];
-
-
-  return (
-    keywords
-      .filter(
-        keyword =>
-          String(text)
-            .toLowerCase()
-            .includes(
-              keyword.toLowerCase()
-            )
-      )
-      .slice(
-        0,
-        3
-      )
-      .join(", ")
-  );
-
-}
-
-
-/* =========================================
-   21. 텍스트 정리
+   텍스트
 ========================================= */
 
 function cleanText(
   value
 ){
 
-  if(
-    value === null
-    ||
-    value === undefined
-  ){
-
-    return "";
-
-  }
-
-
   return (
-    String(value)
+    value == null
+      ? ""
+      : String(value)
 
-      .replace(
-        /<[^>]*>/g,
-        ""
-      )
+        .replace(
+          /<[^>]*>/g,
+          ""
+        )
 
-      .replace(
-        /&amp;/g,
-        "&"
-      )
+        .replace(
+          /&amp;/g,
+          "&"
+        )
 
-      .replace(
-        /&nbsp;/g,
-        " "
-      )
+        .replace(
+          /&nbsp;/g,
+          " "
+        )
 
-      .replace(
-        /\s+/g,
-        " "
-      )
+        .replace(
+          /\s+/g,
+          " "
+        )
 
-      .trim()
+        .trim()
   );
 
 }
 
-
-/* =========================================
-   22. 이미지 URL
-========================================= */
 
 function normalizeImageUrl(
   value
@@ -3284,10 +2218,6 @@ function normalizeImageUrl(
 }
 
 
-/* =========================================
-   23. 숫자 변환
-========================================= */
-
 function toNumber(
   value
 ){
@@ -3299,7 +2229,9 @@ function toNumber(
 
 
   return (
-    Number.isFinite(number)
+    Number.isFinite(
+      number
+    )
       ? number
       : null
   );
@@ -3307,13 +2239,38 @@ function toNumber(
 }
 
 
+function inferAreaFromText(
+  text
+){
+
+  return (
+    AREA_FALLBACK
+
+      .filter(
+        area =>
+          area !== "전체"
+      )
+
+      .find(
+        area =>
+          String(text)
+            .includes(area)
+      )
+
+    ||
+    ""
+  );
+
+}
+
+
 /* =========================================
-   24. 홈
+   홈
 ========================================= */
 
 function renderHome(){
 
-  const source =
+  const list =
     withDistances(
       [
         ...state.restaurants
@@ -3321,31 +2278,76 @@ function renderHome(){
     );
 
 
+  /* =========================================
+     현재 표시 개수 / API 실제 전체 개수
+  ========================================= */
+  if(
+    els.homeTotalCount
+  ){
+
+    const currentCount =
+      Math.min(
+        state.homeVisibleCount,
+        list.length
+      );
+
+
+    els.homeTotalCount.textContent =
+      state.apiTotalCount !== null
+        ? `${currentCount} / ${state.apiTotalCount}`
+        : `${currentCount} / -`;
+
+  }
+
+
+  /* =========================================
+     처음 10개,
+     더보기 클릭 시 10개씩 추가
+  ========================================= */
+  const visibleList =
+    list.slice(
+      0,
+      state.homeVisibleCount
+    );
+
+
   renderCards(
     els.homeRestaurantList,
-    source.slice(
-      0,
-      9
-    )
+    visibleList
   );
 
 
-  let nearby = [];
+  /* 더보기 버튼 */
+  if(
+    els.homeLoadMoreBtn
+  ){
+
+    els.homeLoadMoreBtn.hidden =
+      state.homeVisibleCount >=
+      list.length;
 
 
+    els.homeLoadMoreBtn.textContent =
+      state.language === "kr"
+        ? "더보기"
+        : "Load More";
+
+  }
+
+
+  /* 내 주변 맛집 */
   if(
     state.userLocation
   ){
 
-    nearby =
+    const nearby =
       [
-        ...source
+        ...list
       ]
 
       .filter(
         item =>
-          item.distance !==
-            null
+          item.distance !== null
       )
 
       .sort(
@@ -3359,19 +2361,25 @@ function renderHome(){
         8
       );
 
+
+    renderCards(
+      els.nearbyList,
+      nearby
+    );
+
+  }else{
+
+    renderCards(
+      els.nearbyList,
+      []
+    );
+
   }
-
-
-  renderCards(
-    els.nearbyList,
-    nearby
-  );
 
 }
 
-
 /* =========================================
-   25. 랜덤 추천
+   랜덤
 ========================================= */
 
 function showRandomRestaurant(){
@@ -3379,15 +2387,7 @@ function showRandomRestaurant(){
   if(
     !state.restaurants.length
   ){
-
-    showToast(
-      state.language === "kr"
-        ? "맛집 데이터가 없습니다."
-        : "No restaurant data."
-    );
-
     return;
-
   }
 
 
@@ -3400,31 +2400,26 @@ function showRandomRestaurant(){
 
 
   const item =
-    withDistances(
-      [
-        state.restaurants[
-          index
-        ]
-      ]
-    )[0];
+    state.restaurants[
+      index
+    ];
 
 
   els.randomResult.innerHTML =
     "";
 
 
-  els.randomResult
-    .appendChild(
-      createRestaurantCard(
-        item
-      )
-    );
+  els.randomResult.appendChild(
+    createRestaurantCard(
+      item
+    )
+  );
 
 }
 
 
 /* =========================================
-   26. 검색 / 필터
+   필터
 ========================================= */
 
 function applyFilters(){
@@ -3437,7 +2432,6 @@ function applyFilters(){
     );
 
 
-  /* 검색어 */
   if(
     state.searchKeyword
   ){
@@ -3456,13 +2450,13 @@ function applyFilters(){
 
             item.title,
 
-            item.place,
+            item.address1,
+
+            item.address2,
 
             item.menu,
 
             item.area,
-
-            item.introTitle,
 
             item.description
 
@@ -3486,10 +2480,9 @@ function applyFilters(){
   }
 
 
-  /* 지역 */
   if(
     state.selectedArea !==
-      "전체"
+    "전체"
   ){
 
     result =
@@ -3502,10 +2495,9 @@ function applyFilters(){
   }
 
 
-  /* 메뉴 */
   if(
     state.selectedMenu !==
-      "전체"
+    "전체"
   ){
 
     result =
@@ -3522,10 +2514,9 @@ function applyFilters(){
   }
 
 
-  /* 이름순 */
   if(
     state.sort ===
-      "name"
+    "name"
   ){
 
     result.sort(
@@ -3540,48 +2531,29 @@ function applyFilters(){
   }
 
 
-  /* 거리순 */
   if(
     state.sort ===
-      "distance"
+    "distance"
+    &&
+    state.userLocation
   ){
 
-    if(
-      !state.userLocation
-    ){
+    result.sort(
 
-      showToast(
-        state.language === "kr"
-          ? "가까운순 정렬에는 현재 위치가 필요합니다."
-          : "Location is required."
-      );
+      (a,b) =>
+        (
+          a.distance
+          ??
+          99999
+        )
+        -
+        (
+          b.distance
+          ??
+          99999
+        )
 
-      state.sort =
-        "default";
-
-      els.sortSelect.value =
-        "default";
-
-    }else{
-
-      result.sort(
-
-        (a,b) =>
-          (
-            a.distance
-            ??
-            99999
-          )
-          -
-          (
-            b.distance
-            ??
-            99999
-          )
-
-      );
-
-    }
+    );
 
   }
 
@@ -3592,21 +2564,11 @@ function applyFilters(){
 
   renderSearchResults();
 
-
-  if(
-    state.viewMode ===
-      "map"
-  ){
-
-    renderSearchMap();
-
-  }
-
 }
 
 
 /* =========================================
-   27. 검색 결과
+   검색 결과
 ========================================= */
 
 function renderSearchResults(){
@@ -3619,12 +2581,15 @@ function renderSearchResults(){
       );
 
 
-  if(els.resultCount){
+  const currentCount =
+    Math.min(
+      state.visibleCount,
+      state.filteredRestaurants.length
+    );
 
-    els.resultCount.textContent =
-      `${t("result")} ${state.filteredRestaurants.length}${t("countUnit")}`;
 
-  }
+  els.resultCount.textContent =
+    `${t("result")} ${currentCount} / ${state.filteredRestaurants.length}`;
 
 
   renderCards(
@@ -3633,17 +2598,9 @@ function renderSearchResults(){
   );
 
 
-  if(els.loadMoreBtn){
-
-    els.loadMoreBtn.hidden =
-      (
-        state.filteredRestaurants.length === 0
-        ||
-        state.visibleCount >=
-          state.filteredRestaurants.length
-      );
-
-  }
+  els.loadMoreBtn.hidden =
+    state.visibleCount >=
+    state.filteredRestaurants.length;
 
 
   if(
@@ -3653,10 +2610,6 @@ function renderSearchResults(){
     els.searchRestaurantList.innerHTML = `
 
       <div class="empty-state">
-
-        <div class="empty-icon">
-          ⌕
-        </div>
 
         <strong>
           ${escapeHtml(
@@ -3680,7 +2633,7 @@ function renderSearchResults(){
 
 
 /* =========================================
-   28. 지역 목록
+   지역
 ========================================= */
 
 function getAreaList(){
@@ -3688,46 +2641,34 @@ function getAreaList(){
   const areas =
     [
       ...new Set(
+
         state.restaurants
+
           .map(
             item =>
               item.area
           )
+
           .filter(Boolean)
+
       )
     ];
 
 
-  if(
-    !areas.length
-  ){
+  return (
 
-    return (
-      AREA_FALLBACK
-    );
+    areas.length
 
-  }
+      ? [
+          "전체",
+          ...areas.sort()
+        ]
 
-
-  return [
-
-    "전체",
-
-    ...areas
-      .filter(
-        area =>
-          area !== "부산"
-      )
-      .sort()
-
-  ];
+      : AREA_FALLBACK
+  );
 
 }
 
-
-/* =========================================
-   29. 지역 버튼
-========================================= */
 
 function renderAreaChips(
   areas
@@ -3765,7 +2706,7 @@ function renderAreaChips(
           button.className =
             `chip ${
               state.selectedArea ===
-                area
+              area
                 ? "is-active"
                 : ""
             }`;
@@ -3787,7 +2728,7 @@ function renderAreaChips(
                 area;
 
               state.visibleCount =
-                12;
+                10;
 
 
               renderAreaChips(
@@ -3830,16 +2771,10 @@ function renderAreaChips(
 
 
 /* =========================================
-   30. 메뉴 버튼
+   메뉴
 ========================================= */
 
 function renderMenuChips(){
-
-  const menus =
-    Object.keys(
-      MENU_CATEGORIES
-    );
-
 
   [
     els.homeMenuChips,
@@ -3856,7 +2791,10 @@ function renderMenuChips(){
         "";
 
 
-      menus.forEach(
+      Object.keys(
+        MENU_CATEGORIES
+      )
+      .forEach(
 
         menu => {
 
@@ -3873,7 +2811,7 @@ function renderMenuChips(){
           button.className =
             `chip ${
               state.selectedMenu ===
-                menu
+              menu
                 ? "is-active"
                 : ""
             }`;
@@ -3883,10 +2821,6 @@ function renderMenuChips(){
             MENU_LABELS[
               state.language
             ]?.[menu]
-            ??
-            MENU_LABELS.kr[
-              menu
-            ]
             ??
             menu;
 
@@ -3901,7 +2835,7 @@ function renderMenuChips(){
                 menu;
 
               state.visibleCount =
-                12;
+                10;
 
 
               renderMenuChips();
@@ -3941,10 +2875,6 @@ function renderMenuChips(){
 }
 
 
-/* =========================================
-   31. 메뉴 카테고리 판별
-========================================= */
-
 function matchesMenuCategory(
   item,
   category
@@ -3957,8 +2887,6 @@ function matchesMenuCategory(
 
 
   if(
-    !keywords
-    ||
     !keywords.length
   ){
 
@@ -3967,13 +2895,11 @@ function matchesMenuCategory(
   }
 
 
-  const target = [
+  const text = [
 
     item.menu,
 
     item.title,
-
-    item.introTitle,
 
     item.description
 
@@ -3988,7 +2914,7 @@ function matchesMenuCategory(
     keywords.some(
 
       keyword =>
-        target.includes(
+        text.includes(
           keyword.toLowerCase()
         )
 
@@ -3999,7 +2925,7 @@ function matchesMenuCategory(
 
 
 /* =========================================
-   32. 카드 출력
+   리스트 출력
 ========================================= */
 
 function renderCards(
@@ -4034,7 +2960,7 @@ function renderCards(
 
 
 /* =========================================
-   33. 맛집 카드
+   선생님 시안 리스트형
 ========================================= */
 
 function createRestaurantCard(
@@ -4057,56 +2983,34 @@ function createRestaurantCard(
     );
 
 
+  const address =
+    [
+      item.address1,
+      item.address2
+    ]
+
+    .filter(Boolean)
+
+    .join(" ");
+
+
   card.innerHTML = `
-
-    <div class="restaurant-card-image">
-
-      ${
-        imageMarkup(
-          item.thumb
-          ||
-          item.image,
-          item.title
-        )
-      }
-
-      <button
-        type="button"
-        class="favorite-btn ${
-          favorite
-            ? "is-active"
-            : ""
-        }"
-      >
-
-        ${
-          favorite
-            ? "♥"
-            : "♡"
-        }
-
-      </button>
-
-    </div>
-
 
     <div class="restaurant-card-body">
 
       <h4>
-
         ${escapeHtml(
           item.title
         )}
-
       </h4>
 
 
-      <p class="restaurant-meta">
+      <p class="restaurant-address">
 
         ${escapeHtml(
-          item.area
+          address
           ||
-          "Busan"
+          t("noInfo")
         )}
 
       </p>
@@ -4117,20 +3021,7 @@ function createRestaurantCard(
         ${escapeHtml(
           item.menu
           ||
-          item.introTitle
-          ||
           t("menuUnknown")
-        )}
-
-      </p>
-
-
-      <p class="restaurant-time">
-
-        ${escapeHtml(
-          item.hours
-          ||
-          t("timeUnknown")
         )}
 
       </p>
@@ -4143,10 +3034,6 @@ function createRestaurantCard(
 
             <p class="restaurant-distance">
 
-              ${escapeHtml(
-                t("currentDistance")
-              )}
-
               ${formatDistance(
                 item.distance
               )}
@@ -4158,21 +3045,68 @@ function createRestaurantCard(
           : ""
       }
 
+    </div>
+
+
+    <div class="restaurant-actions">
 
       <button
         type="button"
-        class="detail-btn"
+        class="list-detail-btn"
+        title="상세보기"
+      >
+        ⌕
+      </button>
+
+
+      <button
+        type="button"
+        class="favorite-btn ${
+          favorite
+            ? "is-active"
+            : ""
+        }"
+        title="즐겨찾기"
       >
 
-        ${escapeHtml(
-          t("detail")
-        )}
+        ${
+          favorite
+            ? "♥"
+            : "♡"
+        }
 
       </button>
 
     </div>
 
   `;
+
+
+  /* 리스트 전체 클릭 */
+  card.addEventListener(
+
+    "click",
+
+    event => {
+
+      if(
+        event.target.closest(
+          ".favorite-btn"
+        )
+      ){
+
+        return;
+
+      }
+
+
+      openDetail(
+        item.id
+      );
+
+    }
+
+  );
 
 
   card
@@ -4183,28 +3117,11 @@ function createRestaurantCard(
 
       "click",
 
-      () => {
+      event => {
+
+        event.stopPropagation();
 
         toggleFavorite(
-          item.id
-        );
-
-      }
-
-    );
-
-
-  card
-    .querySelector(
-      ".detail-btn"
-    )
-    .addEventListener(
-
-      "click",
-
-      () => {
-
-        openDetail(
           item.id
         );
 
@@ -4219,58 +3136,7 @@ function createRestaurantCard(
 
 
 /* =========================================
-   34. 이미지
-========================================= */
-
-function imageMarkup(
-  url,
-  alt
-){
-
-  if(!url){
-
-    return `
-
-      <div class="image-fallback">
-
-        ${escapeHtml(
-          t("imagePreparing")
-        )}
-
-      </div>
-
-    `;
-
-  }
-
-
-  return `
-
-    <img
-
-      src="${escapeHtml(url)}"
-
-      alt="${escapeHtml(alt)}"
-
-      loading="lazy"
-
-      onerror="
-        this.style.display='none';
-        this.parentElement.insertAdjacentHTML(
-          'beforeend',
-          '<div class=&quot;image-fallback&quot;>${escapeHtml(t("imagePreparing"))}</div>'
-        );
-      "
-
-    >
-
-  `;
-
-}
-
-
-/* =========================================
-   35. 즐겨찾기
+   즐겨찾기
 ========================================= */
 
 function toggleFavorite(
@@ -4324,7 +3190,7 @@ function toggleFavorite(
 
   if(
     state.currentDetailId ===
-      id
+    id
     &&
     !els.detailModal.hidden
   ){
@@ -4340,7 +3206,7 @@ function toggleFavorite(
 
 
 /* =========================================
-   36. 즐겨찾기 출력
+   즐겨찾기 화면
 ========================================= */
 
 function renderFavorites(){
@@ -4352,10 +3218,8 @@ function renderFavorites(){
 
         id =>
           state.restaurants.find(
-
             item =>
               item.id === id
-
           )
 
       )
@@ -4363,26 +3227,20 @@ function renderFavorites(){
       .filter(Boolean);
 
 
-  if(els.favoriteEmpty){
-
-    els.favoriteEmpty.hidden =
-      items.length > 0;
-
-  }
+  els.favoriteEmpty.hidden =
+    items.length > 0;
 
 
   renderCards(
     els.favoriteList,
-    withDistances(
-      items
-    )
+    items
   );
 
 }
 
 
 /* =========================================
-   37. 최근 본 맛집
+   최근 본
 ========================================= */
 
 function addRecent(
@@ -4391,10 +3249,8 @@ function addRecent(
 
   state.recent =
     state.recent.filter(
-
-      itemId =>
-        itemId !== id
-
+      item =>
+        item !== id
     );
 
 
@@ -4415,15 +3271,8 @@ function addRecent(
     state.recent
   );
 
-
-  renderRecent();
-
 }
 
-
-/* =========================================
-   38. 최근 본 출력
-========================================= */
 
 function renderRecent(){
 
@@ -4434,10 +3283,8 @@ function renderRecent(){
 
         id =>
           state.restaurants.find(
-
             item =>
               item.id === id
-
           )
 
       )
@@ -4445,207 +3292,411 @@ function renderRecent(){
       .filter(Boolean);
 
 
-  if(els.recentSection){
-
-    els.recentSection.hidden =
-      !items.length;
-
-  }
+  els.recentSection.hidden =
+    !items.length;
 
 
   renderCards(
     els.recentList,
-    withDistances(
-      items
-    )
+    items
   );
 
 }
 
 
 /* =========================================
-   39. 현재 위치
+   상세 페이지
 ========================================= */
 
-function requestUserLocation(){
+function openDetail(
+  id,
+  addToRecent = true
+){
 
-  if(
-    !navigator.geolocation
-  ){
+  const item =
+    state.restaurants.find(
 
-    showToast(
-      state.language === "kr"
-        ? "현재 위치를 확인할 수 없습니다."
-        : "Location unavailable."
+      restaurant =>
+        restaurant.id ===
+        String(id)
+
     );
 
+
+  if(!item){
     return;
+  }
+
+
+  state.currentDetailId =
+    item.id;
+
+
+  if(
+    addToRecent
+  ){
+
+    addRecent(
+      item.id
+    );
 
   }
 
 
-  if(els.locationState){
-
-    els.locationState.innerHTML = `
-
-      <div class="location-icon">
-        …
-      </div>
-
-      <div>
-
-        <strong>
-          ${
-            state.language === "kr"
-              ? "현재 위치를 확인하고 있습니다."
-              : "Checking your location..."
-          }
-        </strong>
-
-      </div>
-
-    `;
-
-  }
+  const favorite =
+    state.favorites.includes(
+      item.id
+    );
 
 
-  navigator.geolocation
-    .getCurrentPosition(
+  const address =
+    [
+      item.address1,
+      item.address2
+    ]
 
-      position => {
+    .filter(Boolean)
 
-        state.userLocation = {
-
-          lat:
-            position.coords.latitude,
-
-          lng:
-            position.coords.longitude
-
-        };
+    .join(" ");
 
 
-        if(els.locationState){
+  els.detailContent.innerHTML = `
 
-          els.locationState.innerHTML = `
+    <!-- =========================================
+         상단 이미지 + 정보
+    ========================================== -->
+    <section class="detail-layout">
 
-            <div class="location-icon">
-              ✓
-            </div>
 
-            <div>
+      <!-- 이미지 -->
+      <div class="detail-image-wrap">
 
-              <strong>
-                ${
-                  state.language === "kr"
-                    ? "현재 위치를 확인했습니다."
-                    : "Location confirmed."
-                }
-              </strong>
+        ${
+          item.image
+          ||
+          item.thumb
 
-            </div>
+            ? `
 
-          `;
+              <img
+                src="${escapeHtml(
+                  item.image
+                  ||
+                  item.thumb
+                )}"
+                alt="${escapeHtml(
+                  item.title
+                )}"
+              >
 
+            `
+
+            : `
+
+              <div class="image-fallback">
+                ${escapeHtml(
+                  t("imagePreparing")
+                )}
+              </div>
+
+            `
         }
 
 
-        renderAllLists();
+        <button
+          id="detailFavoriteBtn"
+          class="detail-favorite ${
+            favorite
+              ? "is-active"
+              : ""
+          }"
+          type="button"
+        >
 
-        applyFilters();
+          ${
+            favorite
+              ? "♥"
+              : "♡"
+          }
 
-      },
+        </button>
+
+      </div>
 
 
-      error => {
+      <!-- 정보 -->
+      <div class="detail-info-area">
 
-        console.warn(
-          error
+
+        <div class="detail-info-row">
+
+          <span class="detail-label">
+            ${escapeHtml(
+              t("restaurantName")
+            )}
+          </span>
+
+
+          <p class="detail-value">
+
+            ${escapeHtml(
+              item.title
+            )}
+
+          </p>
+
+        </div>
+
+
+        <div class="detail-info-row">
+
+          <span class="detail-label">
+            ${escapeHtml(
+              t("address")
+            )}
+          </span>
+
+
+          <p class="detail-value">
+
+            ${escapeHtml(
+              address
+              ||
+              t("noInfo")
+            )}
+
+          </p>
+
+        </div>
+
+
+        <div class="detail-info-row">
+
+          <span class="detail-label">
+            ${escapeHtml(
+              t("restaurantIntro")
+            )}
+          </span>
+
+
+          <p class="detail-value detail-description">
+
+            ${escapeHtml(
+              item.description
+              ||
+              t("noInfo")
+            )}
+
+          </p>
+
+        </div>
+
+
+        <div class="detail-info-row">
+
+          <span class="detail-label">
+            ${escapeHtml(
+              t("representativeMenu")
+            )}
+          </span>
+
+
+          <p class="detail-value">
+
+            ${escapeHtml(
+              item.menu
+              ||
+              t("noInfo")
+            )}
+
+          </p>
+
+        </div>
+
+
+        <div class="detail-info-row">
+
+          <span class="detail-label">
+            ${escapeHtml(
+              t("phoneNumber")
+            )}
+          </span>
+
+
+          <p class="detail-value">
+
+            ${
+              item.phone
+
+                ? `
+
+                  <a href="tel:${escapeHtml(
+                    item.phone.replace(
+                      /[^\d+]/g,
+                      ""
+                    )
+                  )}">
+
+                    ${escapeHtml(
+                      item.phone
+                    )}
+
+                  </a>
+
+                `
+
+                : escapeHtml(
+                    t("noInfo")
+                  )
+            }
+
+          </p>
+
+        </div>
+
+
+        <div class="detail-info-row">
+
+          <span class="detail-label">
+            ${escapeHtml(
+              t("operatingHours")
+            )}
+          </span>
+
+
+          <p class="detail-value">
+
+            ${escapeHtml(
+              item.hours
+              ||
+              t("noInfo")
+            )}
+
+          </p>
+
+        </div>
+
+
+        ${
+          item.homepage
+
+            ? `
+
+              <a
+                href="${escapeHtml(
+                  item.homepage
+                )}"
+                target="_blank"
+                rel="noopener"
+                class="detail-homepage"
+              >
+
+                ${escapeHtml(
+                  t("homepage")
+                )}
+
+              </a>
+
+            `
+
+            : `
+
+              <span
+                class="detail-homepage disabled"
+              >
+
+                ${escapeHtml(
+                  t("noHomepage")
+                )}
+
+              </span>
+
+            `
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         지도
+    ========================================== -->
+    <section class="detail-map-area">
+
+      <div
+        id="detailMap"
+        class="detail-map"
+      ></div>
+
+
+      <div class="detail-route">
+
+        <button
+          id="detailRouteBtn"
+          type="button"
+        >
+          카카오맵 길찾기
+        </button>
+
+      </div>
+
+    </section>
+
+  `;
+
+
+  els.detailModal.hidden =
+    false;
+
+
+  document.body.style.overflow =
+    "hidden";
+
+
+  $("#detailFavoriteBtn")
+    .addEventListener(
+
+      "click",
+
+      () => {
+
+        toggleFavorite(
+          item.id
         );
-
-
-        showToast(
-          state.language === "kr"
-            ? "위치 권한을 확인해주세요."
-            : "Check location permission."
-        );
-
-      },
-
-
-      {
-
-        enableHighAccuracy:
-          true,
-
-        timeout:
-          10000,
-
-        maximumAge:
-          300000
 
       }
 
     );
 
-}
 
+  $("#detailRouteBtn")
+    .addEventListener(
 
-/* =========================================
-   40. 거리 추가
-========================================= */
+      "click",
 
-function withDistances(
-  items
-){
+      () => {
 
-  if(
-    !state.userLocation
-  ){
+        openRoute(
+          item
+        );
 
-    return (
-      items.map(
-        item => ({
-          ...item,
-          distance:
-            null
-        })
-      )
+      }
+
     );
 
-  }
 
+  setTimeout(
 
-  return (
+    () => {
 
-    items.map(
+      renderDetailMap(
+        item
+      );
 
-      item => ({
+    },
 
-        ...item,
-
-        distance:
-          item.lat === null
-          ||
-          item.lng === null
-
-            ? null
-
-            : haversine(
-
-                state.userLocation.lat,
-
-                state.userLocation.lng,
-
-                item.lat,
-
-                item.lng
-
-              )
-
-      })
-
-    )
+    100
 
   );
 
@@ -4653,119 +3704,27 @@ function withDistances(
 
 
 /* =========================================
-   41. 거리 계산
+   상세 닫기
 ========================================= */
 
-function haversine(
-  lat1,
-  lng1,
-  lat2,
-  lng2
-){
+function closeDetail(){
 
-  const R =
-    6371;
+  els.detailModal.hidden =
+    true;
 
 
-  const toRad =
-    value =>
-      value
-      *
-      Math.PI
-      /
-      180;
+  document.body.style.overflow =
+    "";
 
 
-  const dLat =
-    toRad(
-      lat2 -
-      lat1
-    );
-
-
-  const dLng =
-    toRad(
-      lng2 -
-      lng1
-    );
-
-
-  const a =
-
-    Math.sin(
-      dLat / 2
-    ) ** 2
-
-    +
-
-    Math.cos(
-      toRad(lat1)
-    )
-
-    *
-
-    Math.cos(
-      toRad(lat2)
-    )
-
-    *
-
-    Math.sin(
-      dLng / 2
-    ) ** 2;
-
-
-  return (
-
-    R
-    *
-    2
-    *
-    Math.atan2(
-
-      Math.sqrt(a),
-
-      Math.sqrt(
-        1 - a
-      )
-
-    )
-
-  );
+  state.currentDetailId =
+    null;
 
 }
 
 
 /* =========================================
-   42. 거리 표시
-========================================= */
-
-function formatDistance(
-  km
-){
-
-  if(
-    km < 1
-  ){
-
-    return (
-      `${Math.round(
-        km * 1000
-      )}m`
-    );
-
-  }
-
-
-  return (
-    `${km.toFixed(1)}km`
-  );
-
-}
-
-
-/* =========================================
-   43. 카카오 지도 SDK
+   카카오 SDK
 ========================================= */
 
 function loadKakaoMapSdk(){
@@ -4773,8 +3732,9 @@ function loadKakaoMapSdk(){
   if(
     !KAKAO_JAVASCRIPT_KEY
     ||
-    KAKAO_JAVASCRIPT_KEY ===
-      "YOUR_KAKAO_JAVASCRIPT_KEY"
+    KAKAO_JAVASCRIPT_KEY.includes(
+      "여기에"
+    )
   ){
 
     console.warn(
@@ -4818,28 +3778,8 @@ function loadKakaoMapSdk(){
           state.kakaoReady =
             true;
 
-
-          if(
-            state.viewMode ===
-              "map"
-          ){
-
-            renderSearchMap();
-
-          }
-
         }
 
-      );
-
-    };
-
-
-  script.onerror =
-    () => {
-
-      console.error(
-        "카카오 지도 SDK 로드 실패"
       );
 
     };
@@ -4853,61 +3793,15 @@ function loadKakaoMapSdk(){
 
 
 /* =========================================
-   44. 목록 / 지도
+   상세 카카오 지도
 ========================================= */
 
-function setSearchViewMode(
-  mode
+function renderDetailMap(
+  item
 ){
 
-  state.viewMode =
-    mode;
-
-
-  els.listModeBtn
-    .classList.toggle(
-      "is-active",
-      mode === "list"
-    );
-
-
-  els.mapModeBtn
-    .classList.toggle(
-      "is-active",
-      mode === "map"
-    );
-
-
-  els.searchListPanel.hidden =
-    mode !== "list";
-
-
-  els.searchMapPanel.hidden =
-    mode !== "map";
-
-
-  if(
-    mode === "map"
-  ){
-
-    setTimeout(
-      renderSearchMap,
-      80
-    );
-
-  }
-
-}
-
-
-/* =========================================
-   45. 검색 지도
-========================================= */
-
-function renderSearchMap(){
-
   const container =
-    $("#searchMap");
+    $("#detailMap");
 
 
   if(!container){
@@ -4923,19 +3817,146 @@ function renderSearchMap(){
 
     container.innerHTML = `
 
-      <div class="api-guide-card">
-
-        <strong>
-          Kakao Map API
-        </strong>
-
-        <p>
-          KAKAO_JAVASCRIPT_KEY를 확인해주세요.
-        </p>
-
+      <div class="image-fallback">
+        카카오 지도 API KEY를 확인해주세요.
       </div>
 
     `;
+
+    return;
+
+  }
+
+
+  if(
+    item.lat === null
+    ||
+    item.lng === null
+  ){
+
+    container.innerHTML = `
+
+      <div class="image-fallback">
+        위치정보가 없습니다.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const position =
+    new kakao.maps.LatLng(
+
+      item.lat,
+
+      item.lng
+
+    );
+
+
+  state.detailMap =
+    new kakao.maps.Map(
+
+      container,
+
+      {
+
+        center:position,
+
+        level:4
+
+      }
+
+    );
+
+
+  const marker =
+    new kakao.maps.Marker({
+
+      map:
+        state.detailMap,
+
+      position
+
+    });
+
+
+  const info =
+    new kakao.maps.InfoWindow({
+
+      content:`
+
+        <div
+          style="
+            padding:10px;
+            min-width:150px;
+            font-size:13px;
+          "
+        >
+
+          <strong>
+            ${escapeHtml(
+              item.title
+            )}
+          </strong>
+
+          <br>
+
+          <a
+            href="https://map.kakao.com/link/map/${encodeURIComponent(item.title)},${item.lat},${item.lng}"
+            target="_blank"
+          >
+            큰지도보기
+          </a>
+
+          /
+
+          <a
+            href="https://map.kakao.com/link/to/${encodeURIComponent(item.title)},${item.lat},${item.lng}"
+            target="_blank"
+          >
+            길찾기
+          </a>
+
+        </div>
+
+      `
+
+    });
+
+
+  info.open(
+
+    state.detailMap,
+
+    marker
+
+  );
+
+}
+
+
+/* =========================================
+   검색 지도
+========================================= */
+
+function renderSearchMap(){
+
+  const container =
+    $("#searchMap");
+
+
+  if(
+    !state.kakaoReady
+    ||
+    !window.kakao?.maps
+  ){
+
+    container.innerHTML =
+      "카카오 지도 API KEY를 확인해주세요.";
 
     return;
 
@@ -4978,7 +3999,7 @@ function renderSearchMap(){
         );
 
 
-  state.searchMap =
+  const map =
     new kakao.maps.Map(
 
       container,
@@ -4987,8 +4008,7 @@ function renderSearchMap(){
 
         center,
 
-        level:
-          7
+        level:7
 
       }
 
@@ -5016,8 +4036,7 @@ function renderSearchMap(){
       const marker =
         new kakao.maps.Marker({
 
-          map:
-            state.searchMap,
+          map,
 
           position
 
@@ -5029,70 +4048,6 @@ function renderSearchMap(){
       );
 
 
-      const content =
-        document.createElement(
-          "div"
-        );
-
-
-      content.style.cssText =
-        "min-width:180px;padding:10px;font-size:13px;";
-
-
-      content.innerHTML = `
-
-        <strong>
-          ${escapeHtml(
-            item.title
-          )}
-        </strong>
-
-        <br>
-
-        <button
-          type="button"
-          style="
-            margin-top:7px;
-            padding:6px 9px;
-          "
-        >
-
-          ${escapeHtml(
-            t("detail")
-          )}
-
-        </button>
-
-      `;
-
-
-      content
-        .querySelector(
-          "button"
-        )
-        .addEventListener(
-
-          "click",
-
-          () => {
-
-            openDetail(
-              item.id
-            );
-
-          }
-
-        );
-
-
-      const infoWindow =
-        new kakao.maps.InfoWindow({
-
-          content
-
-        });
-
-
       kakao.maps.event.addListener(
 
         marker,
@@ -5101,12 +4056,8 @@ function renderSearchMap(){
 
         () => {
 
-          infoWindow.open(
-
-            state.searchMap,
-
-            marker
-
+          openDetail(
+            item.id
           );
 
         }
@@ -5122,7 +4073,7 @@ function renderSearchMap(){
     !bounds.isEmpty()
   ){
 
-    state.searchMap.setBounds(
+    map.setBounds(
       bounds
     );
 
@@ -5132,744 +4083,41 @@ function renderSearchMap(){
 
 
 /* =========================================
-   46. 상세보기
+   목록 / 지도
 ========================================= */
 
-function openDetail(
-  id,
-  addToRecent = true
+function setSearchViewMode(
+  mode
 ){
 
-  const base =
-    state.restaurants.find(
+  state.viewMode =
+    mode;
 
-      item =>
-        item.id ===
-        String(id)
 
+  els.listModeBtn
+    .classList.toggle(
+      "is-active",
+      mode === "list"
     );
 
 
-  if(!base){
-    return;
-  }
-
-
-  const item =
-    withDistances(
-      [base]
-    )[0];
-
-
-  const favorite =
-    state.favorites.includes(
-      item.id
+  els.mapModeBtn
+    .classList.toggle(
+      "is-active",
+      mode === "map"
     );
 
 
-  state.currentDetailId =
-    item.id;
+  els.searchListPanel.hidden =
+    mode !== "list";
 
 
-  if(addToRecent){
-
-    addRecent(
-      item.id
-    );
-
-  }
-
-
-  els.detailContent.innerHTML = `
-
-    <div class="detail-hero">
-
-      ${
-        imageMarkup(
-          item.image
-          ||
-          item.thumb,
-          item.title
-        )
-      }
-
-    </div>
-
-
-    <div class="detail-body">
-
-      <div class="detail-title-row">
-
-        <div>
-
-          <h2 id="detailTitle">
-
-            ${escapeHtml(
-              item.title
-            )}
-
-          </h2>
-
-
-          <p class="detail-sub">
-
-            ${escapeHtml(
-              item.area
-            )}
-
-            ${
-              item.distance !== null
-
-                ? ` · ${escapeHtml(t("currentDistance"))} ${formatDistance(item.distance)}`
-
-                : ""
-            }
-
-          </p>
-
-        </div>
-
-
-        <button
-          id="detailFavoriteBtn"
-          type="button"
-          class="detail-fav-btn ${
-            favorite
-              ? "is-active"
-              : ""
-          }"
-        >
-
-          ${
-            favorite
-              ? "♥"
-              : "♡"
-          }
-
-        </button>
-
-      </div>
-
-
-      <div class="detail-info-grid">
-
-        <div class="detail-info">
-
-          <span>
-            ${escapeHtml(
-              t("representativeMenu")
-            )}
-          </span>
-
-          <strong>
-            ${escapeHtml(
-              item.menu
-              ||
-              t("noInfo")
-            )}
-          </strong>
-
-        </div>
-
-
-        <div class="detail-info">
-
-          <span>
-            ${escapeHtml(
-              t("operatingHours")
-            )}
-          </span>
-
-          <strong>
-            ${escapeHtml(
-              item.hours
-              ||
-              t("noInfo")
-            )}
-          </strong>
-
-        </div>
-
-
-        <div class="detail-info">
-
-          <span>
-            ${escapeHtml(
-              t("address")
-            )}
-          </span>
-
-          <strong>
-
-            ${escapeHtml(
-
-              [
-                item.address1,
-                item.address2
-              ]
-
-              .filter(Boolean)
-
-              .join(" ")
-
-              ||
-
-              t("noInfo")
-
-            )}
-
-          </strong>
-
-        </div>
-
-
-        <div class="detail-info">
-
-          <span>
-            ${escapeHtml(
-              t("phoneNumber")
-            )}
-          </span>
-
-          <strong>
-
-            ${escapeHtml(
-              item.phone
-              ||
-              t("noInfo")
-            )}
-
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div class="detail-actions">
-
-        ${
-          item.phone
-
-            ? `
-
-              <a
-                href="tel:${escapeHtml(
-                  item.phone.replace(
-                    /[^\d+]/g,
-                    ""
-                  )
-                )}"
-              >
-
-                ${escapeHtml(
-                  t("phone")
-                )}
-
-              </a>
-
-            `
-
-            : `
-
-              <button
-                type="button"
-                disabled
-              >
-
-                ${escapeHtml(
-                  t("phone")
-                )}
-
-              </button>
-
-            `
-        }
-
-
-        ${
-          item.homepage
-
-            ? `
-
-              <a
-                class="secondary-action"
-                href="${escapeHtml(
-                  item.homepage
-                )}"
-                target="_blank"
-                rel="noopener"
-              >
-
-                ${escapeHtml(
-                  t("homepage")
-                )}
-
-              </a>
-
-            `
-
-            : `
-
-              <button
-                type="button"
-                class="secondary-action"
-                disabled
-              >
-
-                ${escapeHtml(
-                  t("homepage")
-                )}
-
-              </button>
-
-            `
-        }
-
-
-        <button
-          id="routeBtn"
-          type="button"
-        >
-
-          ${escapeHtml(
-            t("route")
-          )}
-
-        </button>
-
-
-        <button
-          id="shareBtn"
-          type="button"
-          class="secondary-action"
-        >
-
-          ${escapeHtml(
-            t("share")
-          )}
-
-        </button>
-
-      </div>
-
-
-      <section class="detail-section">
-
-        <h3>
-
-          ${escapeHtml(
-            t("location")
-          )}
-
-        </h3>
-
-
-        <div
-          id="detailMap"
-          class="detail-map"
-        ></div>
-
-      </section>
-
-
-      <section class="detail-section">
-
-        <h3>
-
-          ${escapeHtml(
-            t("restaurantIntro")
-          )}
-
-        </h3>
-
-
-        <p class="detail-description">
-
-          ${escapeHtml(
-            item.description
-            ||
-            item.introTitle
-            ||
-            t("noInfo")
-          )}
-
-        </p>
-
-      </section>
-
-    </div>
-
-  `;
-
-
-  els.detailModal.hidden =
-    false;
-
-
-  document.body.style.overflow =
-    "hidden";
-
-
-  $("#detailFavoriteBtn")
-    .addEventListener(
-
-      "click",
-
-      () => {
-
-        toggleFavorite(
-          item.id
-        );
-
-      }
-
-    );
-
-
-  $("#routeBtn")
-    .addEventListener(
-
-      "click",
-
-      () => {
-
-        openRoute(
-          item
-        );
-
-      }
-
-    );
-
-
-  $("#shareBtn")
-    .addEventListener(
-
-      "click",
-
-      () => {
-
-        shareRestaurant(
-          item
-        );
-
-      }
-
-    );
-
-
-  setTimeout(
-
-    () => {
-
-      renderDetailMap(
-        item
-      );
-
-    },
-
-    80
-
-  );
-
-}
-
-
-/* =========================================
-   47. 상세 닫기
-========================================= */
-
-function closeDetail(){
-
-  els.detailModal.hidden =
-    true;
-
-
-  document.body.style.overflow =
-    "";
-
-
-  state.currentDetailId =
-    null;
-
-
-  state.detailMap =
-    null;
-
-}
-
-
-/* =========================================
-   48. 상세 지도
-========================================= */
-
-function renderDetailMap(
-  item
-){
-
-  const container =
-    $("#detailMap");
-
-
-  if(!container){
-    return;
-  }
+  els.searchMapPanel.hidden =
+    mode !== "map";
 
 
   if(
-    !state.kakaoReady
-    ||
-    !window.kakao?.maps
-  ){
-
-    container.innerHTML = `
-
-      <div class="image-fallback">
-
-        Kakao Map API key
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  if(
-    item.lat === null
-    ||
-    item.lng === null
-  ){
-
-    container.innerHTML = `
-
-      <div class="image-fallback">
-
-        ${
-          state.language === "kr"
-            ? "위치정보가 없습니다."
-            : "Location unavailable."
-        }
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  const position =
-    new kakao.maps.LatLng(
-
-      item.lat,
-
-      item.lng
-
-    );
-
-
-  state.detailMap =
-    new kakao.maps.Map(
-
-      container,
-
-      {
-
-        center:
-          position,
-
-        level:
-          4
-
-      }
-
-    );
-
-
-  new kakao.maps.Marker({
-
-    map:
-      state.detailMap,
-
-    position
-
-  });
-
-}
-
-
-/* =========================================
-   49. 길찾기
-========================================= */
-
-function openRoute(
-  item
-){
-
-  if(
-    item.lat === null
-    ||
-    item.lng === null
-  ){
-
-    showToast(
-      state.language === "kr"
-        ? "맛집 위치정보가 없습니다."
-        : "Location unavailable."
-    );
-
-    return;
-
-  }
-
-
-  const url =
-    `https://map.kakao.com/link/to/${encodeURIComponent(item.title)},${item.lat},${item.lng}`;
-
-
-  window.open(
-
-    url,
-
-    "_blank",
-
-    "noopener"
-
-  );
-
-}
-
-
-/* =========================================
-   50. 공유
-========================================= */
-
-async function shareRestaurant(
-  item
-){
-
-  const text =
-
-    `${item.title}\n`
-
-    +
-
-    `${item.address1}\n`
-
-    +
-
-    `${t("representativeMenu")}: ${item.menu || t("noInfo")}`;
-
-
-  if(
-    navigator.share
-  ){
-
-    try{
-
-      await navigator.share({
-
-        title:
-          item.title,
-
-        text
-
-      });
-
-    }catch(error){
-
-      console.log(
-        error
-      );
-
-    }
-
-  }else{
-
-    showToast(
-      state.language === "kr"
-        ? "이 브라우저에서는 공유 기능을 지원하지 않습니다."
-        : "Sharing is not supported."
-    );
-
-  }
-
-}
-
-
-/* =========================================
-   51. 화면 전환
-========================================= */
-
-function switchView(
-  target
-){
-
-  $$(".view").forEach(
-
-    view => {
-
-      view.classList.toggle(
-
-        "is-active",
-
-        view.dataset.view ===
-          target
-
-      );
-
-    }
-
-  );
-
-
-  $$(".nav-btn").forEach(
-
-    button => {
-
-      button.classList.toggle(
-
-        "is-active",
-
-        button.dataset.target ===
-          target
-
-      );
-
-    }
-
-  );
-
-
-  window.scrollTo({
-
-    top:
-      0,
-
-    behavior:
-      "smooth"
-
-  });
-
-
-  if(
-    target === "favorite"
-  ){
-
-    renderFavorites();
-
-  }
-
-
-  if(
-    target === "search"
-    &&
-    state.viewMode === "map"
+    mode === "map"
   ){
 
     setTimeout(
@@ -5883,48 +4131,266 @@ function switchView(
 
 
 /* =========================================
-   52. 테마
+   길찾기
 ========================================= */
 
-function applyTheme(
-  theme
+function openRoute(
+  item
 ){
 
-  let result =
-    theme;
-
-
   if(
-    theme === "system"
+    item.lat === null
+    ||
+    item.lng === null
   ){
 
-    result =
-      window
-        .matchMedia(
-          "(prefers-color-scheme: dark)"
-        )
-        .matches
-
-        ? "dark"
-
-        : "light";
+    return;
 
   }
 
 
-  document.documentElement.dataset.theme =
-    result;
+  window.open(
+
+    `https://map.kakao.com/link/to/${encodeURIComponent(item.title)},${item.lat},${item.lng}`,
+
+    "_blank"
+
+  );
 
 }
 
 
 /* =========================================
-   53. 테마 버튼
+   현재 위치
 ========================================= */
 
-function updateThemeButtons(){
+function requestUserLocation(){
 
-  $$("#themeOptions [data-theme]")
+  if(
+    !navigator.geolocation
+  ){
+
+    return;
+
+  }
+
+
+  navigator.geolocation
+    .getCurrentPosition(
+
+      position => {
+
+        state.userLocation = {
+
+          lat:
+            position.coords.latitude,
+
+          lng:
+            position.coords.longitude
+
+        };
+
+
+        renderAllLists();
+
+        applyFilters();
+
+      },
+
+      error => {
+
+        console.warn(
+          error
+        );
+
+      }
+
+    );
+
+}
+
+
+/* =========================================
+   거리
+========================================= */
+
+function withDistances(
+  items
+){
+
+  if(
+    !state.userLocation
+  ){
+
+    return (
+      items.map(
+        item => ({
+          ...item,
+          distance:null
+        })
+      )
+    );
+
+  }
+
+
+  return (
+
+    items.map(
+
+      item => ({
+
+        ...item,
+
+        distance:
+          item.lat === null
+          ||
+          item.lng === null
+
+            ? null
+
+            : haversine(
+
+                state.userLocation.lat,
+
+                state.userLocation.lng,
+
+                item.lat,
+
+                item.lng
+
+              )
+
+      })
+
+    )
+
+  );
+
+}
+
+
+function haversine(
+  lat1,
+  lng1,
+  lat2,
+  lng2
+){
+
+  const R =
+    6371;
+
+
+  const rad =
+    value =>
+      value *
+      Math.PI /
+      180;
+
+
+  const dLat =
+    rad(
+      lat2 -
+      lat1
+    );
+
+
+  const dLng =
+    rad(
+      lng2 -
+      lng1
+    );
+
+
+  const a =
+
+    Math.sin(
+      dLat / 2
+    ) ** 2
+
+    +
+
+    Math.cos(
+      rad(lat1)
+    )
+
+    *
+
+    Math.cos(
+      rad(lat2)
+    )
+
+    *
+
+    Math.sin(
+      dLng / 2
+    ) ** 2;
+
+
+  return (
+
+    R *
+    2 *
+    Math.atan2(
+
+      Math.sqrt(a),
+
+      Math.sqrt(
+        1-a
+      )
+
+    )
+
+  );
+
+}
+
+
+function formatDistance(
+  km
+){
+
+  return (
+    km < 1
+
+      ? `${Math.round(
+          km * 1000
+        )}m`
+
+      : `${km.toFixed(1)}km`
+  );
+
+}
+
+
+/* =========================================
+   화면 전환
+========================================= */
+
+function switchView(
+  target
+){
+
+  $$(".view")
+    .forEach(
+
+      view => {
+
+        view.classList.toggle(
+
+          "is-active",
+
+          view.dataset.view ===
+          target
+
+        );
+
+      }
+
+    );
+
+
+  $$(".nav-btn")
     .forEach(
 
       button => {
@@ -5933,8 +4399,8 @@ function updateThemeButtons(){
 
           "is-active",
 
-          button.dataset.theme ===
-            state.theme
+          button.dataset.target ===
+          target
 
         );
 
@@ -5942,77 +4408,96 @@ function updateThemeButtons(){
 
     );
 
+
+  window.scrollTo(
+    0,
+    0
+  );
+
 }
 
 
 /* =========================================
-   54. 로딩
+   테마
+========================================= */
+
+function applyTheme(
+  theme
+){
+
+  let selected =
+    theme;
+
+
+  if(
+    theme === "system"
+  ){
+
+    selected =
+      window.matchMedia(
+        "(prefers-color-scheme:dark)"
+      ).matches
+
+        ? "dark"
+
+        : "light";
+
+  }
+
+
+  document.documentElement
+    .dataset
+    .theme =
+      selected;
+
+}
+
+
+/* =========================================
+   로딩
 ========================================= */
 
 function showLoading(){
 
-  const markup = `
+  const html = `
 
     <div class="loading-card">
-
-      ${
-        state.language === "kr"
-          ? "부산 맛집 정보를 불러오는 중입니다..."
-          : "Loading restaurant information..."
-      }
-
+      부산 맛집 정보를 불러오는 중입니다...
     </div>
 
   `;
 
 
-  if(
-    els.homeRestaurantList
-  ){
-
-    els.homeRestaurantList.innerHTML =
-      markup;
-
-  }
+  els.homeRestaurantList.innerHTML =
+    html;
 
 
-  if(
-    els.searchRestaurantList
-  ){
-
-    els.searchRestaurantList.innerHTML =
-      markup;
-
-  }
+  els.searchRestaurantList.innerHTML =
+    html;
 
 }
 
 
 /* =========================================
-   55. API 키 안내
+   오류
 ========================================= */
 
-function renderApiKeyRequired(){
+function renderApiError(
+  error
+){
 
-  const markup = `
+  const html = `
 
-    <div class="api-guide-card">
+    <div class="error-card">
 
       <strong>
-
-        ${escapeHtml(
-          t("apiKeyRequired")
-        )}
-
+        맛집 정보를 불러오지 못했습니다.
       </strong>
 
-
       <p>
-
         ${escapeHtml(
-          t("apiKeyGuide")
+          error.message
         )}
-
       </p>
 
     </div>
@@ -6021,169 +4506,17 @@ function renderApiKeyRequired(){
 
 
   els.homeRestaurantList.innerHTML =
-    markup;
+    html;
 
 
   els.searchRestaurantList.innerHTML =
-    markup;
-
-
-  els.resultCount.textContent =
-    `${t("result")} 0${t("countUnit")}`;
-
-
-  els.loadMoreBtn.hidden =
-    true;
+    html;
 
 }
 
 
 /* =========================================
-   56. API 오류
-========================================= */
-
-function renderApiError(
-  error
-){
-
-  const status =
-    error.status
-    ||
-    "";
-
-
-  const message =
-    status === 403
-
-      ? t("api403")
-
-      : (
-          error.message
-          ||
-          t("apiFailTitle")
-        );
-
-
-  const markup = `
-
-    <div class="error-card">
-
-      <strong>
-
-        ${escapeHtml(
-          t("apiFailTitle")
-        )}
-
-      </strong>
-
-
-      ${
-        status
-
-          ? `
-
-            <span class="error-code">
-
-              HTTP ${escapeHtml(
-                status
-              )}
-
-            </span>
-
-          `
-
-          : ""
-      }
-
-
-      <p>
-
-        ${escapeHtml(
-          message
-        )}
-
-      </p>
-
-
-      <button
-        class="outline-btn"
-        type="button"
-        data-retry
-      >
-
-        ${escapeHtml(
-          t("apiRetry")
-        )}
-
-      </button>
-
-    </div>
-
-  `;
-
-
-  if(
-    els.homeRestaurantList
-  ){
-
-    els.homeRestaurantList.innerHTML =
-      markup;
-
-  }
-
-
-  if(
-    els.searchRestaurantList
-  ){
-
-    els.searchRestaurantList.innerHTML =
-      markup;
-
-  }
-
-
-  if(
-    els.resultCount
-  ){
-
-    els.resultCount.textContent =
-      `${t("result")} 0${t("countUnit")}`;
-
-  }
-
-
-  if(
-    els.loadMoreBtn
-  ){
-
-    els.loadMoreBtn.hidden =
-      true;
-
-  }
-
-
-  $$("[data-retry]")
-    .forEach(
-
-      button => {
-
-        button.addEventListener(
-
-          "click",
-
-          loadRestaurants
-
-        );
-
-      }
-
-    );
-
-}
-
-
-/* =========================================
-   57. 전체 다시 출력
+   전체 재출력
 ========================================= */
 
 function renderAllLists(){
@@ -6200,7 +4533,7 @@ function renderAllLists(){
 
 
 /* =========================================
-   58. localStorage 불러오기
+   localStorage
 ========================================= */
 
 function loadLocalArray(
@@ -6218,8 +4551,9 @@ function loadLocalArray(
 
 
     return (
-      Array.isArray(value)
-
+      Array.isArray(
+        value
+      )
         ? value.map(
             String
           )
@@ -6227,7 +4561,7 @@ function loadLocalArray(
         : []
     );
 
-  }catch(error){
+  }catch{
 
     return [];
 
@@ -6235,10 +4569,6 @@ function loadLocalArray(
 
 }
 
-
-/* =========================================
-   59. localStorage 저장
-========================================= */
 
 function saveLocalArray(
   key,
@@ -6259,7 +4589,7 @@ function saveLocalArray(
 
 
 /* =========================================
-   60. 토스트
+   토스트
 ========================================= */
 
 let toastTimer;
@@ -6268,11 +4598,6 @@ let toastTimer;
 function showToast(
   message
 ){
-
-  if(!els.toast){
-    return;
-  }
-
 
   clearTimeout(
     toastTimer
@@ -6307,7 +4632,7 @@ function showToast(
 
 
 /* =========================================
-   61. HTML 특수문자 처리
+   HTML 특수문자
 ========================================= */
 
 function escapeHtml(
