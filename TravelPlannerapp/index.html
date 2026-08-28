@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>여행 플래너</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">여행 플래너</p>
+        <h1 id="pageTitle">홈</h1>
+      </div>
+      <button id="quickThemeBtn" class="icon-btn" type="button" aria-label="다크모드 전환">🌙</button>
+    </header>
+
+    <main class="app-main">
+      <!-- 홈 -->
+      <section class="screen active" data-screen="home">
+        <div id="homeEmpty" class="empty-state hidden">
+          <div class="empty-icon">🧳</div>
+          <h2>아직 등록된 여행이 없어요.</h2>
+          <p>첫 여행을 만들면 가장 가까운 여행이 홈에 크게 표시됩니다.</p>
+          <button class="primary-btn" type="button" data-go="add">첫 여행 만들기</button>
+        </div>
+
+        <div id="homeContent">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">NEXT TRIP</p>
+              <h2>가장 가까운 여행</h2>
+            </div>
+            <button class="text-btn" type="button" data-go="trips">전체 여행</button>
+          </div>
+
+          <article id="homeTripCard" class="trip-hero-card" tabindex="0" role="button" aria-label="여행 상세 열기">
+            <img id="homeTripImage" src="./images/travel-default.jpg" alt="여행 대표 이미지">
+            <div class="trip-hero-overlay">
+              <div class="trip-card-top">
+                <span class="badge" id="homeTripRegion">국내여행</span>
+                <button id="homeTripEditBtn" class="ghost-light-btn" type="button">여행 수정</button>
+              </div>
+
+              <div class="hero-main">
+                <p id="homeTripPeriod" class="hero-date"></p>
+                <h2 id="homeTripName"></h2>
+                <div class="hero-countdown">
+                  <strong id="homeDday">D-DAY</strong>
+                  <span id="homeCountdownText">0일 00시간 00분 00초</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="homeAlertPanel" class="panel compact-panel">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">NEXT ALERT</p>
+                <h2>가까운 알림</h2>
+              </div>
+            </div>
+            <div id="homeNextAlert"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 여행 목록 -->
+      <section class="screen" data-screen="trips">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">MY TRIPS</p>
+            <h2>전체 여행</h2>
+          </div>
+          <button class="primary-small-btn" type="button" data-go="add">+ 여행 추가</button>
+        </div>
+        <div id="tripList" class="trip-list"></div>
+      </section>
+
+      <!-- 여행 추가 -->
+      <section class="screen" data-screen="add">
+        <article class="panel">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">TRIP INFO</p>
+              <h2 id="tripFormTitle">새 여행 만들기</h2>
+            </div>
+          </div>
+
+          <form id="tripForm" novalidate>
+            <input id="tripIdInput" type="hidden">
+
+            <div class="trip-photo-editor">
+              <img id="tripPhotoPreview" src="./images/travel-default.jpg" alt="여행 대표사진 미리보기">
+              <button id="tripPhotoBtn" class="photo-change-btn" type="button" aria-label="대표사진 변경" title="대표사진 변경">📷</button>
+              <input id="tripPhotoInput" type="file" accept="image/*" hidden>
+              <input id="tripPhotoDataInput" type="hidden">
+            </div>
+
+            <label class="field">
+              <span>여행 이름 *</span>
+              <input id="tripNameInput" type="text" maxlength="40" placeholder="예: 제주도 2박 3일">
+            </label>
+
+            <label class="field">
+              <span>여행 지역</span>
+              <input id="tripRegionInput" type="text" maxlength="30" placeholder="예: 제주도">
+            </label>
+
+            <div class="field-row">
+              <label class="field">
+                <span>여행 시작일 *</span>
+                <input id="tripStartInput" type="date">
+              </label>
+              <label class="field">
+                <span>여행 종료일 *</span>
+                <input id="tripEndInput" type="date">
+              </label>
+            </div>
+
+            <label class="field">
+              <span>여행 메모</span>
+              <textarea id="tripMemoInput" rows="4" maxlength="300" placeholder="숙소, 꼭 가고 싶은 곳 등 자유롭게 기록하세요."></textarea>
+            </label>
+
+            <p id="tripFormError" class="form-error" role="alert"></p>
+            <button class="primary-btn full-btn" type="submit">여행 저장하기</button>
+          </form>
+        </article>
+      </section>
+
+      <!-- 내 여행 -->
+      <section class="screen" data-screen="mytrip">
+        <div id="myTripEmpty" class="empty-state hidden">
+          <div class="empty-icon">📍</div>
+          <h2>선택된 여행이 없어요.</h2>
+          <p>여행 목록에서 여행을 선택하거나 새 여행을 만들어주세요.</p>
+          <button class="primary-btn" type="button" data-go="trips">여행 목록 보기</button>
+        </div>
+
+        <div id="myTripContent">
+          <article class="mytrip-head-card">
+            <div>
+              <p class="section-kicker">SELECTED TRIP</p>
+              <h2 id="myTripName"></h2>
+              <p id="myTripPeriod" class="small-muted"></p>
+            </div>
+            <button id="myTripEditBtn" class="secondary-btn" type="button">여행 수정</button>
+          </article>
+
+          <div class="subtabs" id="myTripSubtabs">
+            <button class="subtab active" type="button" data-subtab="timeline">일정</button>
+            <button class="subtab" type="button" data-subtab="checklist">준비물</button>
+            <button class="subtab" type="button" data-subtab="info">여행정보</button>
+          </div>
+
+          <!-- 일정 + 교통편 통합 타임라인 -->
+          <div class="subscreen active" data-subscreen="timeline">
+            <div id="dayTabs" class="day-tabs"></div>
+
+            <div class="timeline-actions">
+              <button id="addScheduleBtn" class="big-action-btn schedule-action" type="button">
+                <span class="big-action-icon">＋</span>
+                <span>
+                  <strong>관광 일정 추가</strong>
+                  <small>장소 · 시간 · 예약 · 알림</small>
+                </span>
+              </button>
+
+              <button id="addTransportBtn" class="big-action-btn transport-action" type="button">
+                <span class="big-action-icon">＋</span>
+                <span>
+                  <strong>장거리 교통편 추가</strong>
+                  <small>항공편 · KTX · 고속/시외버스</small>
+                </span>
+              </button>
+            </div>
+
+            <div id="timelineList" class="timeline-list"></div>
+          </div>
+
+          <!-- 준비물 -->
+          <div class="subscreen" data-subscreen="checklist">
+            <form id="checklistForm" class="inline-form">
+              <input id="checklistInput" type="text" maxlength="50" placeholder="이 여행에 필요한 준비물">
+              <button class="primary-small-btn" type="submit">추가</button>
+            </form>
+            <div id="checklistList" class="checklist-list"></div>
+          </div>
+
+          <!-- 여행정보 -->
+          <div class="subscreen" data-subscreen="info">
+            <article class="panel" id="tripInfoPanel"></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 설정 -->
+      <section class="screen" data-screen="settings">
+        <article class="panel">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">DISPLAY</p>
+              <h2>화면 설정</h2>
+            </div>
+          </div>
+          <label class="setting-row">
+            <div>
+              <strong>다크모드</strong>
+              <p>앱 전체 테마를 어둡게 전환합니다.</p>
+            </div>
+            <input id="darkModeToggle" class="switch" type="checkbox">
+          </label>
+        </article>
+
+        <article class="panel">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">DATA</p>
+              <h2>데이터 관리</h2>
+            </div>
+          </div>
+          <p class="settings-copy">여행별 일정, 교통편, 준비물과 설정은 브라우저에 저장됩니다.</p>
+          <button id="resetDataBtn" class="danger-btn" type="button">모든 데이터 초기화</button>
+        </article>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="하단 메뉴">
+      <button class="nav-btn active" type="button" data-target="home"><span>⌂</span><b>홈</b></button>
+      <button class="nav-btn" type="button" data-target="trips"><span>▦</span><b>여행목록</b></button>
+      <button class="nav-btn nav-add" type="button" data-target="add"><span>＋</span><b>여행추가</b></button>
+      <button class="nav-btn" type="button" data-target="mytrip"><span>⌖</span><b>내 여행</b></button>
+      <button class="nav-btn" type="button" data-target="settings"><span>⚙</span><b>설정</b></button>
+    </nav>
+  </div>
+
+  <!-- 일정 추가/수정 -->
+  <div id="scheduleModal" class="modal-backdrop hidden">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="scheduleModalTitle">
+      <div class="modal-head">
+        <div>
+          <p class="section-kicker">SCHEDULE</p>
+          <h2 id="scheduleModalTitle">일정 추가</h2>
+        </div>
+        <button id="closeScheduleModal" class="icon-btn" type="button" aria-label="닫기">✕</button>
+      </div>
+
+      <form id="scheduleForm" novalidate>
+        <input id="scheduleIdInput" type="hidden">
+
+        <label class="field">
+          <span>날짜 *</span>
+          <select id="scheduleDateInput"></select>
+        </label>
+
+        <label class="field">
+          <span>장소명 *</span>
+          <input id="schedulePlaceInput" type="text" maxlength="60" placeholder="예: 성산일출봉">
+        </label>
+
+        <div class="field-row">
+          <label class="field">
+            <span>방문 예정시간 (선택)</span>
+            <input id="scheduleTimeInput" type="time">
+          </label>
+          <label class="field">
+            <span>입장료</span>
+            <input id="scheduleFeeInput" type="text" maxlength="30" placeholder="예: 5,000원">
+          </label>
+        </div>
+
+        <label class="field">
+          <span>예약 여부</span>
+          <select id="scheduleReservationInput">
+            <option value="예약 없음">예약 없음</option>
+            <option value="예약 완료">예약 완료</option>
+            <option value="예약 필요">예약 필요</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>일정 메모</span>
+          <textarea id="scheduleMemoInput" rows="3" maxlength="250" placeholder="주차, 운영시간, 꼭 볼 것 등"></textarea>
+        </label>
+
+        <div class="form-section simple-move-section">
+          <h3>이 장소로 이동하는 방법</h3>
+          <p>관광지까지 가는 간단한 이동정보만 기록합니다.</p>
+
+          <label class="field">
+            <span>이동수단</span>
+            <select id="scheduleMoveTypeInput">
+              <option value="">선택 안 함</option>
+              <option value="bus">버스</option>
+              <option value="taxi">택시</option>
+              <option value="walk">도보</option>
+              <option value="car">자차</option>
+            </select>
+          </label>
+
+          <div id="scheduleMoveFields"></div>
+        </div>
+
+        <div class="form-section">
+          <h3>일정 알림</h3>
+          <p>방문 예정시간을 입력한 경우에만 알림 시간을 계산합니다.</p>
+          <div class="reminder-options" id="scheduleReminderOptions">
+            <label><input type="checkbox" value="10"> 10분 전</label>
+            <label><input type="checkbox" value="30"> 30분 전</label>
+            <label><input type="checkbox" value="60"> 1시간 전</label>
+            <label><input type="checkbox" value="1440"> 1일 전</label>
+          </div>
+        </div>
+
+        <p id="scheduleFormError" class="form-error" role="alert"></p>
+        <div class="modal-actions">
+          <button id="cancelScheduleBtn" class="secondary-btn" type="button">취소</button>
+          <button class="primary-btn" type="submit">저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 교통편 추가/수정 -->
+  <div id="transportModal" class="modal-backdrop hidden">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="transportModalTitle">
+      <div class="modal-head">
+        <div>
+          <p class="section-kicker">TRANSPORT</p>
+          <h2 id="transportModalTitle">장거리 교통편 추가</h2>
+        </div>
+        <button id="closeTransportModal" class="icon-btn" type="button" aria-label="닫기">✕</button>
+      </div>
+
+      <form id="transportForm" novalidate>
+        <input id="transportIdInput" type="hidden">
+
+        <label class="field">
+          <span>교통수단 *</span>
+          <select id="transportTypeInput">
+            <option value="flight">비행기</option>
+            <option value="train">기차</option>
+            <option value="bus">고속/시외버스</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>날짜 *</span>
+          <select id="transportDateInput"></select>
+        </label>
+
+        <label class="field">
+          <span id="transportTimeLabel">항공편 출발시간 *</span>
+          <input id="transportTimeInput" type="time">
+        </label>
+
+        <label class="field">
+          <span id="transportNumberLabel">항공편명</span>
+          <input id="transportNumberInput" type="text" maxlength="30" placeholder="예: KE123">
+        </label>
+
+        <div class="field-row">
+          <label class="field">
+            <span id="transportFromLabel">출발 공항</span>
+            <div id="transportFromControl"></div>
+          </label>
+          <label class="field">
+            <span id="transportToLabel">도착 공항</span>
+            <div id="transportToControl"></div>
+          </label>
+        </div>
+
+        <div id="arrivalBufferWrap" class="form-section emphasized-section">
+          <h3 id="arrivalBufferTitle">공항에 미리 도착할 시간</h3>
+          <p id="arrivalBufferHelp">항공편 출발 전에 공항에 도착해 있어야 하는 여유시간입니다.</p>
+          <div class="unit-input">
+            <input id="arrivalBufferInput" type="number" min="0" max="1440" value="90">
+            <span>분 전 도착</span>
+          </div>
+        </div>
+
+        <div id="travelToDepartureWrap" class="form-section emphasized-section">
+          <h3 id="travelToDepartureTitle">출발 공항까지 이동시간</h3>
+          <p>현재 출발지에서 교통편 출발장소까지 걸리는 시간을 입력하세요.</p>
+          <div class="unit-input">
+            <input id="travelToDepartureInput" type="number" min="0" max="1440" value="50">
+            <span>분</span>
+          </div>
+        </div>
+
+        <div id="recommendedTimePreview" class="calculation-card"></div>
+
+        <label class="field">
+          <span>교통편 메모</span>
+          <textarea id="transportMemoInput" rows="3" maxlength="200" placeholder="탑승구, 좌석, 환승 등"></textarea>
+        </label>
+
+        <div class="form-section">
+          <h3>알림 설정</h3>
+          <p>무엇을 기준으로 울리는지 헷갈리지 않도록 구분해서 설정합니다.</p>
+
+          <h4>권장 출발시간 기준</h4>
+          <div class="reminder-options" id="leaveReminderOptions">
+            <label><input type="checkbox" value="10"> 10분 전</label>
+            <label><input type="checkbox" value="30" checked> 30분 전</label>
+            <label><input type="checkbox" value="60"> 1시간 전</label>
+          </div>
+
+          <h4 id="transportDepartureReminderTitle">항공편 출발시간 기준</h4>
+          <div class="reminder-options" id="transportReminderOptions">
+            <label><input type="checkbox" value="30"> 30분 전</label>
+            <label><input type="checkbox" value="60"> 1시간 전</label>
+            <label><input type="checkbox" value="120"> 2시간 전</label>
+            <label><input type="checkbox" value="1440"> 1일 전</label>
+          </div>
+
+          <div class="custom-reminder">
+            <span>직접 추가</span>
+            <input id="customReminderValue" type="number" min="1" max="999" placeholder="예: 3">
+            <select id="customReminderUnit">
+              <option value="minute">분 전</option>
+              <option value="hour">시간 전</option>
+              <option value="day">일 전</option>
+            </select>
+            <button id="addCustomReminderBtn" class="secondary-small-btn" type="button">추가</button>
+          </div>
+          <div id="customReminderList" class="custom-reminder-list"></div>
+        </div>
+
+        <p id="transportFormError" class="form-error" role="alert"></p>
+
+        <div class="modal-actions">
+          <button id="cancelTransportBtn" class="secondary-btn" type="button">취소</button>
+          <button class="primary-btn" type="submit">저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 확인 모달 -->
+  <div id="confirmModal" class="modal-backdrop hidden">
+    <div class="confirm-card" role="dialog" aria-modal="true">
+      <h2 id="confirmTitle">삭제하시겠습니까?</h2>
+      <p id="confirmMessage"></p>
+      <div class="modal-actions">
+        <button id="confirmCancelBtn" class="secondary-btn" type="button">취소</button>
+        <button id="confirmOkBtn" class="danger-btn" type="button">삭제</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
